@@ -1,0 +1,46 @@
+<noinclude>
+This is the "Semantic Social Profile" template. It has been created by [http://mediawiki.org/wiki/Extension:SemanticSocialProfile Semantic Social Profile extension] and used to assign the semantic properties to user page when that page was updated.
+
+Now the template is invisible but if you want you can alter the view by editing the template.
+
+'''Note:''' if something go wrong check that [http://www.mediawiki.org/wiki/Extension:Semantic_MediaWiki Semantic MediaWiki] and [http://www.mediawiki.org/wiki/Extension:Semantic_Forms Semantic_Forms] are  installed. 
+
+The template should be called in the following format:
+<pre>
+{{Semantic Social Profile
+  |SSP Name=
+    |SSP e-mail=
+    |SSP city=
+    |SSP location state=
+    |SSP location country=
+    |SSP home city=
+    |SSP home state=
+    |SSP home country=
+    |SSP birthday=
+    |SSP about me=
+    |SSP ocupation=
+    |SSP schools=
+    |SSP places=
+    |SSP websites=
+    |SSP avatar=
+ }}
+</pre>
+Edit the page to see the template text.
+</noinclude><includeonly>
+{{#set:SSP Name={{{SSP Name|}}} }}
+{{#arraymap:{{{SSP e-mail|}}}|,|x|{{#set:SSP e-mail=x }}}}
+{{#arraymap:{{{SSP city|}}}|,|x|{{#set:SSP location city=x }}}}
+{{#set:SSP location state={{{SSP location state|}}} }}
+{{#set:SSP location country={{{SSP location country|}}} }}
+{{#set:SSP home city={{{SSP home city|}}} }}
+{{#set:SSP home state={{{SSP home state|}}} }}
+{{#set:SSP home country={{{SSP home country|}}} }}
+{{#set:SSP birthday={{{SSP birthday|}}} }}
+{{#set:SSP about me={{{SSP about me|}}} }}
+{{#set:SSP ocupation={{{SSP ocupation|}}} }}
+{{#arraymap:{{{SSP schools|}}}|,|x|{{#set:SSP schools=x }}}}
+{{#arraymap:{{{SSP places|}}}|,|x|{{#set:SSP places=x }}}}
+{{#arraymap:{{{SSP websites|}}}|,|x|{{#set:SSP websites=x }}}}
+{{#set:SSP avatar=File:{{{SSP avatar|}}} }}
+[[Category:SSP User|]]
+</includeonly>
