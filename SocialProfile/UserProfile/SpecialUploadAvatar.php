@@ -53,7 +53,6 @@ class SpecialUploadAvatar extends SpecialUpload {
 		if ( $this->mUploadSuccessful ) {
 			// Cancel redirect
 			$wgOut->redirect( '' );
-
 			$this->showSuccess( $this->mUpload->mExtension );
 		}
 	}
@@ -389,5 +388,14 @@ class UploadAvatar extends UploadFromFile {
 	 */
 	public function checkWarnings() {
 		return array();
+	}
+	
+	
+private function avatarUploadHook(){
+	global $wgUser, $wgUploadDirectory, $wgDBname;
+	$path = 
+		// hook to seize an avatar change
+		wfRunHooks('NewAvatarUploaded', array($wgUser->getName(), $wgUser->getID()));
+		// end of hook
 	}
 }

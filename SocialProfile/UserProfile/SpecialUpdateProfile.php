@@ -84,6 +84,9 @@ class SpecialUpdateProfile extends UnlistedSpecialPage {
 				case 'basic':
 					$this->saveProfileBasic();
 					$this->saveSettings_basic();
+					//a function that injects a SSP hook
+					$this->addChangeProfileHook();
+					//end of function
 					break;
 				case 'personal':
 					$this->saveProfilePersonal();
@@ -250,7 +253,10 @@ class SpecialUpdateProfile extends UnlistedSpecialPage {
 	function saveProfileBasic() {
 		global $wgUser, $wgMemc, $wgRequest, $wgSitename;
 		$this->initProfile();
-		$data = array(
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->update(
+			'user_profile',
+		/* SET */array(
 				'up_location_city' => $wgRequest->getVal( 'location_city' ),
 				'up_location_state' => $wgRequest->getVal( 'location_state' ),
 				'up_location_country' => $wgRequest->getVal( 'location_country' ),
@@ -266,18 +272,11 @@ class SpecialUpdateProfile extends UnlistedSpecialPage {
 				'up_places_lived' => $wgRequest->getVal( 'places' ),
 				'up_websites' => $wgRequest->getVal( 'websites' ),
 				'up_relationship' => $wgRequest->getVal( 'relationship' )
-			);
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->update(
-			'user_profile',
-		/* SET */$data,
+			),
 			/* WHERE */array( 'up_user_id' => $wgUser->getID() ),
 			__METHOD__
 		);
 		$wgMemc->delete( wfMemcKey( 'user', 'profile', 'info', $wgUser->getID() ) );
-		// The hook is injected here
-		wfRunHooks('BasicProfileSaved', array($wgUser->getName(), $data));
-		// End of hook
 	}
 
 	function saveProfileCustom() {
@@ -714,5 +713,28 @@ class SpecialUpdateProfile extends UnlistedSpecialPage {
 		</form>';
 
 		return $form;
+	}
+	
+	private function addChangeProfileHook(){
+		global $wgUser, $wgRequest;
+		$data = array(
+			'name' => $wgRequest->getVal( 'real_name' ),
+			'e-mail' => $wgRequest->getVal( 'email' ),
+			'city' => $wgRequest->getVal( 'location_city' ),
+			'location_state' => $wgRequest->getVal( 'location_state' ),
+			'location_country' => $wgRequest->getVal( 'location_country' ),
+
+			'home_city' => $wgRequest->getVal( 'hometown_city' ),
+			'home_state' => $wgRequest->getVal( 'hometown_state' ),
+			'home_country' => $wgRequest->getVal( 'hometown_country' ),
+
+			'birthday' => $this->formatBirthdayDB( $wgRequest->getVal( 'birthday' ) ),
+			'about_me' => $wgRequest->getVal( 'about' ),
+			'occupation' => $wgRequest->getVal( 'occupation' ),
+			'schools' => $wgRequest->getVal( 'schools' ),
+			'places' => $wgRequest->getVal( 'places' ),
+			'websites' => $wgRequest->getVal( 'websites' )
+		);
+		wfRunHooks('BasicProfileChanged', array($wgUser->getName(), $data));
 	}
 }
