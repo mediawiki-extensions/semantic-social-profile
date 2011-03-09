@@ -242,7 +242,7 @@ class UserRelationship {
 		$stats->clearCache();
 		
 		//a hook that tracks removing friends
-		wfRunHooks('FriendShipRemovedByID', array($user1, $user2));
+		wfRunHooks('FriendShipRemovedByID', array(User::whoIs($user1), User::whoIs($user2)));
 		//end of the hook 
 		
 		$stats = new UserStatsTrack( $user2, '' );
