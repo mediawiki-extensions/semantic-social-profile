@@ -8,7 +8,7 @@ Now the template is invisible but if you want you can alter the view by editing 
 The template should be called in the following format:
 <pre>
 {{Semantic Social Profile
-  |SSP Name=
+    |SSP Name=
     |SSP e-mail=
     |SSP city=
     |SSP location state=
@@ -23,6 +23,7 @@ The template should be called in the following format:
     |SSP places=
     |SSP websites=
     |SSP avatar=
+    |SSP Friends=
  }}
 </pre>
 Edit the page to see the template text.
@@ -42,5 +43,7 @@ Edit the page to see the template text.
 {{#arraymap:{{{SSP places|}}}|,|x|{{#set:SSP places=x }}}}
 {{#arraymap:{{{SSP websites|}}}|,|x|{{#set:SSP websites=x }}}}
 {{#set:SSP avatar=File:{{{SSP avatar|}}} }}
+{{#arraymap:{{{SSP Friends|}}}|,|x|{{#set:SSP Friends=x }}}}
 [[Category:SSP User|]]
+__SHOWFACTBOX__
 </includeonly>

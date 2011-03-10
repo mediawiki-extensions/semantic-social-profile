@@ -4,8 +4,9 @@
 $wgHooks['BasicProfileChanged'][] = 'wfAddSemantics';
 
 function wfAddSemantics($login, $data){
+	global $wgContLang;
 	// 1) retreive curerent content of the page
-	$userPageID = Title::newFromText("User:$login")->getArticleId(); 
+	$userPageID = Title::newFromText($wgContLang->getNsText( NS_USER ).":".$login)->getArticleId(); 
 	$userArticle = Article::newFromId($userPageID);
 	$content = $userArticle->getRawText();
 	
@@ -40,12 +41,13 @@ function wfAddSemantics($login, $data){
 $wgHooks['NewFriendAccepted'][] = 'wfAcceptFriend';
 
 function wfAcceptFriend($user_from, $user_in){
+	global $wgContLang;
 	// 1) retreive curerent content of both users pages
-	$userPageID1 = Title::newFromText("User:$user_from")->getArticleId(); 
+	$userPageID1 = Title::newFromText($wgContLang->getNsText( NS_USER ).":".$user_from)->getArticleId(); 
 	$userArticle1 = Article::newFromId($userPageID1);
 	$content1 = $userArticle1->getRawText();
 	
-	$userPageID2 = Title::newFromText("User:$user_in")->getArticleId(); 
+	$userPageID2 = Title::newFromText($wgContLang->getNsText( NS_USER ).":".$user_in)->getArticleId(); 
 	$userArticle2 = Article::newFromId($userPageID2);
 	$content2 = $userArticle2->getRawText();
 	
@@ -55,10 +57,10 @@ function wfAcceptFriend($user_from, $user_in){
 	//edit the user who sent invitation
 	if(preg_match($pattern,$content1,$matches)){
 		$friends1 = $matches[1];		
-		if(strpos($friends1,'User:')=== false) //check if he has no friends
-			$text = preg_replace($pattern, "SSP Friends=User:".$user_in."\n}}", $content1);
+		if(strpos($friends1,$wgContLang->getNsText( NS_USER ))=== false) //check if he has no friends
+			$text = preg_replace($pattern, "SSP Friends=".$wgContLang->getNsText( NS_USER ).":".$user_in."\n}}", $content1);
 		else
-			$text = preg_replace($pattern, "SSP Friends=".$friends1.", User:".$user_in."\n}}", $content1);
+			$text = preg_replace($pattern, "SSP Friends=".$friends1.", ".$wgContLang->getNsText( NS_USER ).":".$user_in."\n}}", $content1);
 		
 		// 4) save the template into the profile
 		$userArticle1->updateArticle($text, '', false, false );
@@ -67,10 +69,10 @@ function wfAcceptFriend($user_from, $user_in){
 	//edit the user who accepted the invitation
 	if(preg_match($pattern,$content2,$matches)){
 		$friends2 = $matches[1];
-		if(strpos($friends2,'User:')=== false)
-			$text = preg_replace($pattern, "SSP Friends=User:".$user_from."\n}}", $content2);
+		if(strpos($friends2,$wgContLang->getNsText( NS_USER ))=== false)
+			$text = preg_replace($pattern, "SSP Friends=".$wgContLang->getNsText( NS_USER ).":".$user_from."\n}}", $content2);
 		else
-			$text = preg_replace($pattern, "SSP Friends=".$friends2.", User:".$user_from."\n}}", $content2);
+			$text = preg_replace($pattern, "SSP Friends=".$friends2.", ".$wgContLang->getNsText( NS_USER ).":".$user_from."\n}}", $content2);
 	 // 4) save the template into the profile
 		$userArticle2->updateArticle($text, '', false, false );
 	}
@@ -82,12 +84,13 @@ function wfAcceptFriend($user_from, $user_in){
 $wgHooks['FriendShipRemovedByID'][] = 'wfRemoveFriend';
 
 function wfRemoveFriend($user1, $user2){
+	global $wgContLang;
 	// 1) retreive curerent content of both users pages
-	$userPageID1 = Title::newFromText("User:$user1")->getArticleId(); 
+	$userPageID1 = Title::newFromText($wgContLang->getNsText( NS_USER ).":".$user1)->getArticleId(); 
 	$userArticle1 = Article::newFromId($userPageID1);
 	$content1 = $userArticle1->getRawText();
 	
-	$userPageID2 = Title::newFromText("User:$user2")->getArticleId(); 
+	$userPageID2 = Title::newFromText($wgContLang->getNsText( NS_USER ).":".$user2)->getArticleId(); 
 	$userArticle2 = Article::newFromId($userPageID2);
 	$content2 = $userArticle2->getRawText();
 	
@@ -102,7 +105,7 @@ function wfRemoveFriend($user1, $user2){
 		{
 			//erases the friend
 			for($i = 0; $i < count($friends_array); $i++)
-				if( trim($friends_array[$i]) == "User:$user2" )
+				if( trim($friends_array[$i]) == $wgContLang->getNsText( NS_USER ).":".$user2 )
 				{
 //					$text = $user2.' removed: ';
 					unset($friends_array[$i]);
@@ -121,7 +124,7 @@ function wfRemoveFriend($user1, $user2){
 		{
 			//erases the friend
 			for($i = 0; $i < count($friends_array); $i++)
-				if( trim($friends_array[$i]) == "User:$user1" )
+				if( trim($friends_array[$i]) == $wgContLang->getNsText( NS_USER ).":".$user1 )
 				{
 //					$text = $user1.' removed: ';
 					unset($friends_array[$i]);
@@ -140,8 +143,9 @@ function wfRemoveFriend($user1, $user2){
 $wgHooks['NewAvatarUploaded'][] = 'wfUploadAvatar';
 
 function wfUploadAvatar($login, $imageURL){
+	global $wgContLang;
 	// 1) retreive curerent content of the page
-	$userPageID = Title::newFromText("User:$login")->getArticleId(); 
+	$userPageID = Title::newFromText($wgContLang->getNsText( NS_USER ).":".$login)->getArticleId(); 
 	$userArticle = Article::newFromId($userPageID);
 	$content = $userArticle->getRawText();
 
@@ -158,11 +162,23 @@ function wfUploadAvatar($login, $imageURL){
 	return true;
 }
 
+//creates a userpage for a newly created account
+$wgHooks['AddNewAccount'][] = 'wfNewAccountUserpage';
 
+function wfNewAccountUserpage($user, $byEmail){	
+	global $wgContLang;
+	$summary = 'the userpage has been created using SSP';
+	$id = Title::newFromText($wgContLang->getNsText( NS_TEMPLATE ).":Semantic_Social_Profile")->getArticleId();
+	$template = Article::newFromId( $id )->getRawText();
+	
+	$pageTitle = Title::newFromText($wgContLang->getNsText( NS_USER ).":".$user->getName()); 
+	$page = new Article($pageTitle);
+	$page->doEdit(preg_replace("/^.*(?:<pre>)(.*)(?:<\/pre>).*$/isU","$1",$template, 1),$summary);
+	
+	return true;
+}
 /*output to the main page
 	$id = Title::newMainPage()->getArticleId();
 	$ar = Article::newFromId($id);
 	$ar->updateArticle($text, '', false, false );
 */
-
-?>

@@ -25,3 +25,4 @@ $wgExtensionAliasesFiles['SemanticSocialProfile'] = $dir . 'SemanticSocialProfil
 
 $wgSpecialPages['SemanticSocialProfile'] = 'SpecialSemanticSocialProfile'; # Tell MediaWiki about the new special page and its class name
 
+$wgSpecialPageGroups['SemanticSocialProfile'] = 'users';
