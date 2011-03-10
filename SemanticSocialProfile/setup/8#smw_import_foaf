@@ -1,0 +1,17 @@
+http://xmlns.com/foaf/0.1/|[http://www.foaf-project.org/ Friend Of A Friend]
+  SSP Name|Type:String
+  SSP e-mail|Type:Email
+  SSP city|Type:String
+  SSP location state|Type:String
+  SSP location country|Type:String
+  SSP home city|Type:String
+  SSP home state|Type:String
+  SSP home country|Type:String
+  SSP birthday|Type:Date
+  SSP about me|Type:Text
+  SSP ocupation|Type:String
+  SSP schools|Type:String
+  SSP places|Type:String
+  SSP websites|Type:URL
+  SSP avatar|Type:URL
+  SSP Friends|Type:Page
