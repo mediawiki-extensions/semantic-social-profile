@@ -19,6 +19,8 @@ $wgExtensionCredits['specialpage'][] = array(
 
 $dir = dirname(__FILE__) . '/';
 
+require_once( "$IP/extensions/SemanticSocialProfile/ProfileTemplateUpdater.php" ); 
+
 $wgAutoloadClasses['SpecialSemanticSocialProfile'] = $dir . 'SemanticSocialProfile_body.php'; # Location of the SpecialSemanticSocialProfile class (Tell MediaWiki to load this file)
 $wgExtensionMessagesFiles['SemanticSocialProfile'] = $dir . 'SemanticSocialProfile.i18n.php'; # Location of a messages file (Tell MediaWiki to load this file)
 $wgExtensionAliasesFiles['SemanticSocialProfile'] = $dir . 'SemanticSocialProfile.alias.php'; # Location of an alias file (Tell MediaWiki to load this file)
