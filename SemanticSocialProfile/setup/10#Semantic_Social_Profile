@@ -18,7 +18,7 @@ The template should be called in the following format:
     |SSP home country=
     |SSP birthday=
     |SSP about me=
-    |SSP ocupation=
+    |SSP occupation=
     |SSP schools=
     |SSP places=
     |SSP websites=
@@ -38,7 +38,7 @@ Edit the page to see the template text.
 {{#set:SSP home country={{{SSP home country|}}} }}
 {{#set:SSP birthday={{{SSP birthday|}}} }}
 {{#set:SSP about me={{{SSP about me|}}} }}
-{{#set:SSP ocupation={{{SSP ocupation|}}} }}
+{{#set:SSP occupation={{{SSP occupation|}}} }}
 {{#arraymap:{{{SSP schools|}}}|,|x|{{#set:SSP schools=x }}}}
 {{#arraymap:{{{SSP places|}}}|,|x|{{#set:SSP places=x }}}}
 {{#arraymap:{{{SSP websites|}}}|,|x|{{#set:SSP websites=x }}}}

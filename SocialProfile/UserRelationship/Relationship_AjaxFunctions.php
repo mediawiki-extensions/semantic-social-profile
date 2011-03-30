@@ -35,9 +35,7 @@ function wfRelationshipRequestResponse( $response, $request_id ) {
 				<div class="cleared"></div>
 			</div>';
 		}
-		// new friend hook is here
-		wfRunHooks('NewFriendAccepted', array($user_name_from, $wgUser->getName()));
-		// end of hook
+
 		$rel->deleteRequest( $request_id );
 	}
 	return $out;

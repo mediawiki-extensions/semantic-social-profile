@@ -204,7 +204,12 @@ class UserRelationship {
 
 			$wgMemc->delete( wfMemcKey( 'relationship', 'profile', "{$this->user_id}-{$ur_type}" ) );
 			$wgMemc->delete( wfMemcKey( 'relationship', 'profile', "{$ur_user_id_from}-{$ur_type}" ) );
-
+			
+			// new friend hook is here
+			if ( $ur_type == 1 )
+				wfRunHooks('NewFriendAccepted', array($ur_user_name_from, $this->user_name));
+			// end of hook
+		
 			return true;
 		} else {
 			return false;
