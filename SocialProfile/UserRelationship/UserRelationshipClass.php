@@ -209,7 +209,7 @@ class UserRelationship {
 			if ( $ur_type == 1 )
 				wfRunHooks('NewFriendAccepted', array($ur_user_name_from, $this->user_name));
 			// end of hook
-		
+			
 			return true;
 		} else {
 			return false;

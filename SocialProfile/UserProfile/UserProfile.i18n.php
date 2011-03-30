@@ -1930,6 +1930,7 @@ $messages['ca'] = array(
  * @author Sasan700
  */
 $messages['ce'] = array(
+	'user-contributions' => 'Къинхьегам',
 	'other-info-books' => 'Жайнаш',
 	'user-profile-interests-books' => 'Жайнаш',
 );
@@ -2897,6 +2898,7 @@ $messages['eo'] = array(
  * @author Antur
  * @author Crazymadlover
  * @author DoveBirkoff
+ * @author Fitoschido
  * @author Imre
  * @author Locos epraix
  * @author Sanbec
@@ -2913,7 +2915,7 @@ $messages['es'] = array(
 	'user-edit-this' => 'Editar esto',
 	'user-edit-profile' => 'Editar perfil',
 	'user-upload-avatar' => 'Subir avatar',
-	'user-watchlist' => 'Mi lista de vigilancia',
+	'user-watchlist' => 'Mi lista de seguimiento',
 	'user-meet-people' => 'Conocer gente',
 	'user-add-friend' => 'Agregar como amigo',
 	'user-add-foe' => 'Agregar como enemigo',
@@ -5819,6 +5821,7 @@ $messages['km'] = array(
 	'other-info-books' => 'សៀវភៅ',
 	'other-info-video-games' => 'ហ្គេមវីដេអូ',
 	'other-info-magazines' => 'ទស្សនាវដ្តី',
+	'other-info-snacks' => 'ចំណី',
 	'other-info-drinks' => 'ភេសជ្ជៈ',
 	'other-no-info' => 'មិនមាន​ព័ត៌មាន​ផ្សេងទៀត​ទេ',
 	'custom-info-title' => 'ព័ត៌មាន​ផ្ទាល់ខ្លួន',
@@ -5911,8 +5914,9 @@ $messages['km'] = array(
 	'user-profile-sports-addmore' => 'បន្ថែម កីឡា/ក្រុម​',
 	'uploadavatar' => 'ផ្ទុកឡើង​រូបថត​របស់អ្នក',
 	'user-profile-picture-yourpicture' => 'រូបថត​របស់អ្នក',
+	'user-profile-picture-yourpicturestext' => 'ខាងក្រោមនេះជារួមភាពដែលនឹងលេចឡើងលើប្រវត្តិរូប ទំព័របណ្ដាញ និងយោបល់របស់អ្នក។',
 	'user-profile-picture-large' => 'ធំ',
-	'user-profile-picture-medlarge' => 'មធ្យម-ធំ',
+	'user-profile-picture-medlarge' => 'ធំគួរសម',
 	'user-profile-picture-medium' => 'មធ្យម',
 	'user-profile-picture-small' => 'តូច',
 	'user-profile-picture-uploaddifferent' => 'ផ្ទុកឡើង​រូបថត​ផ្សេង',
@@ -5928,7 +5932,7 @@ $messages['km'] = array(
 	'user-wiki-link' => 'ទំព័រ អ្នកប្រើប្រាស់ នៃ វិគី',
 	'update_profile_nav' => '* Special:UpdateProfile|ព័ត៌មាន​ផ្ទាល់ខ្លួន
 * Special:UpdateProfile/personal|ព័ត៌មាន​ដទៃ
-* Special:UpdateProfile/custom|Custom information
+* Special:UpdateProfile/custom|ព័ត៌មានតាមចិត្ត
 * Special:UploadAvatar|អវតារ
 * Special:UpdateProfile/preferences|ចំណង់ចំណូលចិត្ត',
 	'user-type-toggle-old' => 'ប្រើ​ទំព័អ្នប្រើប្រាស់​វិគី',
@@ -5949,6 +5953,7 @@ $messages['km'] = array(
 	'user-profile-picture-log' => 'អវតារ',
 	'user-profile-picture-log-entry' => 'ផ្ទុក​អវតារ​ថ្មី​ឡើង',
 	'user-profile-picture-log-delete-entry' => 'បាន​លុប​អវតារ​របស់ $1',
+	'right-avatarremove' => 'លុបអវតាររបស់អ្នកប្រើប្រាស់',
 );
 
 /** Kannada (ಕನ್ನಡ)
@@ -6012,7 +6017,7 @@ $messages['ksh'] = array(
 	'user-add-foe' => 'Als ene Feind dobei donn',
 	'user-remove-friend' => 'De Fründschaff es am Eng',
 	'user-remove-foe' => 'De Feindschaff es vöbei',
-	'user-send-message' => 'En Nohresch schecke',
+	'user-send-message' => 'En Nohreesch schecke',
 	'user-send-gift' => 'E Jeschenk schecke',
 	'user-contributions' => 'Beidrääsch',
 	'user-stats-title' => 'Statistike',
@@ -6046,7 +6051,7 @@ $messages['ksh'] = array(
 	'profile-not-provided' => 'Nit aanjejovve ov aanjebodde',
 	'populate-user-profile-done' => '{{PLURAL:$1|Ei Profil|$1 Profile|Nix aan Profile}} dobei jedonn',
 	'user-board-title' => 'Pinnwand',
-	'user-send-board-blast' => 'En Nohreesh an vill Metmaacher verschecke',
+	'user-send-board-blast' => 'En Nohreesch an vill Metmaacher verschecke',
 	'user-personal-info-title' => 'Päsöhnlesch Enfomazjuhne',
 	'user-no-personal-info' => 'Kein päsöhnlesch Enfomazjuhne',
 	'user-personal-info-real-name' => 'Dä richtije Name:',
@@ -6066,7 +6071,7 @@ $messages['ksh'] = array(
 	'user-recent-activity-gift-rec' => 'Jeschenk krääje vun',
 	'user-recent-activity-friend' => 'Neu Frünndschaff jeschloße met',
 	'user-recent-activity-foe' => 'Neu Feinschaff bejunne met',
-	'user-recent-activity-user-message' => 'Nohresch verscheck aan',
+	'user-recent-activity-user-message' => 'Nohreesch verscheck aan',
 	'user-recent-activity-network-update' => 'Ene Jedanke öffentlesch jemaat',
 	'user-recent-system-gift' => 'En Ußzeichnung krääje',
 	'user-profile-update-notloggedin-title' => 'Do kanns Ding Profil ne ändere, sulang De nit ennjelogg beß.',
@@ -6369,6 +6374,14 @@ $messages['lt'] = array(
 	'user-profile-personal-name' => 'Vardas',
 );
 
+/** Latgalian (Latgaļu)
+ * @author Dark Eagle
+ */
+$messages['ltg'] = array(
+	'user-gifts-title' => 'Duovonys',
+	'user-profile-update-button' => 'Atjaunynuot',
+);
+
 /** Latvian (Latviešu)
  * @author GreenZeb
  */
@@ -6495,7 +6508,7 @@ $messages['mk'] = array(
 	'user-profile-default-country' => 'САД',
 	'user-profile-points' => '$1 {{PLURAL:$1|бод|бода}}',
 	'user-profile-section-personal' => 'Лични информации',
-	'user-profile-section-sportsteams' => 'Ажурирај мрежи',
+	'user-profile-section-sportsteams' => 'Поднови мрежи',
 	'user-profile-section-custom' => 'Кориснички-определени информации',
 	'user-profile-section-interests' => 'Други информации',
 	'user-profile-section-picture' => 'Аватар',
@@ -6536,7 +6549,7 @@ $messages['mk'] = array(
 	'user-profile-preferences-emails-gift' => 'Кога ќе примите подарок',
 	'user-profile-preferences-emails-level' => 'Кога повишување на нивото',
 	'user-profile-preferences-emails-weekly' => 'Добивајте неделни новости по е-пошта',
-	'user-profile-update-button' => 'Ажурирај',
+	'user-profile-update-button' => 'Поднови',
 	'user-profile-tidbits-title' => 'Занимливости',
 	'user-profile-tidbits-favmoment' => 'Омилен спортски момент',
 	'user-profile-tidbits-worstmoment' => 'Најлош спортски момент',
@@ -9321,7 +9334,7 @@ $messages['sr-ec'] = array(
 	'user-remove-foe' => 'Обриши као непријатеља',
 	'user-send-message' => 'Пошаљи поруку',
 	'user-send-gift' => 'Пошаљи поклон',
-	'user-contributions' => 'Доприноси',
+	'user-contributions' => 'Прилози',
 	'user-stats-title' => 'Статистика',
 	'user-stats-edits' => '{{PLURAL:$1|Измена|Измене}}',
 	'user-stats-votes' => '{{PLURAL:$1|Глас|Гласова}}',
@@ -9353,7 +9366,7 @@ $messages['sr-ec'] = array(
 	'user-personal-info-schools' => 'Школе',
 	'user-personal-info-about-me' => 'О мени',
 	'user-recent-activity-title' => 'Скорашња активност',
-	'user-recent-activity-edit' => 'Изменио страну',
+	'user-recent-activity-edit' => 'Измени страницу',
 	'user-recent-activity-vote' => 'Гласао за страну',
 	'user-recent-activity-comment' => 'Коментарисао страну',
 	'user-recent-activity-gift-sent' => 'Послао поклон',
@@ -9370,7 +9383,7 @@ $messages['sr-ec'] = array(
 	'user-profile-update-log-section' => 'промењен избор',
 	'user-profile-update-profile' => 'профил',
 	'user-profile-default-country' => 'Сједињене америчке државе',
-	'user-profile-points' => '$1 {{PLURAL:$1|поен|поена}}',
+	'user-profile-points' => '$1 {{PLURAL:$1|бод|бода|бодова}}',
 	'user-profile-section-personal' => 'Лични подаци',
 	'user-profile-section-sportsteams' => 'Ажурирај мреже',
 	'user-profile-section-interests' => 'Интереси',
@@ -9457,6 +9470,7 @@ $messages['sr-ec'] = array(
 
 /** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
+ * @author Rancher
  * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(
@@ -9496,13 +9510,13 @@ $messages['sr-el'] = array(
 	'other-no-info' => 'Nema drugih informacija',
 	'profile-updated-personal' => 'Ažurirajte Vaš profil',
 	'populate-user-profile-done' => '{{PLURAL:$1|Dodat $1 profil|Dodato $1 profila}}',
-	'user-personal-info-title' => 'Lične informacije',
+	'user-personal-info-title' => 'Lični podaci',
 	'user-no-personal-info' => 'Bez ličnih informacija',
 	'user-personal-info-real-name' => 'Pravo ime',
 	'user-personal-info-location' => 'Mesto',
 	'user-personal-info-hometown' => 'Mesto sa stalnim prebivalištem',
 	'user-personal-info-birthday' => 'Rođendan',
-	'user-personal-info-occupation' => 'Okupacija',
+	'user-personal-info-occupation' => 'Zanimanje',
 	'user-personal-info-websites' => 'Vebsajtovi',
 	'user-personal-info-places-lived' => 'Mesta u kojima sam živeo/la',
 	'user-personal-info-schools' => 'Škole',
@@ -9533,7 +9547,7 @@ Kliknite <a href="$1">ovde</a> da se ulogujete ili kliknite <a href="$2">here</a
 	'user-profile-section-preferences' => 'Podešavanja',
 	'user-profile-personal-info' => 'Lični podaci',
 	'user-profile-personal-name' => 'Ime',
-	'user-profile-personal-email' => 'Imejl',
+	'user-profile-personal-email' => 'E-pošta',
 	'user-profile-personal-email-needs-auth' => '(vaš imejl mora biti potvrđen, da biste primali obaveštenja od sajta)',
 	'user-profile-personal-confirmemail' => 'Potvrdi imejl',
 	'user-profile-personal-location' => 'Lokacija',
@@ -9567,7 +9581,7 @@ Kliknite <a href="$1">ovde</a> da se ulogujete ili kliknite <a href="$2">here</a
 	'user-profile-preferences-emails-gift' => 'Kada primite poklon',
 	'user-profile-preferences-emails-level' => 'Kada napredujete za jedan nivo',
 	'user-profile-preferences-emails-weekly' => 'Kada dobijete nedeljna imejl obaveštenja',
-	'user-profile-update-button' => 'Aktualizuj',
+	'user-profile-update-button' => 'Ažuriraj',
 	'user-profile-tidbits-favathlete' => 'Omiljeni atleta i zašto',
 	'user-profile-tidbits-leastfavathlete' => 'Najneomiljeniji atleta i zašto',
 	'user-profile-sports-sport' => 'Sport',
@@ -10602,6 +10616,7 @@ Pindutin <a href="$1">dito</a> para lumagda o pindutin <a href="$2">dito</a> upa
 );
 
 /** Turkish (Türkçe)
+ * @author Emperyan
  * @author Joseph
  * @author Karduelis
  * @author Vito Genovese
@@ -10627,7 +10642,7 @@ $messages['tr'] = array(
 	'user-send-gift' => 'Hediye gönder',
 	'user-contributions' => 'Katkılar',
 	'user-stats-title' => 'İstatistikler',
-	'user-stats-edits' => '{{PLURAL:$1|Edit|Düzenlemeler}}',
+	'user-stats-edits' => '{{PLURAL:$1|Değişiklik|Değişiklikler}}',
 	'user-stats-votes' => '{{PLURAL:$1|Oy|Oylar}}',
 	'user-stats-comments' => '{{PLURAL:$1|Yorum|Yorumlar}}',
 	'user-stats-recruits' => '{{PLURAL:$1|Acemi|Acemiler}}',
@@ -10640,7 +10655,7 @@ $messages['tr'] = array(
 	'user-foes-title' => 'Düşmanlar',
 	'other-info-movies' => 'Filmler',
 	'other-info-tv' => 'TV',
-	'other-info-music' => 'Müzik',
+	'other-info-music' => 'Şarkı',
 	'other-info-books' => 'Kitaplar',
 	'other-info-video-games' => 'Video oyunları',
 	'other-info-magazines' => 'Dergiler',
@@ -10653,7 +10668,7 @@ $messages['tr'] = array(
 	'custom-info-field3' => 'Özel 3',
 	'custom-info-field4' => 'Özel 4',
 	'custom-no-info' => 'Özel bilgi yok',
-	'profile-updated-personal' => 'Profinizi güncelleyin',
+	'profile-updated-personal' => 'Profilinizi güncelleyin',
 	'profile-not-provided' => 'Verilmedi',
 	'populate-user-profile-done' => '$1 {{PLURAL:$1|profil|profil}} eklendi',
 	'user-board-title' => 'Pano',
@@ -11115,6 +11130,8 @@ $messages['yi'] = array(
 	'other-no-info' => 'קיין אנדערע אינפֿאָרמאַציע',
 	'user-profile-section-preferences' => 'פרעפֿערענצן',
 	'user-profile-personal-name' => 'נאָמען',
+	'user-profile-personal-city' => 'שטאָט',
+	'user-profile-personal-country' => 'לאַנד',
 	'user-profile-interests-eats' => 'עסן',
 	'user-profile-goback' => 'צוריקגיין',
 	'user-page-link' => 'באַניצער בלאַט',
@@ -11137,6 +11154,7 @@ $messages['zh-cn'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Fantasticfears
  * @author Gzdavidwong
+ * @author Hydra
  * @author Liangent
  * @author Onecountry
  * @author PhiLiP
@@ -11212,6 +11230,7 @@ $messages['zh-hans'] = array(
 	'user-profile-personal-places' => '地点',
 	'user-profile-personal-placeslived' => '我曾居住的地方',
 	'user-profile-personal-web' => '网站',
+	'user-profile-personal-websites' => '网站',
 	'user-profile-interests-entertainment' => '娱乐',
 	'user-profile-interests-movies' => '电影',
 	'user-profile-interests-tv' => '电视',
@@ -11220,6 +11239,7 @@ $messages['zh-hans'] = array(
 	'user-profile-interests-magazines' => '杂志',
 	'user-profile-interests-videogames' => '视频游戏',
 	'user-profile-interests-eats' => '食物',
+	'user-profile-interests-foodsnacks' => '食物和点心',
 	'user-profile-interests-drinks' => '饮料',
 	'user-profile-preferences-emails' => '电邮通知',
 	'user-profile-preferences-emails-personalmessage' => '当传送个人讯息时',

@@ -252,6 +252,7 @@ class SpecialUpdateProfile extends UnlistedSpecialPage {
 
 	function saveProfileBasic() {
 		global $wgUser, $wgMemc, $wgRequest, $wgSitename;
+
 		$this->initProfile();
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->update(
@@ -714,7 +715,9 @@ class SpecialUpdateProfile extends UnlistedSpecialPage {
 
 		return $form;
 	}
-	
+	/*
+	 * this collects profile data and runs a hook
+	 * */
 	private function addChangeProfileHook(){
 		global $wgUser, $wgRequest;
 		$data = array(

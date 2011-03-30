@@ -35,7 +35,6 @@ function wfRelationshipRequestResponse( $response, $request_id ) {
 				<div class="cleared"></div>
 			</div>';
 		}
-
 		$rel->deleteRequest( $request_id );
 	}
 	return $out;

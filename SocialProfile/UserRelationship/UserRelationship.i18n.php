@@ -3791,7 +3791,7 @@ Si $1 confirma tu requesta, tu essera informate de isto in e-mail.',
 Nos te notificara quando $1 confirma tu requesta.',
 	'ur-add-error-message-pending-foe-request' => 'Tu ha un requesta pendente de inimico con $1.
 Nos te notificara quando $1 confirma tu requesta.',
-	'ur-add-error-message-not-loggedin-foe' => 'Tu debe aperir un session pro poter adder un inimico.',
+	'ur-add-error-message-not-loggedin-foe' => 'Tu debe aperir un session pro adder un inimico.',
 	'ur-add-error-message-not-loggedin-friend' => 'Tu debe aperir un session pro poter adder un amico.',
 	'ur-requests-title' => 'Requestas de relation',
 	'ur-requests-message-foe' => '<a href="$1">$2</a> vole esser tu inimico.',
@@ -4323,7 +4323,7 @@ $messages['km'] = array(
 	'ur-remove-relationship-message-confirm-friend' => 'អ្នក​បាន​ដក $1 ចេញ​ពី​មិត្តភ័ក្ដិ​របស់​អ្នក ដោយ​ជោគជ័យ​ហើយ​។',
 	'ur-remove-error-message-no-relationship' => 'អ្នក​មិនមាន​ទំនាក់ទំនង​ជាមួយ $1 ទេ​។',
 	'ur-remove-error-message-remove-yourself' => 'អ្នក​មិន​អាច​ដកចេញ​ដោយ​ខ្លួនឯង​បាន​ទេ​?',
-	'ur-remove-error-not-loggedin-foe' => 'អ្នក​ត្រូវតែ​ឡុកអ៊ីនចូល​សិន ដើម្បី​ដក​បច្ចាមិត្ត​ចេញ​។',
+	'ur-remove-error-not-loggedin-foe' => 'អ្នក​ត្រូវតែ​កត់ឈ្មោះចូល​សិន ដើម្បី​ដក​បច្ចាមិត្ត​ចេញ​។',
 	'ur-remove-error-not-loggedin-friend' => 'អ្នក​ត្រូវតែ​កត់ឈ្មោះចូល​សិន ដើម្បី​ដក​មិត្តភ័ក្ដិ​ចេញ​។',
 	'ur-remove' => 'ដកចេញ',
 	'ur-cancel' => 'បោះបង់',
@@ -4903,7 +4903,7 @@ $messages['ml'] = array(
 	'ur-add-error-message-no-user' => 'താങ്കൾ ചേർക്കുവാൻ ശ്രമിക്കുന്ന ഉപയോക്താവ് നിലവിലില്ല.',
 	'ur-add-error-message-pending-request-title' => 'കാത്തിരിക്കൂ!',
 	'ur-accept' => 'സ്വീകരിക്കുക',
-	'ur-reject' => 'നിരാകരിക്കുക',
+	'ur-reject' => 'നിരസിക്കുക',
 	'ur-title-friend' => '$1ന്റെ സുഹൃത്തുക്കളുടെ പട്ടിക',
 	'friend_request_subject' => '$1 താങ്കളെ {{SITENAME}} സം‌രംഭത്തിൽ സുഹൃത്തായി ചേർത്തിരിക്കുന്നു!',
 	'friend_accept_subject' => '{{SITENAME}} സം‌രംഭത്തിലുള്ള താങ്കളുടെ സൗഹൃദ അഭ്യർത്ഥന $1 സ്വീകരിച്ചു!',
@@ -5777,9 +5777,10 @@ e modificatz vòstras preferéncias per desactivar las notificacions per corriè
 
 /** Oriya (ଓଡ଼ିଆ)
  * @author Jose77
+ * @author Psubhashish
  */
 $messages['or'] = array(
-	'ur-main-page' => 'ପ୍ରଧାନ ପ୍ରୁଷ୍ଟ୍ଆ',
+	'ur-main-page' => 'ମୂଳ ଫରଦ',
 );
 
 /** Ossetic (Иронау)
@@ -7077,8 +7078,8 @@ $messages['sr-ec'] = array(
 	'ur-add-error-message-existing-relationship-foe' => '$1 је већ означен као Ваш непријатељ.',
 	'ur-add-error-message-existing-relationship-friend' => '$1 је већ означен као Ваш пријатељ.',
 	'ur-add-error-message-pending-request-title' => 'Стрпљења!',
-	'ur-add-error-message-not-loggedin-foe' => 'Морате бити улоговани да бисте некога означили као непријатеља',
-	'ur-add-error-message-not-loggedin-friend' => 'Морате бити улоговани да бисте некога означили као пријатеља',
+	'ur-add-error-message-not-loggedin-foe' => 'Морате бити пријављени да бисте некога означили као непријатеља',
+	'ur-add-error-message-not-loggedin-friend' => 'Морате бити пријављени да бисте некога означили као пријатеља',
 	'ur-requests-message-foe' => '<a href="$1">$2</a> жели да буде Ваш непријатељ.',
 	'ur-requests-message-friend' => '<a href="$1">$2</a> жели да буде Ваш пријатељ.',
 	'ur-accept' => 'Прихвати',
@@ -7093,6 +7094,7 @@ $messages['sr-ec'] = array(
 
 /** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
+ * @author Rancher
  */
 $messages['sr-el'] = array(
 	'ur-already-submitted' => 'Vaš zahtev je poslat',
@@ -7122,8 +7124,8 @@ $messages['sr-el'] = array(
 	'ur-remove-error-not-loggedin-foe' => 'Morate biti ulogovani da biste uklonili nekoga sa Vašeg spiska neprijatelja.',
 	'ur-remove-error-not-loggedin-friend' => 'Morate biti ulogovani da biste nekoga obrisali sa spiska prijatelja.',
 	'ur-remove' => 'Ukloni',
-	'ur-cancel' => 'Poništi',
-	'ur-login' => 'Logovanje',
+	'ur-cancel' => 'Otkaži',
+	'ur-login' => 'Prijava',
 	'ur-add-title-foe' => 'Da li želite da označite $1 kao Vašeg neprijatelja?',
 	'ur-add-title-friend' => 'Da li želite da označite $1 kao Vašeg prijatelja?',
 	'ur-add-button-foe' => 'Označi kao neprijatelja',
@@ -7352,7 +7354,7 @@ $messages['te'] = array(
 	'viewrelationships' => 'బంధాన్ని చూడండి',
 	'ur-already-submitted' => 'మీ అభ్యర్థనని పంపించాం',
 	'ur-error-message-no-user' => 'మీ అభ్యర్థనని మన్నింపలేము, ఎందుకంటే ఈ పేరుతో వాడుకరులెవరూ లేరు.',
-	'ur-main-page' => 'మొదటి పేజీ',
+	'ur-main-page' => 'మొదటి పుట',
 	'ur-your-profile' => 'మీ ప్రొఫైలు',
 	'ur-add-friends' => ' మరింత మంది మిత్రులు కావాలా? <a href="$1">ఆహ్వానించండి</a>',
 	'ur-add-friend' => 'స్నేహితునిగా చేర్చు',
