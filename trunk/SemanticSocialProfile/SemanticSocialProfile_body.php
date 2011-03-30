@@ -16,50 +16,66 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 	
     $this->setHeaders();
 
-# Get request data from, e.g.
-    $param = $wgRequest->getText('param');
-    $action = $wgRequest->getText('action');
-    if ($wgRequest->wasPosted()) {
-      $this->wfsetUp();
-      $this->wfUpdateUserProfiles($wgContLang->getNsText(NS_USER));
-    }
-
-# Do stuff
-# ...
-    $output=wfMsg('ssp-setupdesc');
-
-    $html = '<form name="setupssp" action="" method="POST">' . "\n".
-            '<input type="submit" value="'. wfMsg('ssp-setupsspbutton') .'"/>' . "\n".
-	    '</form>';
-    $wgOut->addWikiText( $output);
-    $wgOut->addHtml( $html);
-  
-  }
+	if ($wgRequest->wasPosted()) {
+		//id hidden1 true show
+		$hid = $wgRequest->getText('hiddenform');
+		if($hid=='1'){
+			//display results of the 1st step
+			$this->wfsetUp();
+			
+			//prepare form to do step 2 
+			$form = '<form name="syncssp" action="" method="POST">' . "\n".
+				'<input type = "hidden" name = "hiddenform" value = "2">'. "\n".
+				'<input type="submit" value="'.wfMsg('ssp-syncbutton').'"/>' . "\n".
+			'</form>';
+			$wgOut->addWikiText( "=== ".wfMsg('ssp-syncdesc')." ===");
+			$wgOut->addWikiText( wfMsg('ssp-syncabout'));
+			$wgOut->addHtml($form);
+		}
+		if($hid=='2'){
+			$this->wfSynchronize();
+			$gotomain = '<form name="setupssp" action="'.Title::newMainPage()->getFullURL().'" method="POST">' . "\n".
+						'<input type = "submit" value = "'.wfMsg('main-page').'">'. "\n".
+						'</form>';
+			$wgOut->addWikiText( "\n '''".wfMsg('ssp-done')." '''" );
+			$wgOut->addHtml($gotomain);
+		}
+	}
+	else{
+		$html = '<form name="setupssp" action="" method="POST">' . "\n".
+				'<input type = "hidden" name = "hiddenform" value = "1">'. "\n".
+				'<input type="submit" value="'.wfMsg('ssp-setupsspbutton').'"/>' . "\n".
+			'</form>';
+		$wgOut->addWikiText( "=== ".wfMsg('ssp-setupdesc')." ===");
+		$wgOut->addWikiText( wfMsg('ssp-setupabout') );
+		$wgOut->addHtml( $html);
+	}
+	//display 1st form
+}
 
   function wfsetUp(){
-    global $wgOut, $wgContLang;
+	global $wgOut, $wgArticlePath, $wgServer;
     $directory = dirname(__FILE__) . '/setup';
-    $wgOut->addWikiText($directory);
-    //echo ($directory);
-    //get the list of all files in a setup directory
+    $wgOut->addWikiText("''' ".wfMsg('ssp-setupdone')." '''");
+
     $filenames = scandir($directory);
     $summary = 'Semantic Social Profile installation procedure';
+    $text = array();
     foreach ($filenames as $filename) {
-      if(is_file($directory.'/'.$filename)) {
-	$fn = explode('#',$filename,2);
-	$wgOut->addWikiText($fn[1]);
-	$pageTitle = Title::newFromText($wgContLang->getNsText($fn[0]).":".$fn[1]);
-	$page = new Article($pageTitle);
-	$page->doEdit(file_get_contents($directory.'/'.$filename), $summary);
-
+		if(is_file($directory.'/'.$filename)) {
+			$fn = explode('#',$filename,2);
+			$pageTitle = Title::makeTitle($fn[0],$fn[1]);
+			$text[] = $pageTitle->getFullURL();
+			$page = new Article($pageTitle);
+			$page->doEdit(file_get_contents($directory.'/'.$filename), $summary);
       }
     }
+    $wgOut->addWikiText(implode(', ', $text));
     return true;
   }
   
-	function wfUpdateUserProfiles($user_ns)
-	{
-		global $wgOut, $wgContLang;
+	function wfSynchronize(){
+		global $wgOut;
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select(
 		'user',
@@ -67,33 +83,20 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 		'user_id > 0',
 		__METHOD__
 		);
-		if($res){
-			//if users were found - prepare data
-			$summary = 'the userpage has been created using SSP Setup';
-			$id = Title::newFromText($wgContLang->getNsText( NS_TEMPLATE ).":Semantic_Social_Profile")->getArticleId();
-			$templatearticle = Article::newFromId( $id )->getRawText();
-			
-			$template = preg_replace("/^.*(?:<pre>)(.*)(?:<\/pre>).*$/isU","$1",$templatearticle, 1);
-			//$wgOut->addWikiText("users found");
-		}
 		
+		$text = array();
 		foreach( $res as $row ){
-			$pageTitle = Title::newFromText($user_ns.":".$row->user_name);
-			$id = $pageTitle->getArticleId();
-			if($id > 0){
-				// if the userpage already exists
-				// add template to the bottom
-				$page = Article::newFromId( $id );
-				if(strpos($page->getRawText(),"{{Semantic Social Profile") === false)
-					$page->updateArticle($page->getRawText().$template, '', false, false );
-			}
-			else {
-				// need to create a userpage with the SSP template
-				$page = new Article($pageTitle);
-				$page->doEdit($template, $summary );
-			}
-			//$wgOut->addWikiText($row->user_name." id: ".$id);
+			$nm = $row->user_name;
+			$au = SSPAdmin::getProfile($nm);
+			$au->syncWithDB();
+			$au->syncFriendList();
+			$au->save();
+			$text[] = Title::makeTitle( NS_USER, $nm);
 		}
+		$wgOut->addWikiText("''' ".wfMsg('ssp-syncdone')." '''");
+		$list = '[['.implode(']], [[', $text).']]';
+		$wgOut->addWikiText($list);
+		
 		return true;
 	}
 }
