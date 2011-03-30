@@ -53,6 +53,7 @@ class SpecialUploadAvatar extends SpecialUpload {
 		if ( $this->mUploadSuccessful ) {
 			// Cancel redirect
 			$wgOut->redirect( '' );
+
 			$this->showSuccess( $this->mUpload->mExtension );
 			//this adds hook on avatar change
 			$this->avatarUploadHook();
@@ -231,7 +232,9 @@ class SpecialUploadAvatar extends SpecialUpload {
 			return "<img src=\"{$wgUploadPath}/avatars/" . basename( $files[0] ) . '" alt="" border="0" />';
 		}
 	}
-	
+	/*
+	 * runs a hook if the avatar was uploaded 
+	 */
 	private function avatarUploadHook(){
 		global $wgUser, $wgUploadPath, $wgServer;
 		$avatar = new wAvatar( $wgUser->getID(), 'l' );
@@ -360,7 +363,6 @@ class UploadAvatar extends UploadFromFile {
 				unlink( $this->avatarUploadDirectory . '/' . $wgDBname . '_' . $wgUser->mId . '_ml.png' );
 			}
 		}
-		
 		global $wgMemc;
 		$key = wfMemcKey( 'user', 'profile', 'avatar', $wgUser->getID(), 's' );
 		$data = $wgMemc->delete( $key );

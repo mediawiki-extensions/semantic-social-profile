@@ -64,7 +64,11 @@ class RemoveAvatar extends SpecialPage {
 			$this->deleteImage( $user_id, 'm' );
 			$this->deleteImage( $user_id, 'l' );
 			$this->deleteImage( $user_id, 'ml' );
-
+						
+			//hook that runs on removing avatar
+			wfRunHooks('UserAvatarRemoved', array($wgUser->getName()));
+			//end of hook
+		
 			$log = new LogPage( wfMsgForContent( 'user-profile-picture-log' ) );
 			if ( !$wgUploadAvatarInRecentChanges ) {
 				$log->updateRecentChanges = false;
@@ -137,7 +141,7 @@ class RemoveAvatar extends SpecialPage {
 		if ( $img && $img[0] ) {
 			unlink( $wgUploadDirectory . '/avatars/' . $img );
 		}
-
+		
 		// clear cache
 		$key = wfMemcKey( 'user', 'profile', 'avatar', $id, $size );
 		$wgMemc->delete( $key );
