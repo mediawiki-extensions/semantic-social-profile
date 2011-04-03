@@ -29,4 +29,4 @@ $wgSpecialPages['SemanticSocialProfile'] = 'SpecialSemanticSocialProfile'; # Tel
 
 $wgSpecialPageGroups['SemanticSocialProfile'] = 'users';
 
-require( "$IP/extensions/SemanticSocialProfile/ProfileTemplateUpdater.php" ); 
+require( "$IP/extensions/SemanticSocialProfile/SSPHooksHandler.php" ); 
