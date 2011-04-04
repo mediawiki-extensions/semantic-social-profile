@@ -199,7 +199,7 @@ class SSPUser{
 					."    |SSP Friends=$this->Friends\n"
 					." }}";
 					
-			$text = preg_replace("/(.*)(?:{{Semantic Social Profile).*(?:}})(.*)/isU","$1 \n $info $2",$this->UserPage->getRawText());
+			$text = preg_replace("/^(.*)(?:{{Semantic\sSocial\sProfile)*.*$/isU","$1 \n $info",$this->UserPage->getRawText());
 			$this->UserPage->doEdit($text, $this->summary );
 		}
 	}
