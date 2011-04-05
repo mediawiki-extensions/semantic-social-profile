@@ -42,4 +42,12 @@ class SSPAdmin extends SSPUser{
 			
 		$this->Friends = implode(',', $frlist);
 	}
+	
+	public function setBirthday($fbd){
+		global $wgOut;
+		//$wgOut->addWikiText($this->User.' = '.$fbd);
+		$timestamp = strtotime($fbd.' 2007');
+		//OMG 2007 should be corrected!!!
+		$this->Birthday = date('Y-m-d',$timestamp);
+	}
 }
