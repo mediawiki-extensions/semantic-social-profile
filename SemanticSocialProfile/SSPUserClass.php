@@ -46,7 +46,7 @@ class SSPUser{
 					.'(?:{{Semantic\sSocial\sProfile).*'
 					.'(?:\|SSP\sName=\s*)(.*)\s*'
 					.'(?:\|SSP\se-mail=\s*)(.*)\s*'
-					.'(?:\|SSP\scity=\s*)(.*)\s*'
+					.'(?:\|SSP\slocation\scity=\s*)(.*)\s*'
 					.'(?:\|SSP\slocation\sstate=\s*)(.*)\s*'
 					.'(?:\|SSP\slocation\scountry=\s*)(.*)\s*'
 					.'(?:\|SSP\shome\scity=\s*)(.*)\s*'
@@ -183,7 +183,7 @@ class SSPUser{
 			$info = " {{Semantic Social Profile\n"
 					."    |SSP Name=$this->Name\n"
 					."    |SSP e-mail=$this->Email\n"
-					."    |SSP city=$this->City\n"
+					."    |SSP location city=$this->City\n"
 					."    |SSP location state=$this->State\n"
 					."    |SSP location country=$this->Country\n"
 					."    |SSP home city=$this->HomeCity\n"
@@ -198,12 +198,12 @@ class SSPUser{
 					."    |SSP avatar=$this->Avatar\n"
 					."    |SSP Friends=$this->Friends\n"
 					." }}";
-					
-			$text = preg_replace("/^(.*)(?:{{Semantic\sSocial\sProfile)*.*$/isU","$1 \n $info",$this->UserPage->getRawText());
-			$this->UserPage->doEdit($text, $this->summary );
+			if(preg_match("/^(.*)(?:{{Semantic\sSocial\sProfile).*(?:}})(.*)$/isU", $this->UserPage->getRawText(), $mtch))
+				$this->UserPage->doEdit($mtch[1]."\n $info \n".$mtch[2], $this->summary );
+			else
+				$this->UserPage->doEdit($info, $this->summary );
 		}
 	}
-	
 	public function saveEmpty(){
 		if(is_null($this->UserPage)){
 			$id = Title::makeTitle( NS_TEMPLATE, 'Semantic_Social_Profile')->getArticleId();
