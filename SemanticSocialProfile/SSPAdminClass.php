@@ -45,9 +45,11 @@ class SSPAdmin extends SSPUser{
 	
 	public function setBirthday($fbd){
 		global $wgOut;
-		//$wgOut->addWikiText($this->User.' = '.$fbd);
-		$timestamp = strtotime($fbd.' 2007');
-		//OMG 2007 should be corrected!!!
-		$this->Birthday = date('Y-m-d',$timestamp);
+		if($fbd == '') parent::setBirthday('');
+		else{
+			$timestamp = strtotime($fbd.' 2007');
+			//OMG 2007 should be corrected!!!
+			parent::setBirthday(date('Y-m-d',$timestamp));
+		}
 	}
 }
