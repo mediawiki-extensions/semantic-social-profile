@@ -17,7 +17,6 @@ class SpecialSemanticSocialProfile extends SpecialPage {
     $this->setHeaders();
 
 	if ($wgRequest->wasPosted()) {
-		//id hidden1 true show
 		$hid = $wgRequest->getText('hiddenform');
 		if($hid=='1'){
 			//display results of the 1st step
@@ -33,11 +32,12 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 			$wgOut->addHtml($form);
 		}
 		if($hid=='2'){
-			$this->wfSynchronize();
+			if($this->wfSynchronize())
+				$wgOut->addWikiText( "\n '''".wfMsg('ssp-done')." '''" );
 			$gotomain = '<form name="setupssp" action="'.Title::newMainPage()->getFullURL().'" method="POST">' . "\n".
 						'<input type = "submit" value = "'.wfMsg('main-page').'">'. "\n".
 						'</form>';
-			$wgOut->addWikiText( "\n '''".wfMsg('ssp-done')." '''" );
+			
 			$wgOut->addHtml($gotomain);
 		}
 	}
@@ -87,10 +87,16 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 		$text = array();
 		foreach( $res as $row ){
 			$nm = $row->user_name;
-			$au = SSPAdmin::getProfile($nm);
-			$au->syncWithDB();
-			$au->syncFriendList();
-			$au->save();
+			try{
+				$au = SSPAdmin::getProfile($nm);
+				$au->syncWithDB();
+				$au->syncFriendList();
+				$au->save();
+			}
+			catch(SocProfException $e){
+				$wgOut->addWikiText($e->__toString());
+				return false;
+			}
 			$text[] = Title::makeTitle( NS_USER, $nm);
 		}
 		$wgOut->addWikiText("''' ".wfMsg('ssp-syncdone')." '''");
@@ -98,5 +104,13 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 		$wgOut->addWikiText($list);
 		
 		return true;
+	}
+}
+
+class SocProfException extends Exception {
+	private $url = 'http://www.mediawiki.org/wiki/Extension:SocialProfile';
+	public function __toString(){
+		$out = "''' ".wfMsg('ssp-nosp')." ''' \n $this->url";
+		return $out;
 	}
 }
