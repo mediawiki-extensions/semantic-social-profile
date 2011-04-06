@@ -15,7 +15,8 @@ $messages['en'] = array(
     'ssp-syncbutton' => "Synchronize",
     'ssp-syncdone' => "The following users got their semantic profiles updated:",
     'main-page' => "Return to the main page",
-    'ssp-done' => "The setup completed successfully"
+    'ssp-done' => "The setup completed successfully",
+    'ssp-nosp' => "You need to install SocialProfile Extension first"
     );
 
 /* *** Ukrainian (Українська) *** */
@@ -32,7 +33,8 @@ $messages['uk'] = array(
     'ssp-syncbutton' => "Синхронізувати",
     'ssp-syncdone' => "Семантичні профілі наступних користувачів були змінені:",
     'main-page' => "Повернутися до головної сторінки",
-    'ssp-done' => "Ви успішно встановили розширення Semantic Social Profile"
+    'ssp-done' => "Ви успішно встановили розширення Semantic Social Profile",
+    'ssp-nosp' => "Потібно спочатку встановити розширення SocialProfile"
     );
 
 /* *** Russian (Русский) *** */
@@ -42,12 +44,13 @@ $messages['ru'] = array(
     'ssp-setupsspbutton' => "Установить",
     'semanticsocialprofile' => "Установка Семантического Социального Профиля",
     'ssp-setupdesc' => "Шаг №1. Установка расширения",
-    'ssp-setupabout' => "  Нажмите на кнопку чтобы произвести установку расширения.\n  Будут добавлены страницы, необходимые для корректной работы",
+    'ssp-setupabout' => "  Нажмите на кнопку, чтобы произвести установку расширения.\n  Будут добавлены страницы, необходимые для корректной работы",
     'ssp-setupdone' => "Следующие страницы были добавлены:",
     'ssp-syncdesc' => "Шаг №2. Синхронизация",
     'ssp-syncabout' => "  Нажмите кнопку для синхронизации семантических данных расширения Semantic Social Profile \n  с данными пользовательских профилей расширения SocialProfile",
     'ssp-syncbutton' => "Синхронизировать",
     'ssp-syncdone' => "Семантические профили следующих пользоваетлей были изменены:",
     'main-page' => "Вернуться на главную",
-    'ssp-done' => "Вы успешно установили расширение Semantic Social Profile"
+    'ssp-done' => "Вы успешно установили расширение Semantic Social Profile",
+    'ssp-nosp' => "Необходимо сначала установить расширение SocialProfile"
     );
