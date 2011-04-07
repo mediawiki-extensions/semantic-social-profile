@@ -1,15 +1,21 @@
 <?php
 class SpecialSemanticSocialProfile extends SpecialPage {
+	private $_user;
+	private $_output;
   function __construct() {
     parent::__construct( 'SemanticSocialProfile', 'editinterface' );
     wfLoadExtensionMessages('SemanticSocialProfile');
+    
+    $wiki = SpecialVersion::getVersion($this);
+	$this->_output = $wiki->out();
+    $this->_user = $wiki->user();
   }
 
   function execute( $par ) {
-    global $wgRequest, $wgOut, $wgUser, $wgContLang;
+    global $wgRequest;
     
     //checks if the user has a right to access the page
-		if ( !$this->userCanExecute($wgUser) ) {
+		if ( !$this->userCanExecute($this->_user) ) {
 			$this->displayRestrictionError();
 			return;
 		}
@@ -27,18 +33,18 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 				'<input type = "hidden" name = "hiddenform" value = "2">'. "\n".
 				'<input type="submit" value="'.wfMsg('ssp-syncbutton').'"/>' . "\n".
 			'</form>';
-			$wgOut->addWikiText( "=== ".wfMsg('ssp-syncdesc')." ===");
-			$wgOut->addWikiText( wfMsg('ssp-syncabout'));
-			$wgOut->addHtml($form);
+			$this->_output->addWikiText( "=== ".wfMsg('ssp-syncdesc')." ===");
+			$this->_output->addWikiText( wfMsg('ssp-syncabout'));
+			$this->_output->addHtml($form);
 		}
 		if($hid=='2'){
 			if($this->wfSynchronize())
-				$wgOut->addWikiText( "\n '''".wfMsg('ssp-done')." '''" );
+				$this->_output->addWikiText( "\n '''".wfMsg('ssp-done')." '''" );
 			$gotomain = '<form name="setupssp" action="'.Title::newMainPage()->getFullURL().'" method="POST">' . "\n".
 						'<input type = "submit" value = "'.wfMsg('main-page').'">'. "\n".
 						'</form>';
 			
-			$wgOut->addHtml($gotomain);
+			$this->_output->addHtml($gotomain);
 		}
 	}
 	else{
@@ -46,17 +52,17 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 				'<input type = "hidden" name = "hiddenform" value = "1">'. "\n".
 				'<input type="submit" value="'.wfMsg('ssp-setupsspbutton').'"/>' . "\n".
 			'</form>';
-		$wgOut->addWikiText( "=== ".wfMsg('ssp-setupdesc')." ===");
-		$wgOut->addWikiText( wfMsg('ssp-setupabout') );
-		$wgOut->addHtml( $html);
+		$this->_output->addWikiText( "=== ".wfMsg('ssp-setupdesc')." ===");
+		$this->_output->addWikiText( wfMsg('ssp-setupabout') );
+		$this->_output->addHtml( $html);
 	}
-	//display 1st form
+	
 }
 
   function wfsetUp(){
-	global $wgOut, $wgArticlePath, $wgServer;
+	global $wgArticlePath, $wgServer;
     $directory = dirname(__FILE__) . '/setup';
-    $wgOut->addWikiText("''' ".wfMsg('ssp-setupdone')." '''");
+    $this->_output->addWikiText("''' ".wfMsg('ssp-setupdone')." '''");
 
     $filenames = scandir($directory);
     $summary = 'Semantic Social Profile installation procedure';
@@ -70,12 +76,11 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 			$page->doEdit(file_get_contents($directory.'/'.$filename), $summary);
       }
     }
-    $wgOut->addWikiText(implode(', ', $text));
+    $this->_output->addWikiText(implode(', ', $text));
     return true;
   }
   
 	function wfSynchronize(){
-		global $wgOut;
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select(
 		'user',
@@ -94,14 +99,14 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 				$au->save();
 			}
 			catch(SocProfException $e){
-				$wgOut->addWikiText($e->__toString());
+				$this->_output->addWikiText($e->__toString());
 				return false;
 			}
 			$text[] = Title::makeTitle( NS_USER, $nm);
 		}
-		$wgOut->addWikiText("''' ".wfMsg('ssp-syncdone')." '''");
+		$this->_output->addWikiText("''' ".wfMsg('ssp-syncdone')." '''");
 		$list = '[['.implode(']], [[', $text).']]';
-		$wgOut->addWikiText($list);
+		$this->_output->addWikiText($list);
 		
 		return true;
 	}
@@ -112,5 +117,41 @@ class SocProfException extends Exception {
 	public function __toString(){
 		$out = "''' ".wfMsg('ssp-nosp')." ''' \n $this->url";
 		return $out;
+	}
+}
+
+abstract class SpecialVersion{
+	abstract public function out();
+	abstract public function user();
+	public static function getVersion(SpecialPage &$sp){
+		global $wgVersion;
+		if ( version_compare( $wgVersion, '1.18', '<' ))
+			return new VersionPre1_18();
+		else return new VersionPost1_18($sp);
+	}
+}
+
+class VersionPre1_18 extends SpecialVersion{
+	public function out(){
+		global $wgOut;
+		return $wgOut;
+	}
+	public function user(){
+		global $wgUser;
+		return $wgUser;
+	}
+}
+
+//this should work but NEEDS TESTING NOT TESTED YET
+class VersionPost1_18 extends SpecialVersion{
+	private $spec;
+	public function __construct(SpecialPage &$sp){
+		$this->spec = $sp;
+	}
+	public function out(){
+		return $this->spec->getOutput();
+	}
+	public function user(){
+		return $this->spec->getUser();
 	}
 }
