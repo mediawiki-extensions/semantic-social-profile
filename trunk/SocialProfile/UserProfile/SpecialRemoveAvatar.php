@@ -56,7 +56,7 @@ class RemoveAvatar extends SpecialPage {
 
 		// If the request was POSTed, then delete the avatar
 		if ( $wgRequest->wasPosted() ) {
-			$user_id = $wgRequest->getVal( 'user_id' );
+			$user_id = $wgRequest->getInt( 'user_id' );
 			$user_deleted = User::newFromId( $user_id );
 			$user_deleted->loadFromDatabase();
 
@@ -64,11 +64,7 @@ class RemoveAvatar extends SpecialPage {
 			$this->deleteImage( $user_id, 'm' );
 			$this->deleteImage( $user_id, 'l' );
 			$this->deleteImage( $user_id, 'ml' );
-						
-			//hook that runs on removing avatar
-			wfRunHooks('UserAvatarRemoved', array($wgUser->getName()));
-			//end of hook
-		
+
 			$log = new LogPage( wfMsgForContent( 'user-profile-picture-log' ) );
 			if ( !$wgUploadAvatarInRecentChanges ) {
 				$log->updateRecentChanges = false;
@@ -78,8 +74,13 @@ class RemoveAvatar extends SpecialPage {
 				$wgUser->getUserPage(),
 				wfMsg( 'user-profile-picture-log-delete-entry', $user_deleted->getName() )
 			);
-			$wgOut->addHTML( '<div>' . wfMsg( 'avatarupload-removesuccess' ) . '</div>' );
-			$wgOut->addHTML( '<div><a href="' . $this->title->escapeFullURL() . '">' . wfMsg( 'avatarupload-removeanother' ) . '</a></div>' );
+			$wgOut->addHTML(
+				'<div>' . wfMsg( 'avatarupload-removesuccess' ) . '</div>'
+			);
+			$wgOut->addHTML(
+				'<div><a href="' . $this->title->escapeFullURL() . '">' .
+					wfMsg( 'avatarupload-removeanother' ) . '</a></div>'
+			);
 		} else {
 			if ( $user ) {
 				$wgOut->addHTML( $this->showUserAvatar( $user ) );
@@ -133,6 +134,7 @@ class RemoveAvatar extends SpecialPage {
 	 */
 	private function deleteImage( $id, $size ) {
 		global $wgUploadDirectory, $wgDBname, $wgMemc;
+
 		$avatar = new wAvatar( $id, $size );
 		$files = glob( $wgUploadDirectory . '/avatars/' . $wgDBname . '_' . $id .  '_' . $size . "*" );
 		wfSuppressWarnings();
@@ -141,7 +143,7 @@ class RemoveAvatar extends SpecialPage {
 		if ( $img && $img[0] ) {
 			unlink( $wgUploadDirectory . '/avatars/' . $img );
 		}
-		
+
 		// clear cache
 		$key = wfMemcKey( 'user', 'profile', 'avatar', $id, $size );
 		$wgMemc->delete( $key );

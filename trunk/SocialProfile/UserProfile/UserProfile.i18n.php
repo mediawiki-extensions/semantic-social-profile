@@ -13,6 +13,7 @@ $messages = array();
  * @author David Pean
  */
 $messages['en'] = array(
+	'editprofile' => "Edit other users' profiles",
 	'populateuserprofiles' => 'Populate user profiles',
 	'user-time-ago' => '$1 ago',
 	'user-awards-title' => 'Awards',
@@ -88,8 +89,9 @@ $messages['en'] = array(
 	'user-recent-system-gift' => 'Received an award',
 	'user-profile-update-notloggedin-title' => 'Cannot edit your profile without being logged in',
 	'user-profile-update-notloggedin-text' => 'You cannot edit your profile without being logged in.
-Click <a href="$1">here</a> to login or click <a href="$2">here</a> to register.',
+Click [[Special:UserLogin|here]] to login or click [[Special:UserLogin/signup|here]] to register.',
 	'user-profile-update-saved' => 'Your profile has been saved',
+	'user-profile-edit-profile-update-saved' => 'The user\'s profile was successfully saved',
 	'user-profile-update-log-section' => 'changed section',
 	'user-profile-update-profile' => 'profile',
 	'user-profile-default-country' => 'United States',
@@ -164,6 +166,7 @@ Click <a href="$1">here</a> to login or click <a href="$2">here</a> to register.
 	'user-profile-userlevels-link' => 'User levels',
 	'user-no-images' => 'No images uploaded',
 	'edit-profile-title' => 'Edit your profile',
+	'edit-profiles-title' => 'Edit profiles',
 	'user-page-link' => 'User page',
 	'user-social-profile-link' => 'Social profile',
 	'user-wiki-link' => 'Wiki userpage',
@@ -186,6 +189,7 @@ Click <a href="$1">here</a> to login or click <a href="$2">here</a> to register.
 	'profilelogpage' => 'User profile edit log',
 	'profilelogpagetext' => 'This is a log of user profile edits',
 	'profilelogentry' => '', # For compatibility, don't translate this,
+	'user-profile-edit-profile' => "edited $1's profile",
 	'avatarlogpage' => 'Avatar upload log',
 	'avatarlogpagetext' => 'This is a log of user avatar uploads',
 	'avatarlogentry' => '', # For compatibility, don't translate this
@@ -429,6 +433,7 @@ Click <a href="$1">here</a> to login or click <a href="$2">here</a> to register.
 *Zimbabwe',
 	// For Special:ListGroupRights
 	'right-avatarremove' => "Remove user's avatars",
+	'right-editothersprofiles' => "Update other users' social profiles",
 );
 
 /** Message documentation (Message documentation)
@@ -759,7 +764,7 @@ $messages['ar'] = array(
 	'user-recent-system-gift' => 'حصل على جائزة',
 	'user-profile-update-notloggedin-title' => 'لا يمكنك تعديل ملفك بدون أن تكون مسجل الدخول',
 	'user-profile-update-notloggedin-text' => 'أنت لا يمكنك تعديل ملفك بدون تسجيل الدخول.
-اضغط <a href="$1">هنا</a> لتسجيل الدخول أو اضغط <a href="$2">هنا</a> للتسجيل.',
+اضغط [[Special:UserLogin|هنا]] لتسجيل الدخول أو اضغط [[Special:UserLogin/signup|هنا]] للتسجيل.',
 	'user-profile-update-saved' => 'تم حفظ ملفك',
 	'user-profile-update-log-section' => 'غير القسم',
 	'user-profile-update-profile' => 'ملف',
@@ -987,7 +992,7 @@ $messages['arz'] = array(
 	'user-recent-system-gift' => 'حصل على جائزة',
 	'user-profile-update-notloggedin-title' => 'لا يمكنك تعديل ملفك بدون أن تكون مسجل الدخول',
 	'user-profile-update-notloggedin-text' => 'أنت لا يمكنك تعديل ملفك بدون تسجيل الدخول.
-اضغط <a href="$1">هنا</a> لتسجيل الدخول أو اضغط <a href="$2">هنا</a> للتسجيل.',
+اضغط [[Special:UserLogin|هنا]] لتسجيل الدخول أو اضغط [[Special:UserLogin/signup|هنا]] للتسجيل.',
 	'user-profile-update-saved' => 'تم حفظ ملفك',
 	'user-profile-update-log-section' => 'غير القسم',
 	'user-profile-update-profile' => 'ملف',
@@ -1118,8 +1123,11 @@ $messages['be'] = array(
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
+ * @author Wizardist
+ * @author Zedlik
  */
 $messages['be-tarask'] = array(
+	'editprofile' => 'Рэдагаваць профілі іншых удзельнікаў',
 	'populateuserprofiles' => 'Запаўненьне зьвестак пра ўдзельніка',
 	'user-time-ago' => '$1 таму',
 	'user-awards-title' => 'Узнагароды',
@@ -1195,8 +1203,9 @@ $messages['be-tarask'] = array(
 	'user-recent-system-gift' => 'Атрыманьне ўзнагароды',
 	'user-profile-update-notloggedin-title' => 'Немагчыма рэдагаваць Ваш профіль не ўвайшоўшы ў сыстэму',
 	'user-profile-update-notloggedin-text' => 'Вы ня можаце рэдагаваць Ваш профіль не ўвайшоўшы ў сыстэму.
-Націсьніце <a href="$1">тут</a>, каб увайсьці, альбо націсьніце <a href="$2">тут</a>, каб зарэгістравацца.',
+Націсьніце [[Special:UserLogin|тут]], каб увайсьці, альбо націсьніце [[Special:UserLogin/signup|тут]], каб зарэгістравацца.',
 	'user-profile-update-saved' => 'Ваш профіль быў захаваны',
+	'user-profile-edit-profile-update-saved' => 'Профіль удзельніка захаваны пасьпяхова',
 	'user-profile-update-log-section' => 'зьмененая сэкцыя',
 	'user-profile-update-profile' => 'профіль',
 	'user-profile-default-country' => 'ЗША',
@@ -1206,7 +1215,7 @@ $messages['be-tarask'] = array(
 	'user-profile-section-custom' => 'Нестандартная інфармацыя',
 	'user-profile-section-interests' => 'Іншая інфармацыя',
 	'user-profile-section-picture' => 'Аватара',
-	'user-profile-section-preferences' => 'Устаноўкі',
+	'user-profile-section-preferences' => 'Налады',
 	'user-profile-personal-info' => 'Інфармацыя',
 	'user-profile-personal-name' => 'Імя',
 	'user-profile-personal-email' => 'Адрас электроннай пошты',
@@ -1271,6 +1280,7 @@ $messages['be-tarask'] = array(
 	'user-profile-userlevels-link' => 'Узроўні ўдзельніка',
 	'user-no-images' => 'Выявы не загружаныя',
 	'edit-profile-title' => 'Рэдагаваць Ваш профіль',
+	'edit-profiles-title' => 'Рэдагаваньне профіляў',
 	'user-page-link' => 'Старонка ўдзельніка',
 	'user-social-profile-link' => 'Сацыяльны профіль',
 	'user-wiki-link' => 'Вікі-старонка ўдзельніка',
@@ -1278,7 +1288,7 @@ $messages['be-tarask'] = array(
 * Special:UpdateProfile/personal|Іншыя зьвесткі
 * Special:UpdateProfile/custom|Нестандартная зьвесткі
 * Special:UploadAvatar|Аватара
-* Special:UpdateProfile/preferences|Устаноўкі',
+* Special:UpdateProfile/preferences|Налады',
 	'user-type-toggle-old' => 'Выкарыстоўваць вікі-старонку ўдзельніка',
 	'user-type-toggle-new' => 'Выкарыстоўваць сацыяльную старонку ўдзельніка',
 	'user-board-login-message' => 'Вам неабходна <a href="$1">ўвайсьці ў сыстэму</a>, каб дасылаць паведамленьні іншым удзельнікам',
@@ -1298,6 +1308,7 @@ $messages['be-tarask'] = array(
 	'user-profile-picture-log-entry' => 'загрузіў новую аватару',
 	'user-profile-picture-log-delete-entry' => 'выдалена аватара $1',
 	'right-avatarremove' => 'Выдаліць аватары ўдзельніка',
+	'right-editothersprofiles' => 'абнаўленьне сацыяльных профіляў іншых удзельнікаў',
 );
 
 /** Bulgarian (Български)
@@ -1305,7 +1316,7 @@ $messages['be-tarask'] = array(
  */
 $messages['bg'] = array(
 	'populateuserprofiles' => 'Създаване на потребителските профили',
-	'user-time-ago' => 'преди',
+	'user-time-ago' => 'преди $1',
 	'user-awards-title' => 'Награди',
 	'user-gifts-title' => 'Подаръци',
 	'user-count-separator' => '$1 от $2',
@@ -1367,7 +1378,7 @@ $messages['bg'] = array(
 	'user-recent-activity-network-update' => 'Публикува мнение',
 	'user-recent-system-gift' => 'Получи награда',
 	'user-profile-update-notloggedin-title' => 'За редактиране на профила е необходимо влизане в системата',
-	'user-profile-update-notloggedin-text' => 'За редактиране на профила е необходимо влизане в системата. За влизане се използва <a href="$1">тази препратка</a>, а за регистриране — <a href="$2">тази</a>.',
+	'user-profile-update-notloggedin-text' => 'За редактиране на профила е необходимо влизане в системата. За влизане се използва [[Special:UserLogin|тази препратка]], а за регистриране — [[Special:UserLogin/signup|тази]].',
 	'user-profile-update-saved' => 'Профилът беше съхранен',
 	'user-profile-update-log-section' => 'промяна в раздел',
 	'user-profile-update-profile' => 'профил',
@@ -1558,8 +1569,8 @@ $messages['br'] = array(
 	'user-recent-activity-network-update' => 'en/he deus postet ur soñj',
 	'user-recent-system-gift' => 'zo bet priziet',
 	'user-profile-update-notloggedin-title' => "Dibosupl degas kemmoù en ho profil ma n'oc'h ket kevreet",
-	'user-profile-update-notloggedin-text' => 'Ne c\'hallit ket aozañ ho profil hep bezañ kevreet.
-Klikit <a href="$1">amañ</a> evit kevreañ pe klikit <a href="$2">amañ</a> evit en em enskrivañ.',
+	'user-profile-update-notloggedin-text' => "Ne c'hallit ket aozañ ho profil hep bezañ kevreet.
+Klikit [[Special:UserLogin|amañ]] evit kevreañ pe klikit [[Special:UserLogin/signup|amañ]] evit en em enskrivañ.",
 	'user-profile-update-saved' => 'Enrollet eo bet ho profil',
 	'user-profile-update-log-section' => 'kevrenn kemmet',
 	'user-profile-update-profile' => 'profil',
@@ -1669,6 +1680,7 @@ Klikit <a href="$1">amañ</a> evit kevreañ pe klikit <a href="$2">amañ</a> evi
  * @author Palapa
  */
 $messages['bs'] = array(
+	'editprofile' => 'Uređivanje profila drugih korisnika',
 	'populateuserprofiles' => 'Popuni korisničke profile',
 	'user-time-ago' => 'prije $1',
 	'user-awards-title' => 'Nagrade',
@@ -1696,6 +1708,7 @@ $messages['bs'] = array(
 	'user-stats-poll-votes' => 'Anketa {{PLURAL:$1|glas|glasa|glasova}}',
 	'user-stats-picture-game-votes' => 'Slikovna igra {{PLURAL:$1|glas|glasa|glasovima}}',
 	'user-stats-quiz-points' => 'Kviz {{PLURAL:$1|bod|bodovi}}',
+	'user-stats-pick-points' => 'Odabir {{PLURAL:$1|boda|boda|bodova}}',
 	'other-info-title' => 'Ostale informacije',
 	'user-friends-title' => 'Prijatelji',
 	'user-foes-title' => 'Neprijatelji',
@@ -1717,6 +1730,7 @@ $messages['bs'] = array(
 	'profile-updated-personal' => 'Ažurirajte svoj profil',
 	'profile-not-provided' => 'Nije navedeno',
 	'populate-user-profile-done' => '$1 {{PLURAL:$1|profil dodan|profila dodano}}',
+	'user-board-title' => 'Tabla',
 	'user-send-board-blast' => 'Poslati vijest',
 	'user-personal-info-title' => 'Lične informacije',
 	'user-no-personal-info' => 'Nema ličnih informacija',
@@ -1740,7 +1754,11 @@ $messages['bs'] = array(
 	'user-recent-activity-user-message' => 'Poslao/la poruku za',
 	'user-recent-activity-network-update' => 'ima poslana mišljenja',
 	'user-recent-system-gift' => 'Dobio je nagradu',
+	'user-profile-update-notloggedin-title' => 'Ne možete uređivati vaš profil bez prijave',
+	'user-profile-update-notloggedin-text' => 'Ne možete uređivati vaš profil bez prijave.
+Kliknite [[Special:UserLogin|ovdje]] za prijavu ili kliknite [[Special:UserLogin/signup|ovdje]] da se registrirate.',
 	'user-profile-update-saved' => 'Vaš profil je sačuvan',
+	'user-profile-edit-profile-update-saved' => 'Korisnički profil je uspješno spremljen',
 	'user-profile-update-log-section' => 'promijenjena sekcija',
 	'user-profile-update-profile' => 'profil',
 	'user-profile-default-country' => 'Sjedinjene Američke Države',
@@ -1754,6 +1772,7 @@ $messages['bs'] = array(
 	'user-profile-personal-info' => 'Informacije',
 	'user-profile-personal-name' => 'Ime',
 	'user-profile-personal-email' => 'E-mail',
+	'user-profile-personal-email-needs-auth' => '(vaš e-mail treba biti potvrđen da može dobijati obavještenja sa stranice)',
 	'user-profile-personal-confirmemail' => 'Potvrdite e-mail',
 	'user-profile-personal-location' => 'Lokacija',
 	'user-profile-personal-city' => 'Grad',
@@ -1782,9 +1801,12 @@ $messages['bs'] = array(
 	'user-profile-interests-drinks' => 'Pića',
 	'user-profile-preferences-emails' => 'Obavještenja putem e-maila',
 	'user-profile-preferences-emails-personalmessage' => 'Kada pošaljem ličnu poruku',
+	'user-profile-preferences-emails-friendfoe' => 'Kada vas drugi korisnik doda među prijatelje ili neprijatelje',
 	'user-profile-preferences-emails-gift' => 'Kada primim poklon',
 	'user-profile-preferences-emails-level' => 'Kada napredujem na slijedeći nivo',
+	'user-profile-preferences-emails-weekly' => 'Dobijanje sedmičnih ažuriranja e-mailom',
 	'user-profile-update-button' => 'Ažurirano',
+	'user-profile-tidbits-title' => 'Zanimljivosti',
 	'user-profile-tidbits-favmoment' => 'Omiljeni sportski događaji',
 	'user-profile-tidbits-worstmoment' => 'Najgori sportski događaji',
 	'user-profile-tidbits-favathlete' => 'Omiljeni sportista i zašto',
@@ -1798,6 +1820,7 @@ $messages['bs'] = array(
 	'user-profile-sports-addmore' => 'Dodaj više sportova/ekipa',
 	'uploadavatar' => 'Postavite Vašu sliku',
 	'user-profile-picture-yourpicture' => 'Vaša slika',
+	'user-profile-picture-yourpicturestext' => 'Ispod su slike koje će se pojaviti na vašem profilu, stranicama mreže i na vašim komentarima.',
 	'user-profile-picture-large' => 'Velika',
 	'user-profile-picture-medlarge' => 'Srednje - velika',
 	'user-profile-picture-medium' => 'Srednja',
@@ -1810,10 +1833,17 @@ $messages['bs'] = array(
 	'user-profile-userlevels-link' => 'Korisnički nivoi',
 	'user-no-images' => 'Nijedna slika nije postavljena',
 	'edit-profile-title' => 'Uredite Vaš profil',
+	'edit-profiles-title' => 'Uređivanje profila',
 	'user-page-link' => 'Korisnička stranica',
 	'user-social-profile-link' => 'Društveni profil',
 	'user-wiki-link' => 'Wiki korisnička stranica',
+	'update_profile_nav' => '* Special:UpdateProfile|Lični podaci
+* Special:UpdateProfile/personal|Drugi podaci
+* Special:UpdateProfile/custom|Podešeni podaci
+* Special:UploadAvatar|Avatar
+* Special:UpdateProfile/preferences|Postavke',
 	'user-type-toggle-old' => 'Koristi korisničku stranicu na wiki',
+	'user-type-toggle-new' => 'Koristi društvenu korisničku stranicu',
 	'user-board-login-message' => 'Morate biti <a href="$1">prijavljeni</a> da biste slali poruke drugim korisnicima',
 	'removeavatar' => 'Ukloni avatara',
 	'givegift' => 'Pošalji poklon',
@@ -1823,8 +1853,16 @@ $messages['bs'] = array(
 	'avatarupload-currentavatar' => 'Trenutni avatar od $1',
 	'avatarupload-removesuccess' => 'Avatar je uspješno uklonjen',
 	'avatarupload-removeanother' => 'Ukloni slijedeći',
+	'profilelogpage' => 'Zapisnik uređivanja korisničkog profila',
+	'profilelogpagetext' => 'Ovo je zapisnik uređivanja korisničkog profila',
+	'user-profile-edit-profile' => 'je uredio $1 profil',
+	'avatarlogpage' => 'Zapisnik postavljanja avatara',
+	'avatarlogpagetext' => 'Ovo je zapisnik postavljanja korisničkih avatara',
 	'user-profile-picture-log' => 'avatar',
 	'user-profile-picture-log-entry' => 'postavio novi avatar',
+	'user-profile-picture-log-delete-entry' => 'je obrisao avatar od $1',
+	'right-avatarremove' => 'Uklanjanje korisničkih avatara',
+	'right-editothersprofiles' => 'Ažuriranje društvenih profila drugih korisnika',
 );
 
 /** Catalan (Català)
@@ -1936,12 +1974,13 @@ $messages['ce'] = array(
 );
 
 /** Sorani (کوردی)
+ * @author Asoxor
  * @author Marmzok
  */
 $messages['ckb'] = array(
 	'user-awards-title' => 'خەڵاتەکان',
 	'user-gifts-title' => 'پێشکەشیەکان',
-	'user-view-all' => 'دیتنی هەموو',
+	'user-view-all' => 'ھەموویان ببینە',
 	'user-upload-image' => 'بارکردنی وێنە',
 	'user-edit-this' => 'دەستکاری کردنی ئەمە',
 	'user-send-message' => 'ناردنی پەیامێک',
@@ -2135,6 +2174,7 @@ $messages['da'] = array(
 /** German (Deutsch)
  * @author ABF
  * @author Als-Holder
+ * @author Kghbln
  * @author Melancholie
  * @author Purodha
  * @author Revolus
@@ -2143,6 +2183,7 @@ $messages['da'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
+	'editprofile' => 'Benutzerprofile anderer Benutzer bearbeiten',
 	'populateuserprofiles' => 'Benutzerprofil vervollständigen',
 	'user-time-ago' => 'vor $1',
 	'user-awards-title' => 'Auszeichnungen',
@@ -2218,8 +2259,9 @@ $messages['de'] = array(
 	'user-recent-system-gift' => 'Auszeichnung erhalten',
 	'user-profile-update-notloggedin-title' => 'Du kannst dein Profil nicht unangemeldet bearbeiten.',
 	'user-profile-update-notloggedin-text' => 'Du kannst dein Profil nicht unangemeldet bearbeiten.
-Klicke <a href="$1">hier</a> um dich anzumelden oder klicke <a href="$2">hier</a> um einen Account zu erstellen.',
+Klicke [[Special:UserLogin|hier]] um dich anzumelden oder klicke [[Special:UserLogin/signup|hier]] um einen Account zu erstellen.',
 	'user-profile-update-saved' => 'Dein Profil wurde gespeichert',
+	'user-profile-edit-profile-update-saved' => 'Das Benutzerprofil wurde erfolgreich gespeichert',
 	'user-profile-update-log-section' => 'Abschnitt geändert',
 	'user-profile-update-profile' => 'Profil',
 	'user-profile-default-country' => 'Deutschland',
@@ -2294,6 +2336,7 @@ Klicke <a href="$1">hier</a> um dich anzumelden oder klicke <a href="$2">hier</a
 	'user-profile-userlevels-link' => 'Benutzerebenen',
 	'user-no-images' => 'Keine Bilder hochgeladen',
 	'edit-profile-title' => 'Profil bearbeiten',
+	'edit-profiles-title' => 'Profile bearbeiten',
 	'user-page-link' => 'Benutzerseite',
 	'user-social-profile-link' => 'Profil-Seite',
 	'user-wiki-link' => 'Wiki-Benutzerseite',
@@ -2315,12 +2358,14 @@ Klicke <a href="$1">hier</a> um dich anzumelden oder klicke <a href="$2">hier</a
 	'avatarupload-removeanother' => 'Ein weiteres löschen',
 	'profilelogpage' => 'Logbuch der Benutzerprofiländerungen',
 	'profilelogpagetext' => 'Das ist ein Logbuch der Änderungen an Benutzerprofilen',
+	'user-profile-edit-profile' => 'bearbeitete das Profil von $1',
 	'avatarlogpage' => 'Logbuch der hochgeladenen Avatare',
 	'avatarlogpagetext' => 'Das ist ein Logbuch der hochgeladenen Benutzer-Avatare',
 	'user-profile-picture-log' => 'Avatar',
 	'user-profile-picture-log-entry' => 'Neuer Avatar hochgeladen',
 	'user-profile-picture-log-delete-entry' => 'Avatar von $1 gelöscht',
 	'right-avatarremove' => 'Avatar eines Benutzers entfernen',
+	'right-editothersprofiles' => 'Aktualisierung der Benutzerprofile anderer Benutzer',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
@@ -2425,7 +2470,7 @@ $messages['dsb'] = array(
 	'user-recent-system-gift' => 'Jo dostał myto',
 	'user-profile-update-notloggedin-title' => 'Njamóžoš swój profil wobźěłaś, gaž njejsy píszjawjony',
 	'user-profile-update-notloggedin-text' => 'Njamóžoš swój profil wobźěłaś, gaž njejsy pśizjawjony.
-Klikni <a href="$1">sem</a>, aby se pśizjawił abo klikni <a href="$2">sem</a>, aby se registrěrował.',
+Klikni [[Special:UserLogin|sem]], aby se pśizjawił abo klikni [[Special:UserLogin/signup|sem]], aby se registrěrował.',
 	'user-profile-update-saved' => 'Twój profil jo se składł',
 	'user-profile-update-log-section' => 'jo změnił wótrězk',
 	'user-profile-update-profile' => 'profil',
@@ -2980,7 +3025,7 @@ $messages['es'] = array(
 	'user-recent-system-gift' => 'Recibido un premio',
 	'user-profile-update-notloggedin-title' => 'No se puede editar tu perfil sin haber iniciado sesión',
 	'user-profile-update-notloggedin-text' => 'No puedes editar tu perfil sin iniciar sesión.
-Haz click <a href="$1">aquí</a> para iniciar sesión o click <a href="$2">aquí</a> para registrarte.',
+Haz click [[Special:UserLogin|aquí]] para iniciar sesión o click [[Special:UserLogin/signup|aquí]] para registrarte.',
 	'user-profile-update-saved' => 'Su perfil ha sido grabado',
 	'user-profile-update-log-section' => 'Sección cambiada',
 	'user-profile-update-profile' => 'perfil',
@@ -3372,8 +3417,8 @@ $messages['ext'] = array(
 	'user-recent-activity-user-message' => 'Envió un mensahi a',
 	'user-recent-system-gift' => 'Recibió un prémiu',
 	'user-profile-update-notloggedin-title' => 'Nu es posibri eital el tu perfil sin entral ena tu cuenta',
-	'user-profile-update-notloggedin-text' => 'Nu es posibri eital el tu perfil sin entral enta tu cuenta.
-Pursa <a href="$1">aquina</a> p\'abril la tu cuenta, u <a href="$2">aquina</a> pa rustrilti.',
+	'user-profile-update-notloggedin-text' => "Nu es posibri eital el tu perfil sin entral enta tu cuenta.
+Pursa [[Special:UserLogin|aquina]] p'abril la tu cuenta, u [[Special:UserLogin/signup|aquina]] pa rustrilti.",
 	'user-profile-update-saved' => 'El tu perfil á siu emburacau',
 	'user-profile-update-log-section' => 'chambó la seción',
 	'user-profile-update-profile' => 'perfil',
@@ -3570,7 +3615,7 @@ $messages['fi'] = array(
 	'user-recent-activity-network-update' => 'Jätti ajatuksen sivulle',
 	'user-recent-system-gift' => 'Sai palkinnon',
 	'user-profile-update-notloggedin-title' => 'Et voi muokata profiiliasi ellet ole kirjautunut sisään',
-	'user-profile-update-notloggedin-text' => 'Et voi muokata profiiliasi ellet ole kirjautunut sisään.  Napsauta <a href="$1">tästä</a> kirjautuaksesi tai napsauta <a href="$2">tästä</a> rekisteröityäksesi.',
+	'user-profile-update-notloggedin-text' => 'Et voi muokata profiiliasi ellet ole kirjautunut sisään.  Napsauta [[Special:UserLogin|tästä]] kirjautuaksesi tai napsauta [[Special:UserLogin/signup|tästä]] rekisteröityäksesi.',
 	'user-profile-update-saved' => 'Profiilisi on tallennettu',
 	'user-profile-update-log-section' => 'muutti osioa',
 	'user-profile-update-profile' => 'profiili',
@@ -3760,7 +3805,7 @@ $messages['fr'] = array(
 	'user-recent-system-gift' => 'A reçu une récompense',
 	'user-profile-update-notloggedin-title' => 'Impossible de modifier votre profil sans être connecté',
 	'user-profile-update-notloggedin-text' => 'Vous ne pouvez pas modifier votre profil si vous n’êtes pas connecté.
-Cliquez <a href="$1">ici</a> pour vous connecter ou alors <a href="$2">là</a> pour vous enregistrer.',
+Cliquez [[Special:UserLogin|ici]] pour vous connecter ou alors [[Special:UserLogin/signup|là]] pour vous enregistrer.',
 	'user-profile-update-saved' => 'Votre profil a été sauvegardé',
 	'user-profile-update-log-section' => 'section changée',
 	'user-profile-update-profile' => 'profil',
@@ -4042,6 +4087,7 @@ $messages['ga'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
+	'editprofile' => 'Editar os perfís doutros usuarios',
 	'populateuserprofiles' => 'Perfís de usuario populares',
 	'user-time-ago' => 'hai $1',
 	'user-awards-title' => 'Premios',
@@ -4116,8 +4162,9 @@ $messages['gl'] = array(
 	'user-recent-activity-network-update' => 'Fixo un comentario',
 	'user-recent-system-gift' => 'Recibido un premio',
 	'user-profile-update-notloggedin-title' => 'Non pode editar o seu perfil sen ter accedido ao sistema',
-	'user-profile-update-notloggedin-text' => 'Non pode editar o seu perfil sen ter accedido ao sistema.  Faga clic <a href="$1">aquí</a> para acceder ou faga clic <a href="$2">aquí</a> para rexistrarse.',
+	'user-profile-update-notloggedin-text' => 'Non pode editar o seu perfil sen ter accedido ao sistema.  Faga clic [[Special:UserLogin|aquí]] para acceder ou faga clic [[Special:UserLogin/signup|aquí]] para rexistrarse.',
 	'user-profile-update-saved' => 'Gardouse o seu perfil',
+	'user-profile-edit-profile-update-saved' => 'O perfil do usuario gardouse correctamente',
 	'user-profile-update-log-section' => 'cambiou a sección',
 	'user-profile-update-profile' => 'perfil',
 	'user-profile-default-country' => 'Estados Unidos',
@@ -4192,6 +4239,7 @@ $messages['gl'] = array(
 	'user-profile-userlevels-link' => 'Niveis de usuario',
 	'user-no-images' => 'Ningunha imaxe foi cargada',
 	'edit-profile-title' => 'Editar o seu perfil',
+	'edit-profiles-title' => 'Editar os perfís',
 	'user-page-link' => 'Páxina de usuario',
 	'user-social-profile-link' => 'Perfil social',
 	'user-wiki-link' => 'Páxina de usuario do wiki',
@@ -4213,12 +4261,14 @@ $messages['gl'] = array(
 	'avatarupload-removeanother' => 'Eliminar outro',
 	'profilelogpage' => 'Rexistro de edicións do perfil de usuario',
 	'profilelogpagetext' => 'Este é un rexistro de edicións do perfil de usuario',
+	'user-profile-edit-profile' => 'editou o perfil de $1',
 	'avatarlogpage' => 'Rexistro de carga de avatares',
 	'avatarlogpagetext' => 'Este é un rexistro de cargas de avatares de usuario',
 	'user-profile-picture-log' => 'avatar',
 	'user-profile-picture-log-entry' => 'cargou un novo avatar',
 	'user-profile-picture-log-delete-entry' => 'borrou o avatar de $1',
 	'right-avatarremove' => 'Eliminar os avatares dun usuario',
+	'right-editothersprofiles' => 'Actualizar os perfís sociais doutros usuarios',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -4358,7 +4408,7 @@ $messages['gsw'] = array(
 	'user-recent-system-gift' => 'Uuszeichnig iberchu',
 	'user-profile-update-notloggedin-title' => 'Du chasch Dyy Profil nit bearbeite ohni aagmäldet z syy.',
 	'user-profile-update-notloggedin-text' => 'Du chasch Dyy Profil nit bearbeite ohni aagmäldet z syy.
-Druck <a href="$1">doo </a> go Di aamälde oder <a href="$2">doo</a> go ne Benutzerkonto aalege.',
+Druck [[Special:UserLogin|doo ]] go Di aamälde oder [[Special:UserLogin/signup|doo]] go ne Benutzerkonto aalege.',
 	'user-profile-update-saved' => 'Dyy Profil isch gspycheret wore',
 	'user-profile-update-log-section' => 'Abschnitt gänderet',
 	'user-profile-update-profile' => 'Profil',
@@ -4568,7 +4618,7 @@ $messages['he'] = array(
 	'user-recent-system-gift' => 'קיבלו פרס',
 	'user-profile-update-notloggedin-title' => 'לא ניתן לערוך את הפרופיל שלכם מבלי לבצע כניסה לחשבון',
 	'user-profile-update-notloggedin-text' => 'לא תוכלו לערוך את הפרופיל מבלי לבצע כניסה לחשבון.
-לחצו <a href="$1">כאן</a> כדי להיכנס לחשבון או <a href="$2">כאן</a> כדי להרשם.',
+לחצו [[Special:UserLogin|כאן]] כדי להיכנס לחשבון או [[Special:UserLogin/signup|כאן]] כדי להרשם.',
 	'user-profile-update-saved' => 'הפרופיל שלכם נשמר',
 	'user-profile-update-log-section' => 'קטע שהשתנה',
 	'user-profile-update-profile' => 'פרופיל',
@@ -4702,6 +4752,7 @@ $messages['hil'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
+	'editprofile' => 'Profile druhich wužiwarjow wobźěłać',
 	'populateuserprofiles' => 'Wužiwarske profile napjelnić',
 	'user-time-ago' => 'wot $1',
 	'user-awards-title' => 'Myta',
@@ -4777,8 +4828,9 @@ $messages['hsb'] = array(
 	'user-recent-system-gift' => 'Je myto dóstał',
 	'user-profile-update-notloggedin-title' => 'Njeje móžno twój profil wobdźěłać, dokelž njejsy přizjewjeny',
 	'user-profile-update-notloggedin-text' => 'Njemóžeš swój profil wobdźěłać, dokelž njejsy přizjewjeny.
-Klikń <a href="$1">sem</a>, zo by so přizjewił abo klikń <a href="$2">sem</a>, zo by so registrował.',
+Klikń [[Special:UserLogin|sem]], zo by so přizjewił abo klikń [[Special:UserLogin/signup|sem]], zo by so registrował.',
 	'user-profile-update-saved' => 'Twój profil bu składowany.',
+	'user-profile-edit-profile-update-saved' => 'Profil wužiwarja je so wuspěšnje składowała.',
 	'user-profile-update-log-section' => 'je wotrězk změnił',
 	'user-profile-update-profile' => 'profil',
 	'user-profile-default-country' => 'Němska',
@@ -4853,6 +4905,7 @@ Klikń <a href="$1">sem</a>, zo by so přizjewił abo klikń <a href="$2">sem</a
 	'user-profile-userlevels-link' => 'Wužiwarske runiny',
 	'user-no-images' => 'Žane wobrazy nahrate',
 	'edit-profile-title' => 'Twój profil wobdźěłać',
+	'edit-profiles-title' => 'Profile wobdźěłać',
 	'user-page-link' => 'Wužiwarska strona',
 	'user-social-profile-link' => 'Socialny profil',
 	'user-wiki-link' => 'Wikijowa wužiwarska strona',
@@ -4874,12 +4927,14 @@ Klikń <a href="$1">sem</a>, zo by so přizjewił abo klikń <a href="$2">sem</a
 	'avatarupload-removeanother' => 'Druhi wotstronić',
 	'profilelogpage' => 'Protokol změnow wužiwarskeho profila',
 	'profilelogpagetext' => 'To je protokol změnow wužiwarskeho profila',
+	'user-profile-edit-profile' => 'je profil wužiwarja $1 wobdźěłał',
 	'avatarlogpage' => 'Protokol wo nahratych awatarach',
 	'avatarlogpagetext' => 'To je protokol nahratych wužiwarskich awatarow',
 	'user-profile-picture-log' => 'awatar',
 	'user-profile-picture-log-entry' => 'nowy awatar nahraty',
 	'user-profile-picture-log-delete-entry' => 'awatar wužiwarja $1 wušmórnjeny',
 	'right-avatarremove' => 'Awatary wužiwarja wotstronić',
+	'right-editothersprofiles' => 'Socialne profile druhich wužiwarjow aktualizować',
 );
 
 /** Hungarian (Magyar)
@@ -4963,7 +5018,7 @@ $messages['hu'] = array(
 	'user-recent-system-gift' => 'Díjat kapott',
 	'user-profile-update-notloggedin-title' => 'Nem szerkesztheted a profilodat, ha nem vagy bejelentkezve',
 	'user-profile-update-notloggedin-text' => 'Nem szerkesztheted a profilodat, ha nem vagy bejelentkezve.
-Kattints <a href="$1">ide</a> a bejelentkezéshez, vagy <a href="$2">ide</a> a regisztráláshoz.',
+Kattints [[Special:UserLogin|ide]] a bejelentkezéshez, vagy [[Special:UserLogin/signup|ide]] a regisztráláshoz.',
 	'user-profile-update-saved' => 'A profilod elmentve',
 	'user-profile-update-log-section' => 'megváltozott szakasz',
 	'user-profile-update-profile' => 'profil',
@@ -5079,6 +5134,7 @@ $messages['hy'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
+	'editprofile' => 'Modificar le profilos de altere usatores',
 	'populateuserprofiles' => 'Impler profilos de usator',
 	'user-time-ago' => '$1 retro',
 	'user-awards-title' => 'Premios',
@@ -5154,8 +5210,9 @@ $messages['ia'] = array(
 	'user-recent-system-gift' => 'Recipeva un premio',
 	'user-profile-update-notloggedin-title' => 'Non pote modificar tu profilo sin session aperte',
 	'user-profile-update-notloggedin-text' => 'Tu debe authenticar te pro poter modificar tu profilo.
-Clicca <a href="$1">hic</a> pro aperir un session o clicca <a href="$2">hic</a> pro crear un conto.',
+Clicca [[Special:UserLogin|hic]] pro aperir un session o clicca [[Special:UserLogin/signup|hic]] pro crear un conto.',
 	'user-profile-update-saved' => 'Tu profilo ha essite salveguardate',
+	'user-profile-edit-profile-update-saved' => 'Le profilo del usator ha essite salveguardate',
 	'user-profile-update-log-section' => 'cambiava section',
 	'user-profile-update-profile' => 'profilo',
 	'user-profile-default-country' => 'Statos Unite',
@@ -5230,6 +5287,7 @@ Clicca <a href="$1">hic</a> pro aperir un session o clicca <a href="$2">hic</a> 
 	'user-profile-userlevels-link' => 'Nivellos de usator',
 	'user-no-images' => 'Nulle imagine incargate',
 	'edit-profile-title' => 'Modificar tu profilo',
+	'edit-profiles-title' => 'Modificar profilos',
 	'user-page-link' => 'Pagina de usator',
 	'user-social-profile-link' => 'Profilo social',
 	'user-wiki-link' => 'Pagina wiki de usator',
@@ -5251,12 +5309,14 @@ Clicca <a href="$1">hic</a> pro aperir un session o clicca <a href="$2">hic</a> 
 	'avatarupload-removeanother' => 'Remover un altere',
 	'profilelogpage' => 'Registro de modificationes de profilos de usator',
 	'profilelogpagetext' => 'Isto es un registro de modificationes in le profilos del usatores',
+	'user-profile-edit-profile' => 'modificava le profilo de $1',
 	'avatarlogpage' => 'Registro de incargamento de avatares',
 	'avatarlogpagetext' => 'Isto es un registro de avatares que le usatores ha incargate',
 	'user-profile-picture-log' => 'avatar',
 	'user-profile-picture-log-entry' => 'incargava un nove avatar',
 	'user-profile-picture-log-delete-entry' => 'deleva le avatar de $1',
 	'right-avatarremove' => 'Eliminar avatares de usatores',
+	'right-editothersprofiles' => 'Actualisar le profilos social de altere usatores',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -5341,7 +5401,7 @@ $messages['id'] = array(
 	'user-recent-system-gift' => 'Menerima penghargaan',
 	'user-profile-update-notloggedin-title' => 'Tidak bisa menyunting profil Anda tanpa masuk log',
 	'user-profile-update-notloggedin-text' => 'Anda tidak bisa menyunting profil Anda tanpa masuk log.
-Klik <a href="$1">di sini</a> untuk masuk log atau klik <a href="$2">di sini</a> untuk mendaftar.',
+Klik [[Special:UserLogin|di sini]] untuk masuk log atau klik [[Special:UserLogin/signup|di sini]] untuk mendaftar.',
 	'user-profile-update-saved' => 'Profil Anda telah disimpan',
 	'user-profile-update-log-section' => 'mengubah bagian',
 	'user-profile-update-profile' => 'profil',
@@ -5575,7 +5635,7 @@ $messages['ja'] = array(
 	'user-recent-activity-network-update' => '意見を投稿しました',
 	'user-recent-system-gift' => '表彰されました',
 	'user-profile-update-notloggedin-title' => '非ログイン状態ではプロフィールを編集できません。',
-	'user-profile-update-notloggedin-text' => 'プロフィールを編集するにはログインが必要です。ログインする場合は<a href="$1">ここ</a>をクリックし、登録する場合は<a href="$2">ここ</a>をクリックしてください。',
+	'user-profile-update-notloggedin-text' => 'プロフィールを編集するにはログインが必要です。ログインする場合は[[Special:UserLogin|ここ]]をクリックし、登録する場合は[[Special:UserLogin/signup|ここ]]をクリックしてください。',
 	'user-profile-update-saved' => 'あなたのプロフィールは保存されました',
 	'user-profile-update-log-section' => 'セクションを変更',
 	'user-profile-update-profile' => 'プロフィール',
@@ -5855,7 +5915,7 @@ $messages['km'] = array(
 	'user-recent-activity-user-message' => 'បាន​ផ្ញើ​សារ​ទៅកាន់',
 	'user-recent-system-gift' => 'បាន​ទទួល​រង្វាន់​មួយ',
 	'user-profile-update-notloggedin-title' => 'មិន​អាច​កែប្រែ​ទម្រង់​របស់​អ្នក ដោយ​មិន​បាន​កត់ឈ្មោះ​ចូល​ឡើយ',
-	'user-profile-update-notloggedin-text' => 'អ្នក​មិន​អាច​កែប្រែ​ប្រវត្តិរូប​របស់​អ្នក ដោយ​មិន​បានកត់ឈ្មោះ​ចូល​បាន​ទេ​។ សូម​ចុច <a href="$1">ទីនេះ</a>​ ដើម្បី​កត់ឈ្មោះចូល ឬ ចុច <a href="$2">ទីនេះ</a>​ ដើម្បី​ចុះឈ្មោះ​ថ្មី។',
+	'user-profile-update-notloggedin-text' => 'អ្នក​មិន​អាច​កែប្រែ​ប្រវត្តិរូប​របស់​អ្នក ដោយ​មិន​បានកត់ឈ្មោះ​ចូល​បាន​ទេ​។ សូម​ចុច [[Special:UserLogin|ទីនេះ]]​ ដើម្បី​កត់ឈ្មោះចូល ឬ ចុច [[Special:UserLogin/signup|ទីនេះ]]​ ដើម្បី​ចុះឈ្មោះ​ថ្មី។',
 	'user-profile-update-saved' => 'ប្រវត្តិរូបរបស់អ្នកត្រូវបានរក្សាទុករួចរាល់ហើយ',
 	'user-profile-update-profile' => 'ប្រវត្តិរូប',
 	'user-profile-default-country' => 'សហរដ្ឋអាមេរិក',
@@ -6076,7 +6136,7 @@ $messages['ksh'] = array(
 	'user-recent-system-gift' => 'En Ußzeichnung krääje',
 	'user-profile-update-notloggedin-title' => 'Do kanns Ding Profil ne ändere, sulang De nit ennjelogg beß.',
 	'user-profile-update-notloggedin-text' => 'Do kanns Ding Profil ne ändere, sulang De nit ennjelogg beß.
-Donn <a href="$1">enlogge</a> udder <a href="$2">Desch aanmellde</a>.',
+Donn [[Special:UserLogin|enlogge]] udder [[Special:UserLogin/signup|Desch aanmellde]].',
 	'user-profile-update-saved' => 'Ding Profil es avjespeichert.',
 	'user-profile-update-log-section' => 'ene Afschnet jändert',
 	'user-profile-update-profile' => 'Profil',
@@ -6261,7 +6321,7 @@ $messages['lb'] = array(
 	'user-recent-system-gift' => 'Huet e Präis kritt',
 	'user-profile-update-notloggedin-title' => 'Dir kënnt äre Profil net änneren wann dir net ageloggt sidd',
 	'user-profile-update-notloggedin-text' => 'Dir kënnt Äre Profil net änneren wann dir net ageloggt sidd.
-Klickt <a href="$1">hei</a> fir Iech anzeloggen oder klickt <a href="$2">hei</a> fir Iech unzemellen.',
+Klickt [[Special:UserLogin|hei]] fir Iech anzeloggen oder klickt [[Special:UserLogin/signup|hei]] fir Iech unzemellen.',
 	'user-profile-update-saved' => 'Äre Profil gouf ofgespäichert',
 	'user-profile-update-log-section' => 'Abschnitt änneren',
 	'user-profile-update-profile' => 'Profil',
@@ -6426,6 +6486,7 @@ $messages['mhr'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
+	'editprofile' => 'Уредување на профили на други корисници',
 	'populateuserprofiles' => 'Пополни кориснички профили',
 	'user-time-ago' => 'пред $1',
 	'user-awards-title' => 'Награди',
@@ -6501,8 +6562,9 @@ $messages['mk'] = array(
 	'user-recent-system-gift' => 'Доби награда',
 	'user-profile-update-notloggedin-title' => 'Не можете да си го уредувате профилот без да сте најавени.',
 	'user-profile-update-notloggedin-text' => 'Не можете да си го уредувате профилот без да сте најавени.
-Кликнете <a href="$1">тука</a> за да се најавите или кликнете <a href="$2">тука</a> за да се регистрирате.',
+Кликнете [[Special:UserLogin|тука]] за да се најавите или кликнете [[Special:UserLogin/signup|тука]] за да се регистрирате.',
 	'user-profile-update-saved' => 'Вашиот профил е зачуван',
+	'user-profile-edit-profile-update-saved' => 'Профилот на корисникот е успешно зачуван',
 	'user-profile-update-log-section' => 'го измени заглавието',
 	'user-profile-update-profile' => 'профил',
 	'user-profile-default-country' => 'САД',
@@ -6577,6 +6639,7 @@ $messages['mk'] = array(
 	'user-profile-userlevels-link' => 'Кориснички нивоа',
 	'user-no-images' => 'Нема подигнато слики',
 	'edit-profile-title' => 'Уредете го вашиот профил',
+	'edit-profiles-title' => 'Уредување на профили',
 	'user-page-link' => 'Корисничка страница',
 	'user-social-profile-link' => 'Друштвен профил',
 	'user-wiki-link' => 'Корисничка страница на вики',
@@ -6598,12 +6661,14 @@ $messages['mk'] = array(
 	'avatarupload-removeanother' => 'Отстрани друг',
 	'profilelogpage' => 'Дневник на уредувања на кориснички профили',
 	'profilelogpagetext' => 'Ова е дневник на уредувањата на корисничките профили',
+	'user-profile-edit-profile' => 'уреден профилот на $1',
 	'avatarlogpage' => 'Дневник на подигање на аватари',
 	'avatarlogpagetext' => 'Ова е дневник на подигања на кориснички аватари',
 	'user-profile-picture-log' => 'аватар',
 	'user-profile-picture-log-entry' => 'подигна нов аватар',
 	'user-profile-picture-log-delete-entry' => 'го избриша аватарот на $1',
 	'right-avatarremove' => 'Отстранување на аватари на корисници',
+	'right-editothersprofiles' => 'Поднова на друштвените профили на други корисници',
 );
 
 /** Malayalam (മലയാളം)
@@ -6748,7 +6813,7 @@ $messages['mr'] = array(
 	'user-recent-system-gift' => 'एक पुरस्कार मिळाला',
 	'user-profile-update-notloggedin-title' => 'प्रवेश केल्याशिवाय प्रोफाइल बदलता येत नाही',
 	'user-profile-update-notloggedin-text' => 'दाखल झाल्याशिवाय आपण आपली प्रोफाइल संपादीत करू शकणार नाही.
-दाखल होण्याकरिता<a href="$1"> येथे  < / a >टिचकी मारा अथवा नवीन नोंदणीकरिता  <a href="$2">येथे < / a > टिचकी मारा.',
+दाखल होण्याकरिता[[Special:UserLogin| येथे ]] टिचकी मारा अथवा नवीन नोंदणीकरिता  [[Special:UserLogin/signup|येथे]] टिचकी मारा.',
 	'user-profile-update-saved' => 'तुमचे प्रोफाइल बदललेले आहे',
 	'user-profile-update-log-section' => 'विभाग बदललेला आहे',
 	'user-profile-update-profile' => 'प्रोफाइल',
@@ -6952,6 +7017,7 @@ $messages['nds'] = array(
  * @author Tvdm
  */
 $messages['nl'] = array(
+	'editprofile' => 'Profielen van andere gebruikers bewerken',
 	'populateuserprofiles' => 'Gebruikersprofielen vullen',
 	'user-time-ago' => '$1 geleden',
 	'user-awards-title' => 'Prijzen',
@@ -7027,8 +7093,9 @@ $messages['nl'] = array(
 	'user-recent-system-gift' => 'Heeft een ster ontvangen',
 	'user-profile-update-notloggedin-title' => 'U kunt uw profiel niet bewerken als u niet aangemeld bent',
 	'user-profile-update-notloggedin-text' => 'U kunt uw profiel niet bewerken als u niet aangemeld bent.
-Klik <a href="$1">hier</a> om u aan te melden of klik <a href="$2">hier</a> om een nieuwe gebruiker aan te maken.',
+Klik [[Special:UserLogin|hier]] om u aan te melden of klik [[Special:UserLogin/signup|hier]] om een nieuwe gebruiker aan te maken.',
 	'user-profile-update-saved' => 'Uw profiel is opgeslagen',
+	'user-profile-edit-profile-update-saved' => 'Het gebruikersprofiel is opgeslagen',
 	'user-profile-update-log-section' => 'onderdeel gewijzigd',
 	'user-profile-update-profile' => 'profiel',
 	'user-profile-default-country' => 'Verenigde Staten',
@@ -7103,6 +7170,7 @@ Klik <a href="$1">hier</a> om u aan te melden of klik <a href="$2">hier</a> om e
 	'user-profile-userlevels-link' => 'Gebruikersniveaus',
 	'user-no-images' => 'Geen afbeeldingen toegevoegd',
 	'edit-profile-title' => 'Uw profiel bewerken',
+	'edit-profiles-title' => 'Profielen bewerken',
 	'user-page-link' => 'Gebruikerspagina',
 	'user-social-profile-link' => 'Sociaal profiel',
 	'user-wiki-link' => 'Wiki gebruikerspagina',
@@ -7124,12 +7192,14 @@ Klik <a href="$1">hier</a> om u aan te melden of klik <a href="$2">hier</a> om e
 	'avatarupload-removeanother' => 'Nog een verwijderen',
 	'profilelogpage' => 'Logboek gebruikersprofiel',
 	'profilelogpagetext' => 'Dit logboek bevat de bewerkingen aan gebruikersprofielen',
+	'user-profile-edit-profile' => 'heeft het profiel van $1 bewerkt',
 	'avatarlogpage' => 'Uploadlogboek avatars',
 	'avatarlogpagetext' => 'Dit logboek bevat uploads van avatars',
 	'user-profile-picture-log' => 'avatar',
 	'user-profile-picture-log-entry' => 'nieuwe avatar uploaden',
 	'user-profile-picture-log-delete-entry' => 'heeft de avatar van $1 verwijderd',
 	'right-avatarremove' => 'Avatars van gebruikers verwijderen',
+	'right-editothersprofiles' => 'Sociale profielen van andere gebruikers bewerken',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -7214,7 +7284,7 @@ $messages['nn'] = array(
 	'user-recent-system-gift' => 'Mottok ei utmerking',
 	'user-profile-update-notloggedin-title' => 'Du kan ikkje endra profilen din utan å vera innlogga',
 	'user-profile-update-notloggedin-text' => 'Du kan ikkje endra profilen din utan å vera innlogga.
-Trykk <a href="$1">her</a> for å loggå inn eller <a href="$2">her</a> for å registrera deg.',
+Trykk [[Special:UserLogin|her]] for å loggå inn eller [[Special:UserLogin/signup|her]] for å registrera deg.',
 	'user-profile-update-saved' => 'Profilen din blei lagra',
 	'user-profile-update-log-section' => 'endra avsnitt',
 	'user-profile-update-profile' => 'profil',
@@ -7399,7 +7469,7 @@ $messages['no'] = array(
 	'user-recent-activity-network-update' => 'Har postet en tanke',
 	'user-recent-system-gift' => 'Mottok en pris',
 	'user-profile-update-notloggedin-title' => 'Kan ikke redigere brukerprofil uten å være logget inn',
-	'user-profile-update-notloggedin-text' => 'Du kan ikke redigere profilen din uten å være logget inn. Gå <a href="$1">hit</a> for å logge inn eller <a href="$2">hit</a> for å registrere deg.',
+	'user-profile-update-notloggedin-text' => 'Du kan ikke redigere profilen din uten å være logget inn. Gå [[Special:UserLogin|hit]] for å logge inn eller [[Special:UserLogin/signup|hit]] for å registrere deg.',
 	'user-profile-update-saved' => 'Profilen din har blitt lagret',
 	'user-profile-update-log-section' => 'endret seksjon',
 	'user-profile-update-profile' => 'profil',
@@ -7593,7 +7663,7 @@ $messages['oc'] = array(
 	'user-recent-activity-network-update' => 'A mandat una pensada',
 	'user-recent-system-gift' => 'A recebut una recompensa',
 	'user-profile-update-notloggedin-title' => 'Podètz modificar vòstre perfil sens vos èsser enregistrat dins una sesilha',
-	'user-profile-update-notloggedin-text' => 'Pòt pas editar vòstre perfil sens èsser en sesilha. Clicatz <a href="$1">aicí</a> per vos metre en sesilha o alara <a href="$2">lai</a> per vos enregistrar.',
+	'user-profile-update-notloggedin-text' => 'Pòt pas editar vòstre perfil sens èsser en sesilha. Clicatz [[Special:UserLogin|aicí]] per vos metre en sesilha o alara [[Special:UserLogin/signup|lai]] per vos enregistrar.',
 	'user-profile-update-saved' => 'Vòstre perfil es estat enregistrat',
 	'user-profile-update-log-section' => 'seccion cambiada',
 	'user-profile-update-profile' => 'perfil',
@@ -7851,7 +7921,7 @@ $messages['pl'] = array(
 	'user-recent-system-gift' => 'Otrzymał nagrodę',
 	'user-profile-update-notloggedin-title' => 'Żeby edytować profil, musisz się zalogować',
 	'user-profile-update-notloggedin-text' => 'Nie możesz edytować swojego profilu bez zalogowania.
-Kliknij <a href="$1">tutaj</a> aby się zalogować lub <a href="$2">tutaj</a> jeśli chcesz się zarejestrować.',
+Kliknij [[Special:UserLogin|tutaj]] aby się zalogować lub [[Special:UserLogin/signup|tutaj]] jeśli chcesz się zarejestrować.',
 	'user-profile-update-saved' => 'Zmiany zostały zapisane',
 	'user-profile-update-log-section' => 'zmieniono sekcję',
 	'user-profile-update-profile' => 'profil',
@@ -8036,7 +8106,7 @@ $messages['pms'] = array(
 	'user-recent-system-gift' => 'Arseivù un premi',
 	'user-profile-update-notloggedin-title' => 'A peul pa modifiché sò profil sensa esse intrà ant ël sistema',
 	'user-profile-update-notloggedin-text' => 'A peule pa modifiché sò profil sensa esse intrà ant ël sistema.
-Sgnaché <a href="$1">ambelessì</a> për intré ant ël sistema o sgnaché <a href="$2">ambelessì</a> për argistresse.',
+Sgnaché [[Special:UserLogin|ambelessì]] për intré ant ël sistema o sgnaché [[Special:UserLogin/signup|ambelessì]] për argistresse.',
 	'user-profile-update-saved' => "Tò profil a l'é stàit salvà.",
 	'user-profile-update-log-section' => 'session cangià',
 	'user-profile-update-profile' => 'profil',
@@ -8234,6 +8304,7 @@ $messages['ps'] = array(
  * @author Waldir
  */
 $messages['pt'] = array(
+	'editprofile' => 'Editar o perfil de outros utilizadores',
 	'populateuserprofiles' => 'Preencher perfis de utilizador',
 	'user-time-ago' => '$1 atrás',
 	'user-awards-title' => 'Prémios',
@@ -8309,8 +8380,9 @@ $messages['pt'] = array(
 	'user-recent-system-gift' => 'Recebeu um prémio',
 	'user-profile-update-notloggedin-title' => 'Não pode editar o seu perfil sem estar autenticado',
 	'user-profile-update-notloggedin-text' => 'Não pode editar o seu perfil sem estar autenticado.
-Clique <a href="$1">aqui</a> para se autenticar ou <a href="$2">aqui</a> para se registar.',
+Clique [[Special:UserLogin|aqui]] para se autenticar ou [[Special:UserLogin/signup|aqui]] para se registar.',
 	'user-profile-update-saved' => 'O seu perfil foi gravado',
+	'user-profile-edit-profile-update-saved' => 'O perfil do utilizador foi gravado',
 	'user-profile-update-log-section' => 'secção alterada',
 	'user-profile-update-profile' => 'perfil',
 	'user-profile-default-country' => 'Portugal',
@@ -8385,6 +8457,7 @@ Clique <a href="$1">aqui</a> para se autenticar ou <a href="$2">aqui</a> para se
 	'user-profile-userlevels-link' => 'Níveis de utilizador',
 	'user-no-images' => 'Nenhuma imagem carregada',
 	'edit-profile-title' => 'Edite o seu perfil',
+	'edit-profiles-title' => 'Editar perfis',
 	'user-page-link' => 'Página de utilizador',
 	'user-social-profile-link' => 'Perfil social',
 	'user-wiki-link' => 'Página wiki do utilizador',
@@ -8406,12 +8479,14 @@ Clique <a href="$1">aqui</a> para se autenticar ou <a href="$2">aqui</a> para se
 	'avatarupload-removeanother' => 'Remover outro',
 	'profilelogpage' => 'Registo de edição do perfil do utilizador',
 	'profilelogpagetext' => 'Este é um registo de edições de perfil de utilizador',
+	'user-profile-edit-profile' => 'editou o perfil de $1',
 	'avatarlogpage' => 'Registo de carregamento de avatares',
 	'avatarlogpagetext' => 'Este é um registo de carregamento de avatares de utilizador',
 	'user-profile-picture-log' => 'avatar',
 	'user-profile-picture-log-entry' => 'carregou avatar novo',
 	'user-profile-picture-log-delete-entry' => 'eliminou avatar de $1',
 	'right-avatarremove' => 'Remover avatares do utilizador',
+	'right-editothersprofiles' => 'Actualizar o perfil social de outros utilizadores',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -8498,7 +8573,7 @@ $messages['pt-br'] = array(
 	'user-recent-system-gift' => 'Recebeu um prêmio',
 	'user-profile-update-notloggedin-title' => 'Não é possível editar seu perfil sem estar autenticado',
 	'user-profile-update-notloggedin-text' => 'Não é possível editar seu perfil sem estar autenticado.
-Clique <a href="$1">aqui</a> para se autenticar ou clique <a href="$2">aqui</a> para se registrar.',
+Clique [[Special:UserLogin|aqui]] para se autenticar ou clique [[Special:UserLogin/signup|aqui]] para se registrar.',
 	'user-profile-update-saved' => 'O seu Perfil foi Salvo',
 	'user-profile-update-log-section' => 'seção alterada',
 	'user-profile-update-profile' => 'perfil',
@@ -8919,7 +8994,7 @@ $messages['ru'] = array(
 	'user-recent-activity-network-update' => 'отправил мысль',
 	'user-recent-system-gift' => 'получил награду',
 	'user-profile-update-notloggedin-title' => 'Невозможно редактировать свой профиль, не представившись системе',
-	'user-profile-update-notloggedin-text' => 'Вы не можете редактировать свой профиль, не представившись системе. Нажмите <a href="$1">здесь</a>, чтобы представиться, или <a href="$2">здесь</a>, чтобы зарегистрироваться.',
+	'user-profile-update-notloggedin-text' => 'Вы не можете редактировать свой профиль, не представившись системе. Нажмите [[Special:UserLogin|здесь]], чтобы представиться, или [[Special:UserLogin/signup|здесь]], чтобы зарегистрироваться.',
 	'user-profile-update-saved' => 'Ваш профиль сохранён',
 	'user-profile-update-log-section' => 'изменил раздел',
 	'user-profile-update-profile' => 'профиль',
@@ -9076,7 +9151,7 @@ $messages['rue'] = array(
 	'user-recent-system-gift' => 'Дістав оцінїня',
 	'user-profile-update-notloggedin-title' => 'Не можете едітовати ваш профіл без того, жебы сьте ся приголосів',
 	'user-profile-update-notloggedin-text' => 'Не можете едітовати ваш профіл без того, жебы сьте быв приголошеный.
-Кликните <a href="$1">гев</a> про приголошіня або кликните <a href="$2">гев</a> про реґістрованя.',
+Кликните [[Special:UserLogin|гев]] про приголошіня або кликните [[Special:UserLogin/signup|гев]] про реґістрованя.',
 	'user-profile-update-saved' => 'Ваш профіл быв уложеный',
 	'user-profile-update-log-section' => 'змінив секцію',
 	'user-profile-update-profile' => 'профіл',
@@ -9199,7 +9274,7 @@ $messages['sk'] = array(
 	'user-recent-activity-network-update' => 'Poslal myšlienku',
 	'user-recent-system-gift' => 'Dostal ocenenie',
 	'user-profile-update-notloggedin-title' => 'Nemôžete upravovať svoj profil bez toho, aby ste sa prihlásili',
-	'user-profile-update-notloggedin-text' => 'Nemôžete upravovať svoj profil bez toho, aby ste sa prihlásili. Môžete sa <a href="$1">prihlásiť</a> alebo <a href="$2">zaregistrovať</a>.',
+	'user-profile-update-notloggedin-text' => 'Nemôžete upravovať svoj profil bez toho, aby ste sa prihlásili. Môžete sa [[Special:UserLogin|prihlásiť]] alebo [[Special:UserLogin/signup|zaregistrovať]].',
 	'user-profile-update-saved' => 'Váš profil bol uložený',
 	'user-profile-update-log-section' => 'zmenil sekciu',
 	'user-profile-update-profile' => 'profil',
@@ -9318,6 +9393,8 @@ $messages['sl'] = array(
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
+	'editprofile' => 'уређивање профила других корисника',
+	'user-time-ago' => 'пре $1',
 	'user-awards-title' => 'Награде',
 	'user-gifts-title' => 'Поклони',
 	'user-count-separator' => '$1 од $2',
@@ -9340,7 +9417,7 @@ $messages['sr-ec'] = array(
 	'user-stats-votes' => '{{PLURAL:$1|Глас|Гласова}}',
 	'user-stats-comments' => '{{PLURAL:$1|Коментар|Коментара}}',
 	'user-stats-recruits' => '{{PLURAL:$1|Регрут|Регрута}}',
-	'other-info-title' => 'Друге информације',
+	'other-info-title' => 'Други подаци',
 	'user-friends-title' => 'Пријатељи',
 	'user-foes-title' => 'Непријатељи',
 	'other-info-movies' => 'Филмови',
@@ -9351,7 +9428,9 @@ $messages['sr-ec'] = array(
 	'other-info-magazines' => 'Магазини',
 	'other-info-snacks' => 'Грицкалице',
 	'other-info-drinks' => 'Пића',
-	'other-no-info' => 'Нема других информација',
+	'other-no-info' => 'Нема других података',
+	'custom-info-title' => 'Прилагођени подаци',
+	'custom-no-info' => 'Нема прилагођених података',
 	'profile-updated-personal' => 'Ажурирајте Ваш профил',
 	'populate-user-profile-done' => '{{PLURAL:$1|Додат $1 профил|Додато $1 профила}}',
 	'user-personal-info-title' => 'Лични подаци',
@@ -9361,8 +9440,8 @@ $messages['sr-ec'] = array(
 	'user-personal-info-hometown' => 'Место са сталним пребивалиштем',
 	'user-personal-info-birthday' => 'Рођендан',
 	'user-personal-info-occupation' => 'Занимање',
-	'user-personal-info-websites' => 'Вебсајтови',
-	'user-personal-info-places-lived' => 'Места у којима сам живео/ла',
+	'user-personal-info-websites' => 'Веб сајтови',
+	'user-personal-info-places-lived' => 'Бивша пребивалишта',
 	'user-personal-info-schools' => 'Школе',
 	'user-personal-info-about-me' => 'О мени',
 	'user-recent-activity-title' => 'Скорашња активност',
@@ -9377,23 +9456,25 @@ $messages['sr-ec'] = array(
 	'user-recent-activity-network-update' => 'Написао је мисао',
 	'user-recent-system-gift' => 'Примио је награду',
 	'user-profile-update-notloggedin-title' => 'Не можете мењати свој профил пре него што се улогујете',
-	'user-profile-update-notloggedin-text' => 'Не можете мењати свој профил пре него што се улогујете.
-Кликните <a href="$1">овде</a> да се улогујете или кликните <a href="$2">here</a> да се региструјете.',
+	'user-profile-update-notloggedin-text' => 'Морате бити пријављени да бисте уређивали профил.
+Кликните [[Special:UserLogin|овде]] да се пријавите или [[Special:UserLogin/signup|овде]] да отворите налог.',
 	'user-profile-update-saved' => 'Ваш профил је обновљен',
+	'user-profile-edit-profile-update-saved' => 'Профил корисника је сачуван',
 	'user-profile-update-log-section' => 'промењен избор',
 	'user-profile-update-profile' => 'профил',
 	'user-profile-default-country' => 'Сједињене америчке државе',
 	'user-profile-points' => '$1 {{PLURAL:$1|бод|бода|бодова}}',
 	'user-profile-section-personal' => 'Лични подаци',
 	'user-profile-section-sportsteams' => 'Ажурирај мреже',
+	'user-profile-section-custom' => 'Прилагођени подаци',
 	'user-profile-section-interests' => 'Интереси',
 	'user-profile-section-picture' => 'Корисничка сличица',
 	'user-profile-section-preferences' => 'Поставке',
 	'user-profile-personal-info' => 'Лични подаци',
 	'user-profile-personal-name' => 'Име',
 	'user-profile-personal-email' => 'Е-пошта',
-	'user-profile-personal-email-needs-auth' => '(ваш имејл мора бити потврђен, да бисте примали обавештења од сајта)',
-	'user-profile-personal-confirmemail' => 'Потврди имејл',
+	'user-profile-personal-email-needs-auth' => '(ваша е-адреса мора бити потврђена да бисте примали обавештења са сајта)',
+	'user-profile-personal-confirmemail' => 'Потврди е-пошту',
 	'user-profile-personal-location' => 'Локација',
 	'user-profile-personal-city' => 'Град',
 	'user-profile-personal-country' => 'Земља',
@@ -9406,9 +9487,9 @@ $messages['sr-ec'] = array(
 	'user-profile-personal-education' => 'Образовање',
 	'user-profile-personal-schools' => 'Школе',
 	'user-profile-personal-places' => 'Места',
-	'user-profile-personal-placeslived' => 'Места на којима сам живео/ла',
+	'user-profile-personal-placeslived' => 'Бивша пребивалишта',
 	'user-profile-personal-web' => 'Веб',
-	'user-profile-personal-websites' => 'Вебсајтови',
+	'user-profile-personal-websites' => 'Веб сајтови',
 	'user-profile-interests-entertainment' => 'Разонода',
 	'user-profile-interests-movies' => 'Филмови',
 	'user-profile-interests-tv' => 'ТВ',
@@ -9417,7 +9498,7 @@ $messages['sr-ec'] = array(
 	'user-profile-interests-magazines' => 'Магазини',
 	'user-profile-interests-videogames' => 'Видео игре',
 	'user-profile-interests-eats' => 'Храна',
-	'user-profile-interests-foodsnacks' => 'Храна & грицкалице',
+	'user-profile-interests-foodsnacks' => 'Храна и грицкалице',
 	'user-profile-interests-drinks' => 'Пића',
 	'user-profile-preferences-emails' => 'Обавештења путем е-поште',
 	'user-profile-preferences-emails-personalmessage' => 'По приспећу приватне поруке',
@@ -9439,33 +9520,38 @@ $messages['sr-ec'] = array(
 	'user-profile-picture-yourpicture' => 'Ваша слика',
 	'user-profile-picture-yourpicturestext' => 'Испод су слике које ће се појавити на Вашем профилу, мрежним странама и коментарима.',
 	'user-profile-picture-large' => 'Велика',
-	'user-profile-picture-medlarge' => 'Средње - Велико',
+	'user-profile-picture-medlarge' => 'Средње – велико',
 	'user-profile-picture-medium' => 'Средња',
 	'user-profile-picture-small' => 'Мала',
 	'user-profile-picture-uploaddifferent' => 'Пошаљите другу слику',
 	'user-profile-picture-currentimage' => 'Тренутна слика',
 	'user-profile-picture-choosepicture' => 'Изаберите Вашу слику',
 	'user-profile-picture-picsize' => 'Ваша слика мора бити jpeg, png или gif и величине мање од 100kB.',
-	'user-profile-goback' => 'Вратите се',
+	'user-profile-goback' => 'Назад',
 	'user-profile-userlevels-link' => 'Кориснички нивои',
 	'user-no-images' => 'Нема послатих слика',
-	'edit-profile-title' => 'Измените Ваш профил',
+	'edit-profile-title' => 'Уређивање свог профила',
+	'edit-profiles-title' => 'Уређивање профила',
 	'user-page-link' => 'Корисничка страна',
+	'user-social-profile-link' => 'Друштвени профил',
+	'user-wiki-link' => 'Корисничка страница',
 	'removeavatar' => 'Уклони сличицу',
-	'givegift' => 'Дајте поклон',
-	'viewgifts' => 'Прегледајте поклоне',
-	'viewsystemgifts' => 'Погледајте награде',
+	'givegift' => 'Пошаљи поклон',
+	'viewgifts' => 'Погледај поклоне',
+	'viewsystemgifts' => 'Погледај награде',
 	'avatarupload-removeavatar' => 'Уклони сличицу',
 	'avatarupload-currentavatar' => 'Тренутни аватар од $1',
 	'avatarupload-removeanother' => 'Обриши други',
 	'profilelogpage' => 'Историја мењања профила',
 	'profilelogpagetext' => 'Ово је историја мењања профила',
-	'avatarlogpage' => 'Историја слања аватара',
+	'user-profile-edit-profile' => '{{GENDER:|је уредио|је уредила|је уредио}} профил {{GENDER:$1|корисника|кориснице|члана}} $1',
+	'avatarlogpage' => 'Историја слања корисничких сличица',
 	'avatarlogpagetext' => 'Ово је историја слања корисничких аватара',
 	'user-profile-picture-log' => 'корисничка сличица',
-	'user-profile-picture-log-entry' => '{{GENDER:|је послао|је послала|посла}} нову сличицу',
-	'user-profile-picture-log-delete-entry' => 'обрисан аватар од $1',
-	'right-avatarremove' => 'Брисање корисничких сличица',
+	'user-profile-picture-log-entry' => '{{GENDER:|је послао|је послала|је послао}} нову сличицу',
+	'user-profile-picture-log-delete-entry' => '{{GENDER:|је обрисао|је обрисала|је обрисао}} сличицу {{GENDER:$1|корисника|кориснице|члана}} $1',
+	'right-avatarremove' => 'брисање корисничких сличица',
+	'right-editothersprofiles' => 'ажурирање друштвених профила других корисника',
 );
 
 /** Serbian Latin ekavian (‪Srpski (latinica)‬)
@@ -9534,7 +9620,7 @@ $messages['sr-el'] = array(
 	'user-recent-system-gift' => 'Primio je nagradu',
 	'user-profile-update-notloggedin-title' => 'Ne možete menjati svoj profil pre nego što se ulogujete',
 	'user-profile-update-notloggedin-text' => 'Ne možete menjati svoj profil pre nego što se ulogujete.
-Kliknite <a href="$1">ovde</a> da se ulogujete ili kliknite <a href="$2">here</a> da se registrujete.',
+Kliknite [[Special:UserLogin|ovde]] da se ulogujete ili kliknite [[Special:UserLogin/signup|here]] da se registrujete.',
 	'user-profile-update-saved' => 'Vaš profil je obnovljen',
 	'user-profile-update-log-section' => 'promenjen izbor',
 	'user-profile-update-profile' => 'profil',
@@ -9715,7 +9801,7 @@ $messages['sv'] = array(
 	'user-recent-system-gift' => 'Mottog ett pris',
 	'user-profile-update-notloggedin-title' => 'Kan inte redigera din användarprofil utan att vara inloggad',
 	'user-profile-update-notloggedin-text' => 'Du kan inte redigera din profil utan att vara inloggad.
-Klicka <a href="$1">här</a> för att logga in eller klicka <a href="$2">här</a> för att registrera dig.',
+Klicka [[Special:UserLogin|här]] för att logga in eller klicka [[Special:UserLogin/signup|här]] för att registrera dig.',
 	'user-profile-update-saved' => 'Din profil har sparats',
 	'user-profile-update-log-section' => 'ändrade avsnitt',
 	'user-profile-update-profile' => 'profil',
@@ -10319,7 +10405,7 @@ $messages['th'] = array(
 	'user-recent-system-gift' => 'ได้รับรางวัล',
 	'user-profile-update-notloggedin-title' => 'ไม่สามารถแก้ไขโปรไฟล์ของคุณได้ก่อนที่จะลงชื่อเข้าใช้',
 	'user-profile-update-notloggedin-text' => 'ไม่สามารถแก้ไขโปรไฟล์ของคุณได้ก่อนที่จะลงชื่อเข้าใช้
-<br />คลิก<a href="$1">ที่นี่</a>เพื่อลงชื่อเข้าใช้ หรือคลิก<a href="$2">ที่นี่</a>เพื่อลงทะเบียน',
+<br />คลิก[[Special:UserLogin|ที่นี่]]เพื่อลงชื่อเข้าใช้ หรือคลิก[[Special:UserLogin/signup|ที่นี่]]เพื่อลงทะเบียน',
 	'user-profile-update-saved' => 'โปรไฟล์ของคุณได้ถูกบันทึกแล้ว',
 	'user-profile-update-log-section' => 'ส่วนที่เปลี่ยนไป',
 	'user-profile-update-profile' => 'โปรไฟล์',
@@ -10510,7 +10596,7 @@ $messages['tl'] = array(
 	'user-recent-system-gift' => 'Nakatanggap ng isang gantimpala',
 	'user-profile-update-notloggedin-title' => 'Hindi mo mababago ang iyong talaang pangkatangian kung hindi ka pa nakalagda',
 	'user-profile-update-notloggedin-text' => 'Hindi mo mababago ang iyong talaang pangkatangian kung hindi ka pa nakalagda.
-Pindutin <a href="$1">dito</a> para lumagda o pindutin <a href="$2">dito</a> upang makapagpatala/magparehistro.',
+Pindutin [[Special:UserLogin|dito]] para lumagda o pindutin [[Special:UserLogin/signup|dito]] upang makapagpatala/magparehistro.',
 	'user-profile-update-saved' => 'Nasagip na ang iyong talaang pangkatangian',
 	'user-profile-update-log-section' => 'binago/nabago ang seksyon',
 	'user-profile-update-profile' => 'talaang pangkatangian',
@@ -10697,7 +10783,7 @@ $messages['tr'] = array(
 	'user-recent-system-gift' => 'Bir ödül aldı',
 	'user-profile-update-notloggedin-title' => 'Oturum açmadan profilinizde değişiklik yapamazsınız',
 	'user-profile-update-notloggedin-text' => 'Oturum açmadan profilinizde değişiklik yapamazsınız.
-Oturum açmak için <a href="$1">buraya</a>, kaydolmak için ise <a href="$2">buraya</a> tıklayın.',
+Oturum açmak için [[Special:UserLogin|buraya]], kaydolmak için ise [[Special:UserLogin/signup|buraya]] tıklayın.',
 	'user-profile-update-saved' => 'Profiliniz kaydedildi',
 	'user-profile-update-log-section' => 'bölüm değiştirildi',
 	'user-profile-update-profile' => 'profil',

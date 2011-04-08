@@ -848,7 +848,7 @@ $messages['ksh'] = array(
 	'mp-welcome-logged-in' => 'Daach $1,',
 	'mp-requests-title' => 'Wönsch und Aanfroore',
 	'mp-requests-message' => 'Do häß hee di Wönsch und Aanfroore:',
-	'mp-request-new-message' => 'Neu Nohresch',
+	'mp-request-new-message' => 'Neu Nohreesch',
 	'mp-request-new-award' => '{{PLURAL:$1|Ein neu Beloonung|$1 neu Beloonunge|Kein neu Beloonunge!}}',
 	'mp-request-new-gift' => '{{PLURAL:$1|Ein neu Jeschengk|$1 neu Jeschengke|Kein neu Jeschengke!}}',
 	'mp-request-new-foe' => '{{PLURAL:$1|Eine neue Feind|$1 neu Feinde|Kein neu Feinde!}}',
@@ -904,6 +904,13 @@ $messages['mk'] = array(
 	'mp-request-new-friend' => '$1 {{PLURAL:$1|нов пријател|нови пријатели}}',
 );
 
+/** Mazanderani (مازِرونی)
+ * @author محک
+ */
+$messages['mzn'] = array(
+	'mp-welcome-upload' => 'باربی‌یشتن',
+);
+
 /** Nahuatl (Nāhuatl)
  * @author Fluence
  */
@@ -931,6 +938,13 @@ $messages['nds-nl'] = array(
 	'mp-request-new-gift' => "{{PLURAL:$1|1 niej kedo|$1 nieje kedo's}}",
 	'mp-request-new-foe' => '{{PLURAL:$1|1 nieje viejanen|$1 nieje viejanen}}',
 	'mp-request-new-friend' => '{{PLURAL:$1|1 nieje vriend|$1 nieje vrienden}}',
+);
+
+/** Nepali (नेपाली)
+ * @author Bhawani Gautam Rhk
+ */
+$messages['ne'] = array(
+	'mp-request-new-message' => 'नयाँ सन्देश',
 );
 
 /** Dutch (Nederlands)
@@ -1276,7 +1290,7 @@ $messages['sr-ec'] = array(
 	'mp-userlevels-link' => 'Кориснички нивои',
 	'mp-welcome-upload' => 'Слање',
 	'mp-welcome-edit' => 'Уреди',
-	'mp-welcome-points' => '$1 {{PLURAL:$1|поен|поена}}',
+	'mp-welcome-points' => '$1 {{PLURAL:$1|бод|бода|бодова}}',
 	'mp-welcome-logged-in' => 'Здраво, $1',
 	'mp-requests-title' => 'Захтеви',
 	'mp-request-new-message' => 'нова порука',
@@ -1552,6 +1566,8 @@ $messages['wo'] = array(
 $messages['yi'] = array(
 	'mp-welcome-upload' => 'אַרויפֿלאָדן',
 	'mp-welcome-edit' => 'רעדאַקטירן',
+	'mp-request-new-message' => 'נײַע מעלדונג',
+	'mp-request-new-friend' => '$1 {{PLURAL:$1|נײַער|נײַע}} פֿרײַנד',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)

@@ -2592,6 +2592,7 @@ $5
 );
 
 /** Khmer (ភាសាខ្មែរ)
+ * @author គីមស៊្រុន
  * @author វ័ណថារិទ្ធ
  */
 $messages['km'] = array(
@@ -2621,6 +2622,7 @@ $messages['km'] = array(
 	'g-list-title' => 'បញ្ជី​អំណោយ​​របស់ $1',
 	'g-main-page' => 'ទំព័រ​ដើម​',
 	'g-medium' => 'មធ្យម​',
+	'g-mediumlarge' => 'ធំគួរសម',
 	'g-new' => 'ថ្មី​',
 	'g-next' => 'បន្ទាប់​',
 	'g-previous' => 'មុន​',
@@ -2639,6 +2641,7 @@ $messages['kn'] = array(
 	'g-cancel' => 'ರದ್ದು ಮಾಡು',
 	'g-main-page' => 'ಮುಖ್ಯ ಪುಟ',
 	'g-new' => 'ಹೊಸ',
+	'g-next' => 'ಮುಂದಿನ',
 );
 
 /** Colognian (Ripoarisch)
@@ -2656,7 +2659,7 @@ $messages['ksh'] = array(
 	'giftmanager-public' => 'öffentlesh',
 	'giftmanager-private' => 'privaat',
 	'giftmanager-view' => 'Less met Jeschengke beloore',
-	'g-add-message' => 'En Nohresch dobei donn',
+	'g-add-message' => 'En Nohreesch dobei donn',
 	'g-back-edit-gift' => 'Jangk retuur noh em Ändere för dat Jeschenk',
 	'g-back-gift-list' => 'Jangk retuur op de Leß met de Jeschenke',
 	'g-back-link' => '< Retuur noh dem $1 sing Sigg',
@@ -2970,6 +2973,13 @@ $4
  */
 $messages['mn'] = array(
 	'g-main-page' => 'Нүүр хуудас',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'g-choose-file' => 'Pilih fail:',
 );
 
 /** Dutch (Nederlands)
@@ -4331,7 +4341,7 @@ $messages['sr-ec'] = array(
 	'g-list-title' => 'списак поклона од $1',
 	'g-main-page' => 'Главна страна',
 	'g-medium' => 'Средње',
-	'g-mediumlarge' => 'Средње-велико',
+	'g-mediumlarge' => 'Средње – велико',
 	'g-new' => 'ново',
 	'g-next' => 'Следеће',
 	'g-previous' => 'Претходно',
@@ -4356,6 +4366,7 @@ $messages['sr-ec'] = array(
 
 /** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
+ * @author Rancher
  */
 $messages['sr-el'] = array(
 	'giftmanager' => 'Menadžer za poklone',
@@ -4374,7 +4385,7 @@ $messages['sr-el'] = array(
 	'g-back-gift-list' => 'Povratak na spisak poklona',
 	'g-back-link' => '< Povratak na stranu $1',
 	'g-choose-file' => 'Izaberite fajl:',
-	'g-cancel' => 'Poništi',
+	'g-cancel' => 'Otkaži',
 	'g-count' => '$1 ima $2 {{PLURAL:$2|poklon|poklona}}.',
 	'g-create-gift' => 'Napravite poklon',
 	'g-created-by' => 'napravio/la',
@@ -4541,7 +4552,7 @@ $messages['te'] = array(
 	'g-give-separator' => 'లేదా',
 	'g-give-no-user-title' => 'మీరు ఎవరికి బహుమతిని ఇవ్వాలనుకుంటున్నారు?',
 	'g-go-back' => 'వెనక్కి వెళ్ళు',
-	'g-main-page' => 'మొదటి పేజీ',
+	'g-main-page' => 'మొదటి పుట',
 	'g-medium' => 'మధ్యస్థం',
 	'g-new' => 'కొత్త',
 	'g-next' => 'తర్వాతి',
@@ -4951,6 +4962,7 @@ $messages['yi'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Hydra
  * @author Liangent
  * @author PhiLiP
  */
@@ -4964,6 +4976,7 @@ $messages['zh-hans'] = array(
 	'g-back-gift-list' => '回到礼物清单',
 	'g-choose-file' => '选择档案：',
 	'g-cancel' => '取消',
+	'g-create-gift' => '创造礼物',
 	'g-error-message-to-yourself' => '您不能送礼物给自己。',
 	'g-gift' => '礼物',
 	'g-gift-name' => '送礼物',

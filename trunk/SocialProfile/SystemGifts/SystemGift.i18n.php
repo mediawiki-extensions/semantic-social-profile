@@ -1697,6 +1697,7 @@ $5
 );
 
 /** Khmer (ភាសាខ្មែរ)
+ * @author គីមស៊្រុន
  * @author វ័ណថារិទ្ធ
  */
 $messages['km'] = array(
@@ -1708,6 +1709,7 @@ $messages['km'] = array(
 	'ga-gift' => 'អំណោយ​',
 	'ga-large' => 'ធំ​',
 	'ga-medium' => 'មធ្យម​',
+	'ga-mediumlarge' => 'ធំគួរសម',
 	'ga-new' => 'ថ្មី​',
 	'ga-next' => 'បន្ទាប់​',
 	'ga-previous' => 'មុន​',
@@ -1896,6 +1898,13 @@ $4
 Кликнете на $5
 и изменете си ги нагодувањата за да оневозможите известувања по е-пошта.',
 	'right-awardsmanage' => 'Создавање на нови и уредување на постоечки награди',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'ga-choosefile' => 'Pilih fail:',
 );
 
 /** Dutch (Nederlands)
@@ -2679,6 +2688,7 @@ $messages['sl'] = array(
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+ * @author Rancher
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
@@ -2706,7 +2716,7 @@ $messages['sr-ec'] = array(
 	'ga-img' => 'додај/замени слику',
 	'ga-large' => 'Велико',
 	'ga-medium' => 'Средње',
-	'ga-mediumlarge' => 'Средње-велико',
+	'ga-mediumlarge' => 'Средње – велико',
 	'ga-new' => 'Ново',
 	'ga-next' => 'Следеће',
 	'ga-previous' => 'Претходно',
@@ -3021,10 +3031,14 @@ $messages['yi'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Hydra
  * @author Liangent
  * @author PhiLiP
  */
 $messages['zh-hans'] = array(
+	'ga-choosefile' => '选择文件',
+	'ga-create-gift' => '创造礼物',
+	'ga-gift' => '礼物',
 	'ga-giftdesc' => '礼物说明',
 	'ga-giftimage' => '礼物图片',
 	'ga-giftname' => '礼物名称',

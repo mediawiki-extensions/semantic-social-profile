@@ -30,11 +30,11 @@ class SystemGifts {
 	 * @private
 	 */
 	/* private */ function __construct() {
-
 	}
 
 	/**
-	 * Adds awards for all registered users
+	 * Adds awards for all registered users, updates statistics and purges
+	 * caches.
 	 * Special:PopulateAwards calls this function
 	 */
 	public function update_system_gifts() {
@@ -58,7 +58,11 @@ class SystemGifts {
 				$res2 = $dbw->select(
 					'user_stats',
 					array( 'stats_user_id', 'stats_user_name' ),
-					array( $stats->stats_fields[$this->categories[$row->gift_category]] . " >= {$row->gift_threshold}", 'stats_user_id<>0' ),
+					array(
+						$stats->stats_fields[$this->categories[$row->gift_category]] .
+							" >= {$row->gift_threshold}",
+						'stats_user_id <> 0'
+					),
 					__METHOD__
 				);
 
@@ -88,6 +92,15 @@ class SystemGifts {
 		$wgOut->addHTML( "{$x} awards were given out" );
 	}
 
+	/**
+	 * Checks if the given user has then given award (system gift) via their ID
+	 * numbers.
+	 *
+	 * @param $user_id Integer: user ID number
+	 * @param $gift_id Integer: award (system gift) ID number
+	 * @return Boolean|Integer: false if the user doesn't have the specified
+	 *                          gift, else the gift's ID number
+	 */
 	public function doesUserHaveGift( $user_id, $gift_id ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$s = $dbr->selectRow(
@@ -104,11 +117,13 @@ class SystemGifts {
 	}
 
 	/**
-	 * Adds a new system gift to the database
+	 * Adds a new system gift to the database.
+	 *
 	 * @param $name Mixed: gift name
 	 * @param $description Mixed: gift description
-	 * @param $category
-	 * @param $threshold
+	 * @param $category Integer: see the $categories class member variable
+	 * @param $threshold Integer: threshold number (i.e. 50 or 100 or whatever)
+	 * @return Integer: the inserted gift's ID number
 	 */
 	public function addGift( $name, $description, $category, $threshold ) {
 		$dbw = wfGetDB( DB_MASTER );
@@ -127,7 +142,8 @@ class SystemGifts {
 	}
 
 	/**
-	 * Updates data for a system gift
+	 * Updates the data for a system gift.
+	 *
 	 * @param $id Integer: system gift unique ID number
 	 * @param $name Mixed: gift name
 	 * @param $description Mixed: gift description
@@ -151,11 +167,16 @@ class SystemGifts {
 
 	public function doesGiftExistForThreshold( $category, $threshold ) {
 		$dbr = wfGetDB( DB_SLAVE );
+		wfSuppressWarnings();
+		// Can cause notices like "Notice: Undefined index: user_image" after
+		// a user has uploaded their (first) avatar
+		$awardCategory = $this->categories[$category];
+		wfRestoreWarnings();
 		$s = $dbr->selectRow(
 			'system_gift',
 			array( 'gift_id' ),
 			array(
-				'gift_category' => $this->categories[$category],
+				'gift_category' => $awardCategory,
 				'gift_threshold' => $threshold
 			),
 			__METHOD__
@@ -170,6 +191,8 @@ class SystemGifts {
 	/**
 	 * Fetches the system gift with the ID $id from the database
 	 * @param $id Integer: ID number of the system gift to be fetched
+	 * @return Array: array of gift information, including, but not limited to,
+	 *                the gift ID, its name, description, category, threshold
 	 */
 	static function getGift( $id ) {
 		$dbr = wfGetDB( DB_SLAVE );
@@ -195,9 +218,12 @@ class SystemGifts {
 	}
 
 	/**
-	 * Gets the associated image for a system gift
+	 * Gets the associated image for a system gift.
+	 *
 	 * @param $id Integer: system gift ID number
 	 * @param $size String: image size (s, m, ml or l)
+	 * @return String: gift image filename (following the format
+	 *                 sg_ID_SIZE.ext; for example, sg_1_l.jpg)
 	 */
 	static function getGiftImage( $id, $size ) {
 		global $wgUploadDirectory;
@@ -208,17 +234,25 @@ class SystemGifts {
 		} else {
 			$img = 'default_' . $size . '.gif';
 		}
+
 		return $img . '?r=' . rand();
 	}
 
+	/**
+	 * Get the list of all existing system gifts (awards).
+	 *
+	 * @param $limit Integer: LIMIT for the SQL query, 0 by default
+	 * @param $page Integer: used to determine OFFSET for the SQL query;
+	 *                       0 by default
+	 * @return Array: array containing gift info, including (but not limited
+	 *                to) gift ID, creation timestamp, name, description, etc.
+	 */
 	static function getGiftList( $limit = 0, $page = 0 ) {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$limitvalue = 0;
-		if ( $limit > 0 ) {
-			if ( $page ) {
-				$limitvalue = $page * $limit - ( $limit );
-			}
+		if ( $limit > 0 && $page ) {
+			$limitvalue = $page * $limit - ( $limit );
 		}
 
 		$res = $dbr->select(
@@ -248,12 +282,14 @@ class SystemGifts {
 				'gift_given_count' => $row->gift_given_count
 			);
 		}
+
 		return $gifts;
 	}
 
 	/**
 	 * Gets the amount of available system gifts from the database.
-	 * @return integer
+	 *
+	 * @return Integer: the amount of all system gifts on the database
 	 */
 	static function getGiftCount() {
 		$dbr = wfGetDB( DB_SLAVE );
@@ -261,6 +297,7 @@ class SystemGifts {
 		$s = $dbr->selectRow(
 			'system_gift',
 			array( 'COUNT(*) AS count' ),
+			array(),
 			__METHOD__
 		);
 		if ( $s !== false ) {

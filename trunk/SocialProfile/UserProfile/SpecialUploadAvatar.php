@@ -55,7 +55,7 @@ class SpecialUploadAvatar extends SpecialUpload {
 			$wgOut->redirect( '' );
 
 			$this->showSuccess( $this->mUpload->mExtension );
-			//this adds hook on avatar change
+			//this runs hook on avatar change
 			$this->avatarUploadHook();
 			//end of hook
 		}
@@ -233,7 +233,8 @@ class SpecialUploadAvatar extends SpecialUpload {
 		}
 	}
 	/*
-	 * runs a hook if the avatar was uploaded 
+	 * This function runs the NewAvatarUploaded hook
+	 * and sends data if the avatar was uploaded 
 	 */
 	private function avatarUploadHook(){
 		global $wgUser, $wgUploadPath, $wgServer;
