@@ -198,8 +198,8 @@ class SSPUser{
 					."    |SSP avatar=$this->Avatar\n"
 					."    |SSP Friends=$this->Friends\n"
 					." }}";
-			if(preg_match("/^(.*)(?:\s*{{Semantic\sSocial\sProfile).*(?:}}\s*)(.*)$/isU", $this->UserPage->getRawText(), $mtch))
-				$this->UserPage->doEdit($mtch[1]."\n $info \n".$mtch[2], $this->summary );
+			if(preg_match("/^(.*)(?:\s*{{Semantic\sSocial\sProfile).*(?:}})\s*(.*)$/isU", $this->UserPage->getRawText(), $mtch))
+				$this->UserPage->doEdit($mtch[1]."\n $info ".$mtch[2], $this->summary );
 			else
 				$this->UserPage->doEdit($info, $this->summary );
 		}

@@ -9,13 +9,13 @@
 $messages = array();
 
 /** English
- * @author Wikia, Inc.
+ * @author Aaron Wright
+ * @author David Pean
  * @author Purodha
  */
 $messages['en'] = array(
 	'boardblastlogintitle' => 'You must be logged in to send board blasts',
-	'boardblastlogintext' => 'In order to send board blasts,
-you must be <a href="index.php?title=Special:UserLogin">logged in</a>.',
+	'boardblastlogintext' => 'In order to send board blasts, you must be [[Special:UserLogin|logged in]].',
 	'messagesenttitle' => 'Messages sent',
 	'boardblasttitle' => 'Send board blast',
 	'boardblaststep1' => 'Step 1 - Write your message',
@@ -290,7 +290,7 @@ $3
  */
 $messages['be-tarask'] = array(
 	'boardblastlogintitle' => 'Вам неабходна ўвайсьці ў сыстэму, каб дасылаць паведамленьні на агульную дошку',
-	'boardblastlogintext' => 'Вам неабходна <a href="index.php?title=Special:UserLogin">ўвайсьці ў сыстэму</a>, каб дасылаць паведамленьні на агульную дошку.',
+	'boardblastlogintext' => 'Вам неабходна [[Special:UserLogin|ўвайсьці ў сыстэму]], каб дасылаць паведамленьні на агульную дошку.',
 	'messagesenttitle' => 'Паведамленьні дасланыя',
 	'boardblasttitle' => 'Адпраўка паведамленьня на дошку',
 	'boardblaststep1' => 'Крок 1: Напішыце Вашае паведамленьне',
@@ -423,8 +423,7 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'boardblastlogintitle' => "Ret eo deoc'h bezañ kevreet evit kas un darzhadenn daolenn",
-	'boardblastlogintext' => 'Evit kas tarzhadennoù taolenn
-e rankit bezañ <a href="index.php?title=Special:UserLogin">kevreet</a>.',
+	'boardblastlogintext' => 'Evit kas tarzhadennoù taolenn e rankit bezañ [[Special:UserLogin|kevreet]].',
 	'messagesenttitle' => 'Kemennadennoù kaset',
 	'boardblasttitle' => 'Kas un darzhadenn daolenn',
 	'boardblaststep1' => 'Pazenn 1 - Skrivit ho kemennadenn',
@@ -489,22 +488,33 @@ ha cheñchit hoc'h arventennoù evit diweredekaat ar c'hemenn dre bostel.",
  * @author CERminator
  */
 $messages['bs'] = array(
+	'boardblastlogintitle' => 'Morate biti prijavljeni da biste mogli slati izjave na tabli',
+	'boardblastlogintext' => 'Da biste poslali izjavu na tablu, morate biti [[Special:UserLogin|prijavljeni]].',
 	'messagesenttitle' => 'Poruke poslane',
+	'boardblasttitle' => 'Pošalji izjavu na tablu',
 	'boardblaststep1' => 'Korak 1 - Napišite Vašu poruku',
 	'boardblastprivatenote' => 'Sve poruke će biti poslane kao privatne poruke',
 	'boardblaststep2' => 'Korak 2 - Odaberite kome želite poslati Vašu poruku',
 	'boardlinkselectall' => 'Označi sve',
 	'boardlinkunselectall' => 'Ukloni sav odabir',
 	'boardlinkselectfriends' => 'Odaberi prijatelje',
+	'boardlinkunselectfriends' => 'Deselektiraj prijatelje',
 	'boardlinkselectfoes' => 'Odaberi neprijatelje',
 	'boardlinkunselectfoes' => 'Deselektiraj neprijatelje',
+	'boardsendbutton' => 'Pošalji izjavu na tablu',
 	'boardnofriends' => 'Nemate prijatelja za slanje poruka!',
 	'messagesentsuccess' => 'Vaša poruka je uspješno poslana',
 	'userboard' => 'Korisnička ploča',
+	'userboard_board-to-board' => 'Sa table na tablu',
 	'userboard_delete' => 'Obriši',
 	'userboard_noexist' => 'Korisnik kojeg pokušavate pogledati ne postoji.',
+	'userboard_yourboard' => 'Vaša tabla',
+	'userboard_owner' => 'Tabla od $1',
+	'userboard_yourboardwith' => 'Sa vaše table na tablu od $1',
+	'userboard_otherboardwith' => 'Sa table od $1 na tablu od $2',
 	'userboard_backprofile' => 'Nazad na profil korisnika $1',
 	'userboard_backyourprofile' => 'Nazad na Vaš profil',
+	'userboard_boardtoboard' => 'Sa table na tablu',
 	'userboard_confirmdelete' => 'Da li ste sigurni da želite obrisati ovu poruku?',
 	'userboard_sendmessage' => 'Pošalji $1 poruku',
 	'userboard_myboard' => 'Moja ploča',
@@ -518,10 +528,26 @@ $messages['bs'] = array(
 	'userboard_sendbutton' => 'pošalji',
 	'userboard_loggedout' => 'Morate biti <a href="$1">prijavljeni</a> da biste mogli slati poruke drugim korisnicima.',
 	'userboard_showingmessages' => 'Prikazujem {{PLURAL:$4|poruku $3|poruke $2-$3}} od {{PLURAL:$1|$1 poruku|$1 poruke|$1 poruka}}',
+	'right-userboard-delete' => 'Brisanje poruka na tabli od drugih korisnika',
 	'userboard-time-days' => '{{PLURAL:$1|jedan dan|$1 dana}}',
 	'userboard-time-hours' => '{{PLURAL:$1|jedan sat|$1 sata|$1 sati}}',
 	'userboard-time-minutes' => '{{PLURAL:$1|jedna minuta|$1 minute|$1 minuta}}',
 	'userboard-time-seconds' => '{{PLURAL:$1|jedna sekunda|$1 sekunde|$1 sekundi}}',
+	'message_received_subject' => '$1 je pisao na vašoj tabli na {{SITENAME}}',
+	'message_received_body' => 'Zdravo $1.
+
+$2 je upravo pisao na vašoj tabli na {{SITENAME}}!
+
+Kliknite ispod da provjerite vašu tablu!
+
+$3
+
+---
+
+Da li želite prestati da dobijate e-mailove od nas?
+
+Kliknite $4
+i promijenite vaše postavke da onemogućite obavještenje putem maila.',
 );
 
 /** Catalan (Català)
@@ -641,7 +667,7 @@ $messages['da'] = array(
  */
 $messages['de'] = array(
 	'boardblastlogintitle' => 'Du musst angemeldet sein, um Nachrichten versenden zu können',
-	'boardblastlogintext' => 'Du musst <a href="index.php?title=Special:UserLogin">angemeldet</a> sein, um Nachrichten versenden zu können.',
+	'boardblastlogintext' => 'Du musst [[Special:UserLogin|angemeldet]] sein, um Nachrichten versenden zu können.',
 	'messagesenttitle' => 'Nachrichten verschickt',
 	'boardblasttitle' => 'Nachricht senden',
 	'boardblaststep1' => 'Schritt 1: Schreibe deine Nachricht',
@@ -739,7 +765,7 @@ und ändern Sie Ihre Einstellungen um E-Mail-Benachrichtigungen auszuschalten.',
  */
 $messages['dsb'] = array(
 	'boardblastlogintitle' => 'Musyš pśizjawjony byś, aby pósłał forumowe powěsći',
-	'boardblastlogintext' => 'Musyš <a href="index.php?title=Special:UserLogin">pśizjawjony</a> byś, aby pósłał forumowe powěsći.',
+	'boardblastlogintext' => 'Musyš [[Special:UserLogin|pśizjawjony]] byś, aby pósłał forumowe powěsći.',
 	'messagesenttitle' => 'Powěsći pósłane',
 	'boardblasttitle' => 'Forumowu powěsć pósłaś',
 	'boardblaststep1' => 'Kšac 1 - Napiš swóju powěsć',
@@ -919,8 +945,7 @@ $messages['eo'] = array(
  */
 $messages['es'] = array(
 	'boardblastlogintitle' => 'Ud. debe ingresar como usuario para enviar mensajes a otros tablones',
-	'boardblastlogintext' => 'Para enviar mensajes,
-Ud. debe <a href="index.php?title=Special:UserLogin">ingresar como usuario</a>.',
+	'boardblastlogintext' => 'Para enviar mensajes, Ud. debe [[Special:UserLogin|ingresar como usuario]].',
 	'messagesenttitle' => 'Mensajes enviados',
 	'boardblasttitle' => 'Enviar mensaje a otros tablones',
 	'boardblaststep1' => 'Paso 1 - Escribe tu mensaje',
@@ -1056,7 +1081,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'boardblastlogintitle' => 'Sinun tulee olla sisäänkirjautunut lähettääksesi keskustelupläjäyksiä',
-	'boardblastlogintext' => 'Sinun tulee olla <a href="index.php?title=Special:UserLogin">sisäänkirjautunut</a> lähettääksesi keskusteluja.',
+	'boardblastlogintext' => 'Sinun tulee olla [[Special:UserLogin|sisäänkirjautunut]] lähettääksesi keskusteluja.',
 	'messagesenttitle' => 'Viestit lähetetty',
 	'boardblasttitle' => 'Lähetä keskustelupläjäys',
 	'boardblaststep1' => 'Vaihe 1 – Kirjoita viestisi',
@@ -1125,8 +1150,7 @@ ja muuta asetuksiasi poistaaksesi sähköpostitoiminnot käytöstä.',
  */
 $messages['fr'] = array(
 	'boardblastlogintitle' => 'Vous devez être connecté pour envoyer le tableau en rafale',
-	'boardblastlogintext' => 'Pour envoyer des tableaux en rafales,
-vous devez <a href="index.php?title=Special:UserLogin">être connecté</a>.',
+	'boardblastlogintext' => 'Pour envoyer des tableaux en rafales, vous devez [[Special:UserLogin|être connecté]].',
 	'messagesenttitle' => 'Messages envoyés',
 	'boardblasttitle' => 'Envoyer le tableau en rafale',
 	'boardblaststep1' => 'Étape 1 - Écrivez votre message',
@@ -1234,8 +1258,7 @@ $messages['fy'] = array(
  */
 $messages['gl'] = array(
 	'boardblastlogintitle' => 'Debe acceder ao sistema para enviar un recado',
-	'boardblastlogintext' => 'Para poder enviar un recado
-debe antes ter <a href="index.php?title=Special:UserLogin">accedido ao sistema</a>.',
+	'boardblastlogintext' => 'Para poder enviar un recado debe antes ter [[Special:UserLogin|accedido ao sistema]].',
 	'messagesenttitle' => 'Mensaxes enviadas',
 	'boardblasttitle' => 'Enviar un recado',
 	'boardblaststep1' => 'Paso 1 - Estriba a súa mensaxe',
@@ -1930,19 +1953,19 @@ $messages['ksh'] = array(
 	'boardblastlogintext' => 'Do moß enjelogg sin, öm Nohreechte verschecke ze künne.
 Donn jlich <a href="index.php?title=Special:UserLogin">enlogge</a>.',
 	'messagesenttitle' => 'Nohreechte verscheck',
-	'boardblasttitle' => 'Nohreech verschecke',
-	'boardblaststep1' => 'Eetste Schrett — Don Ding Nohreech schriive',
+	'boardblasttitle' => 'Nohreesch verschecke',
+	'boardblaststep1' => 'Eetste Schrett — Don Ding Nohreesch schriive',
 	'boardblastprivatenote' => 'All die Nohreeche wäde als private Nohreechte verscheck',
-	'boardblaststep2' => 'Zweite Schrett — Don ußsöke, wämm De die Nohreech schecke wells',
+	'boardblaststep2' => 'Zweite Schrett — Don ußsöke, wämm De Ding Nohreesch schecke wells',
 	'boardlinkselectall' => 'Alle ußsöke',
 	'boardlinkunselectall' => 'Nix ußsöke',
 	'boardlinkselectfriends' => 'De Fründe ußsöke',
 	'boardlinkunselectfriends' => 'Keine Fründ ußsöke',
 	'boardlinkselectfoes' => 'Feinde ußsöke',
 	'boardlinkunselectfoes' => 'Keine Feind ußsöke',
-	'boardsendbutton' => 'Nohreech schecke!',
+	'boardsendbutton' => 'Nohreesch schecke!',
 	'boardnofriends' => 'Do häß kein Fründe! Do kanns nix schecke!',
-	'messagesentsuccess' => 'Ding Nohresch eß verscheck woode',
+	'messagesentsuccess' => 'Ding Nohreesch eß verscheck woode',
 	'userboard' => 'Pennwand fö Metmaacher',
 	'userboard_board-to-board' => 'Pennwand-zoh-Pennwand',
 	'userboard_delete' => 'Fottschmieße',
@@ -1954,19 +1977,19 @@ Donn jlich <a href="index.php?title=Special:UserLogin">enlogge</a>.',
 	'userboard_backprofile' => 'Retuur noh däm Metmaacher $1 singem Profil',
 	'userboard_backyourprofile' => 'Retuur noh Dingem eije Profil',
 	'userboard_boardtoboard' => 'Pinnwand-zo-Pinnwand Klaaf',
-	'userboard_confirmdelete' => 'Wells De die Nohreech werklech fottschmieße?',
-	'userboard_sendmessage' => 'Scheck en Nohreech noh däm Metmaacher $1',
+	'userboard_confirmdelete' => 'Wells De die Nohreesch werklech fottschmieße?',
+	'userboard_sendmessage' => 'Scheck däm Metmaacher $1 en Nohreesch',
 	'userboard_myboard' => 'Ming Pinnwand',
 	'userboard_posted_ago' => 'för $1 jespeichert',
 	'userboard_private' => 'privat',
 	'userboard_public' => 'öffentlech',
-	'userboard_messagetype' => 'De Zoot Nohreech',
+	'userboard_messagetype' => 'De Zoot Nohreesch',
 	'userboard_nextpage' => 'näx',
 	'userboard_prevpage' => 'förrije',
 	'userboard_nomessages' => 'Kein Nohrechte.',
 	'userboard_sendbutton' => 'Schecke!',
 	'userboard_loggedout' => 'Do möß ald <a href="$1">enjelogg</a> sin, öm Nohrechte aan ander Metmaacher verschecke ze künne.',
-	'userboard_showingmessages' => 'Dat {{PLURAL:$4|es de Nohreech|sin de Nohreechte $2 beß|nix}} $3 vun {{PLURAL:$1|eine Nohrech|$1|nix}} ennsjesammp.',
+	'userboard_showingmessages' => 'Dat {{PLURAL:$4|es de Nohreesch|sin de Nohreeschte $2 beß|nix}} $3 vun {{PLURAL:$1|eine Nohreesch|$1|nix}} ennsjesammp.',
 	'right-userboard-delete' => 'Donn anderlücks Nohreeschte vun dä Pennwand fottschmiiße',
 	'userboard-time-days' => '{{PLURAL:$1|eine Daach|$1 Dääsch|keine Daach}}',
 	'userboard-time-hours' => '{{PLURAL:$1|ein Shtundt|$1 Shtunde|kein Shtundt}}',
@@ -1995,7 +2018,7 @@ De e-mail jescheck kriß.',
  */
 $messages['lb'] = array(
 	'boardblastlogintitle' => 'Dir musst ageloggt si fir Messagen a grousser Zuel op Panneauen ze schécken',
-	'boardblastlogintext' => 'Fir d\'Fonctioun "board blast" ze benotze musst Dir <a href="index.php?title=Special:UserLogin">ageloggt</a> sinn.',
+	'boardblastlogintext' => 'Fir d\'Fonctioun "board blast" ze benotze musst Dir [[Special:UserLogin|ageloggt sinn]].',
 	'messagesenttitle' => 'Geschéckte Messagen',
 	'boardblasttitle' => "Messagen a grousser Zuel op d'Panneaue schécken",
 	'boardblaststep1' => '1. Schrëtt: Schreiwt äre Message',
@@ -2075,8 +2098,7 @@ $messages['mhr'] = array(
  */
 $messages['mk'] = array(
 	'boardblastlogintitle' => 'Мора да сте најавени за да испраќате изјави на таблата',
-	'boardblastlogintext' => 'За да праќате изјави на таблата,
-мора прво да бидете <a href="index.php?title=Special:UserLogin">најавени</a>.',
+	'boardblastlogintext' => 'За да праќате изјави на таблата, мора прво да сте [[Special:UserLogin|најавени]].',
 	'messagesenttitle' => 'Пораките се испратени',
 	'boardblasttitle' => 'Испрати изјава на таблата',
 	'boardblaststep1' => 'Чекор 1 - Напишете ја пораката',
@@ -2249,7 +2271,7 @@ $messages['nah'] = array(
  */
 $messages['nl'] = array(
 	'boardblastlogintitle' => 'U moet aangemeld zijn om berichten naar meerdere gebruikers te kunnen verzenden',
-	'boardblastlogintext' => 'U moet <a href="index.php?title=Special:UserLogin"aanmelden</a> om berichten naar meerdere gebruikers te kunnen verzenden.',
+	'boardblastlogintext' => 'U moet [[Special:UserLogin|aanmelden]] om berichten naar meerdere gebruikers te kunnen verzenden.',
 	'messagesenttitle' => 'Berichten verzonden',
 	'boardblasttitle' => 'Bericht aan meerdere gebruikers verzenden',
 	'boardblaststep1' => 'Stap 1: uw bericht schrijven',
@@ -2712,8 +2734,7 @@ $messages['ps'] = array(
  */
 $messages['pt'] = array(
 	'boardblastlogintitle' => 'Tem de estar autenticado para enviar recados',
-	'boardblastlogintext' => 'Para enviar recados tem de
-<a href="index.php?title=Special:UserLogin">autenticar-se</a>.',
+	'boardblastlogintext' => 'Para enviar recados tem de [[Special:UserLogin|autenticar-se]].',
 	'messagesenttitle' => 'Mensagens enviadas',
 	'boardblasttitle' => 'Enviar recado',
 	'boardblaststep1' => 'Passo 1 - Escreva a sua mensagem',
@@ -2893,8 +2914,7 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'boardblastlogintitle' => 'Нужно представиться системе',
-	'boardblastlogintext' => 'Чтобы отправлять высказывания на доски,
-вы должны <a href="index.php?title=Special:UserLogin">войти в систему</a>.',
+	'boardblastlogintext' => 'Чтобы отправлять высказывания на доски, вы должны [[Special:UserLogin|войти в систему]]',
 	'messagesenttitle' => 'Сообщение отправлено',
 	'boardblasttitle' => 'Отправка высказывания на доску',
 	'boardblaststep1' => 'Шаг 1 - Напишите ваше сообщение',
@@ -3101,8 +3121,8 @@ $messages['sr-ec'] = array(
 	'userboard_nomessages' => 'Нема порука.',
 	'userboard_sendbutton' => 'пошаљи',
 	'userboard_loggedout' => 'Морате бити <a href="$1">улоговани</a> да бисте слали поруке другим корисницима.',
-	'userboard-time-days' => '{{PLURAL:$1|један дан|$1 дана}}',
-	'userboard-time-hours' => '{{PLURAL:$1|један сат|$1 сата|$1 сата|$1 сата|$1 сати}}',
+	'userboard-time-days' => '{{PLURAL:$1|један дан|$1 дана|$1 дана}}',
+	'userboard-time-hours' => '{{PLURAL:$1|један сат|$1 сата|$1 сати}}',
 	'userboard-time-minutes' => '{{PLURAL:$1|једна минута|$1 минуте|$1 минуте|$1 минуте|$1 минута}}',
 	'userboard-time-seconds' => '{{PLURAL:$1|једна секунда|$1 секунде|$1 секунде|$1 секунде|$1 секунди}}',
 );

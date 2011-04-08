@@ -1,30 +1,46 @@
 <?php
 
-//updating profile
-$wgHooks['BasicProfileChanged'][] = 'wfAddSemantics';
+//updating basic profile information
+//from SocialProfile/UserProfile/SpecialUpdateProfile.php
+$wgHooks['BasicProfileChanged'][] = 'wfEditBasicProfileData';
 
-function wfAddSemantics($login, $data){
+function wfEditBasicProfileData($login, $data){
 	$esmg = SSPUser::getInstance();
-	$esmg->setName($data['name']);
-	$esmg->setEmail($data['e-mail']);
-	$esmg->setCity($data['city']);
-	$esmg->setState($data['location_state']);
-	$esmg->setCountry($data['location_country']);
-	$esmg->setHomeCity($data['home_city']);
-	$esmg->setHomeState($data['home_state']);
-	$esmg->setHomeCountry($data['home_country']);
-	$esmg->setBirthday($data['birthday']);
-	$esmg->setAboutMe($data['about_me']);
-	$esmg->setOccupation($data['occupation']);
-	$esmg->setSchools($data['schools']);
-	$esmg->setPlaces($data['places']);
-	$esmg->setWebsites($data['websites']);
+	$esmg->setName($data['up_name']);
+	$esmg->setEmail($data['up_email']);
+	$esmg->setCity($data['up_location_city']);
+	$esmg->setState($data['up_location_state']);
+	$esmg->setCountry($data['up_location_country']);
+	$esmg->setHomeCity($data['up_hometown_city']);
+	$esmg->setHomeState($data['up_hometown_state']);
+	$esmg->setHomeCountry($data['up_hometown_country']);
+	$esmg->setBirthday($data['up_birthday']);
+	$esmg->setAboutMe($data['up_about']);
+	$esmg->setOccupation($data['up_occupation']);
+	$esmg->setSchools($data['up_schools']);
+	$esmg->setPlaces($data['up_places_lived']);
+	$esmg->setWebsites($data['up_websites']);
 	$esmg->save();
 
 	return true;
 }
 
+//Adding interests
+//from SocialProfile/UserProfile/SpecialUpdateProfile.php
+$wgHooks['PersonalInterestsChanged'][] = 'wfEditInterests';
+
+function wfEditInterests($login, $data){
+	$text = '';
+	foreach($data as $key => $val)
+		$text .= $key.': '.$val.', ';
+	$id = Title::newMainPage()->getArticleId();
+	$ar = Article::newFromId($id);
+	$ar->updateArticle($text, '', false, false );
+	return true;
+}
+
 //Adding Friends
+//from SocialProfile/UserRelationship/UserRelationshipClass.php
 $wgHooks['NewFriendAccepted'][] = 'wfAcceptFriend';
 
 function wfAcceptFriend($user_from, $user_in){
@@ -38,7 +54,8 @@ function wfAcceptFriend($user_from, $user_in){
 
 
 //Removing friendship
-$wgHooks['FriendShipRemovedByID'][] = 'wfRemoveFriend';
+//from SocialProfile/UserRelationship/UserRelationshipClass.php
+$wgHooks['FriendShipRemoved'][] = 'wfRemoveFriend';
 
 function wfRemoveFriend($user1, $user2){
 	global $wgUser;
@@ -49,26 +66,14 @@ function wfRemoveFriend($user1, $user2){
 	return true;
 }
 
-// changes avatar
+//Changes avatar
+//from SocialProfile/UserProfile/SpecialUploadAvatar.php
 $wgHooks['NewAvatarUploaded'][] = 'wfUploadAvatar';
 
 function wfUploadAvatar($login, $imageURL){
 	$user = SSPUser::getInstance();
 	$user->setAvatar($imageURL);
 	$user->save();
-	return true;
-}
-
-//removes avatar
-$wgHooks['UserAvatarRemoved'][] = 'wfRemoveAvatar';
-
-function wfRemoveAvatar($name){
-	global $wgUser;
-	if($wgUser->getName() == $name){
-		$user = SSPUser::getInstance();
-		$user->setAvatar('');
-		$user->save();
-	}
 	return true;
 }
 

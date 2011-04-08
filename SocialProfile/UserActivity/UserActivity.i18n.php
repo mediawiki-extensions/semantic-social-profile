@@ -479,12 +479,14 @@ $messages['ksh'] = array(
 	'useractivity' => 'Wat de Frünnde aam donn sin',
 	'useractivity-award' => '$1 hät en Ußzeichnung krääje',
 	'useractivity-all' => 'Alles aanzeije',
+	'useractivity-gift' => '$1 hät e Jeschenk vum $2 krääje.',
 	'useractivity-group-edit' => '{{PLURAL:$1|Ein Änderong|$1 Änderonge|Kein Änderong}}',
 	'useractivity-group-comment' => '{{PLURAL:$1|Ein Aanmärkong|$1 Aanmärkonge|Kein Aanmärkonge}}',
 	'useractivity-group-user_message' => '{{PLURAL:$1|Ein Nohreesch|$1 Nohreeschte|Kein Nohreesch}}',
 	'useractivity-group-friend' => '{{PLURAL:$1|Eine Fründ|$1 Fründe|Keine Fründ}}',
 	'useractivity-siteactivity' => 'Wat op dä ßait loß es',
 	'useractivity-title' => 'Wat de Frünnde donn',
+	'useractivity-user_message' => '$1 {{PLURAL:$4|hät en Nohreesch|hät Nohreeschte|kein Nohreesch}} aan $3 jescheck',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -505,6 +507,23 @@ $messages['lb'] = array(
 	'useractivity-siteactivity' => 'Aktivitéit um Site',
 	'useractivity-title' => 'Aktivitéit vun de Frënn',
 	'useractivity-user_message' => '$1 huet dem $3 {{PLURAL:$4|ee Message|Message}} geschéckt',
+);
+
+/** Latgalian (Latgaļu)
+ * @author Dark Eagle
+ */
+$messages['ltg'] = array(
+	'useractivity' => 'Draugu darbeibys',
+	'useractivity-award' => '$1 dabuoja apduovaņu',
+	'useractivity-all' => 'Vērtīs vysys',
+	'useractivity-gift' => '$1 dabuoja duovonu nu $2',
+	'useractivity-group-edit' => '{{PLURAL:$1|vīna puormeja|$1 puormejis}}',
+	'useractivity-group-comment' => '{{PLURAL:$1|vīns komentars|$1 komentari}}',
+	'useractivity-group-user_message' => '{{PLURAL:$1|vīns viestejums|$1 viestejumi}}',
+	'useractivity-group-friend' => '{{PLURAL:$1|vīns draugs|$1 draugi}}',
+	'useractivity-siteactivity' => 'Teiklavītys aktivums',
+	'useractivity-title' => 'Draugu darbeibys',
+	'useractivity-user_message' => '$1 nūsyuteja {{PLURAL:$4|viestejumu|viestejumus}} $3',
 );
 
 /** Macedonian (Македонски)
@@ -532,6 +551,13 @@ $messages['mk'] = array(
  */
 $messages['mn'] = array(
 	'useractivity-group-comment' => '{{PLURAL:$1|нэг сэтгэгдэл|$1 сэтгэгдэл}}',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'useractivity-group-user_message' => '{{PLURAL:$1|satu pesanan|$1 pesanan}}',
 );
 
 /** Dutch (Nederlands)
@@ -730,8 +756,8 @@ $messages['sr-ec'] = array(
 	'useractivity-foe' => '$1 {{PLURAL:$2|је сада непријатељ са}} $3',
 	'useractivity-friend' => '$1 {{PLURAL:$2|је сада пријатељ са}} $3',
 	'useractivity-gift' => '$1 је примио/ла поклон од $2',
-	'useractivity-group-edit' => '{{PLURAL:$1|једна|$1}} измена',
-	'useractivity-group-comment' => '{{PLURAL:$1|један коментар|$1 коментара}}',
+	'useractivity-group-edit' => '{{PLURAL:$1|једна измена|$1 измене|$1 измена}}',
+	'useractivity-group-comment' => '{{PLURAL:$1|један коментар|$1 коментара|$1 коментара}}',
 	'useractivity-group-user_message' => '{{PLURAL:$1|једна|$1}} порука',
 	'useractivity-group-friend' => '{{PLURAL:$1|један пријатељ|$1 пријатеља}}',
 	'useractivity-siteactivity' => 'Активност сајта',

@@ -6,7 +6,7 @@ class SpecialSemanticSocialProfile extends SpecialPage {
     parent::__construct( 'SemanticSocialProfile', 'editinterface' );
     wfLoadExtensionMessages('SemanticSocialProfile');
     
-    $wiki = SpecialVersion::getVersion($this);
+    $wiki = SpecialWikiVersion::getVersion($this);
 	$this->_output = $wiki->out();
     $this->_user = $wiki->user();
   }
@@ -120,7 +120,7 @@ class SocProfException extends Exception {
 	}
 }
 
-abstract class SpecialVersion{
+abstract class SpecialWikiVersion{
 	abstract public function out();
 	abstract public function user();
 	public static function getVersion(SpecialPage &$sp){
@@ -131,7 +131,7 @@ abstract class SpecialVersion{
 	}
 }
 
-class VersionPre1_18 extends SpecialVersion{
+class VersionPre1_18 extends SpecialWikiVersion{
 	public function out(){
 		global $wgOut;
 		return $wgOut;
@@ -143,7 +143,7 @@ class VersionPre1_18 extends SpecialVersion{
 }
 
 //this should work but NEEDS TESTING NOT TESTED YET
-class VersionPost1_18 extends SpecialVersion{
+class VersionPost1_18 extends SpecialWikiVersion{
 	private $spec;
 	public function __construct(SpecialPage &$sp){
 		$this->spec = $sp;
