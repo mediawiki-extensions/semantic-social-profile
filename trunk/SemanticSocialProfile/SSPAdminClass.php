@@ -33,6 +33,7 @@ class SSPAdmin extends SSPUser{
 			$this->setSchools($info['schools']);
 			$this->setPlaces($info['places_lived']);
 			$this->setWebsites($info['websites']);
+			$this->updateAvatar();
 		}
 		else{
 			throw new SocProfException();
@@ -56,8 +57,7 @@ class SSPAdmin extends SSPUser{
 	}
 	
 	public function setBirthday($fbd){
-		global $wgOut;
-		if($fbd == '') parent::setBirthday('');
+		if($fbd == '' || strpos($fbd,'-')) parent::setBirthday($fbd);
 		else{
 			$timestamp = strtotime($fbd.' 2007');
 			//OMG 2007 should be corrected!!!

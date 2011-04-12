@@ -56,7 +56,7 @@ class SpecialUploadAvatar extends SpecialUpload {
 
 			$this->showSuccess( $this->mUpload->mExtension );
 			//this runs hook on avatar change
-			$this->avatarUploadHook();
+			wfRunHooks('NewAvatarUploaded', array($wgUser));
 			//end of hook
 		}
 	}
@@ -231,16 +231,6 @@ class SpecialUploadAvatar extends SpecialUpload {
 		if ( isset( $files[0] ) && $files[0] ) {
 			return "<img src=\"{$wgUploadPath}/avatars/" . basename( $files[0] ) . '" alt="" border="0" />';
 		}
-	}
-	/*
-	 * This function runs the NewAvatarUploaded hook
-	 * and sends data if the avatar was uploaded 
-	 */
-	private function avatarUploadHook(){
-		global $wgUser, $wgUploadPath, $wgServer;
-		$avatar = new wAvatar( $wgUser->getID(), 'l' );
-		$path = $wgServer.'/'.$wgUploadPath . '/avatars/' . $avatar->getAvatarImage();
-		wfRunHooks('NewAvatarUploaded', array($wgUser->getName(), $path));
 	}
 }
 

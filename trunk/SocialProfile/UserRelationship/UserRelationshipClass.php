@@ -266,10 +266,13 @@ class UserRelationship {
 			$wgMemc->delete( wfMemcKey( 'relationship', 'profile', "{$this->user_id}-{$ur_type}" ) );
 			$wgMemc->delete( wfMemcKey( 'relationship', 'profile', "{$ur_user_id_from}-{$ur_type}" ) );
 			
-			//NewFriendAccepted hook
-			if ( $ur_type == 1 )
+			//NewFriendAccepted and NewFoeAccepted hooks
+			if ( $ur_type == 1 ) {
 				wfRunHooks('NewFriendAccepted', array($ur_user_name_from, $this->user_name));
-			//end of the hook
+			} else {
+				wfRunHooks('NewFoeAccepted', array($ur_user_name_from, $this->user_name));
+			}
+			//end of the hooks
 			
 			return true;
 		} else {
@@ -309,8 +312,8 @@ class UserRelationship {
 		$wgMemc->delete( wfMemcKey( 'relationship', 'profile', "{$user1}-2" ) );
 		$wgMemc->delete( wfMemcKey( 'relationship', 'profile', "{$user2}-2" ) );
 		
-		//a hook that tracks removing friends
-		wfRunHooks('FriendShipRemoved', array(User::whoIs($user1), User::whoIs($user2)));
+		//RelationshipRemovedByUserID hook
+		wfRunHooks('RelationshipRemovedByUserID', array($user1, $user2));
 		//end of the hook 
 		
 		$stats = new UserStatsTrack( $user1, '' );

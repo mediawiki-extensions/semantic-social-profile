@@ -20,7 +20,7 @@ class SSPUser{
 	private $Schools;
 	private $Places;
 	private $Websites;
-	private $Avatar;
+	protected $Avatar;
 	protected $Friends;
 	
 	private $summary = 'This page has been changed by Semantic Social Profile extension';
@@ -139,28 +139,31 @@ class SSPUser{
 		$this->Websites = $var;
 	}
 	
-	public function setAvatar($var){
-		$this->Avatar = $var;
+	public function updateAvatar(){
+		global $wgUploadPath, $wgServer, $wgUser;
+		$avatar = new wAvatar( $wgUser->getID(), 'l' );
+		$imageURL = $wgServer.'/'.$wgUploadPath . '/avatars/' . $avatar->getAvatarImage();
+		$this->Avatar = $imageURL;
 	}
 	
-	public function addFriend($user){
-		global $wgUser, $wgContLang;
+	public function addFriend($user,$repeat = null){
+		global $wgUser;
 		$friends = preg_split('/\s*,\s*/',$this->Friends);
-		$friends[] = $wgContLang->getNsText( NS_USER ).":".$user;
+		$friends[] = Title::makeTitle( NS_USER, $user);
 		$this->Friends = implode(',',$friends);
 		$this->save();
 		
 		//repeats the same for another user
-		if($user!=$wgUser->getName()){
+		if(is_null($repeat)){
 			$other = new SSPUser($user);
-			$other->addFriend($wgUser->getName());
+			$other->addFriend($wgUser->getName(), 1);
 		}
 	}
 	
-	public function removeFriend($user){
-		global $wgUser, $wgContLang;
+	public function removeFriend($user,$repeat = null){
+		global $wgUser;
 		$friends = preg_split('/\s*,\s*/',$this->Friends);
-		$rem = $wgContLang->getNsText( NS_USER ).":".$user;
+		$rem = Title::makeTitle( NS_USER, $user);
 		for($i = 0; $i < count($friends); $i++){
 			if($friends[$i] == $rem){
 				unset($friends[$i]);
@@ -171,9 +174,9 @@ class SSPUser{
 		$this->save();
 		
 		//repeats the same for another user
-		if($user!=$wgUser->getName()){
+		if(is_null($repeat)){
 			$other = new SSPUser($user);
-			$other->removeFriend($wgUser->getName());
+			$other->removeFriend($wgUser->getName(),1);
 		}
 	}
 	
