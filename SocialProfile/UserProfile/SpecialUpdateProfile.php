@@ -310,7 +310,7 @@ class SpecialUpdateProfile extends UnlistedSpecialPage {
 		//BasicProfileChanged hook
 		$basicProfileData['up_name'] = $wgRequest->getVal( 'real_name' );
 		$basicProfileData['up_email'] = $wgRequest->getVal( 'email' );
-		wfRunHooks('BasicProfileChanged', array($wgUser->getName(), $basicProfileData));
+		wfRunHooks('BasicProfileChanged', array($user, $basicProfileData));
 		//end of the hook
 		$wgMemc->delete( wfMemcKey( 'user', 'profile', 'info', $user->getID() ) );
 	}
@@ -379,7 +379,7 @@ class SpecialUpdateProfile extends UnlistedSpecialPage {
 			__METHOD__
 		);
 		//PersonalInterestsChanged hook
-		wfRunHooks('PersonalInterestsChanged', array($wgUser->getName(), $interestsData));
+		wfRunHooks('PersonalInterestsChanged', array($user, $interestsData));
 		//end of the hook
 		$wgMemc->delete( wfMemcKey( 'user', 'profile', 'info', $user->getID() ) );
 	}
