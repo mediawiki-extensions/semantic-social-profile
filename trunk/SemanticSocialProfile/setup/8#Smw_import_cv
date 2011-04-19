@@ -1,0 +1,5 @@
+http://rdfs.org/resume-rdf/|[http://rdfs.org/resume-rdf/ ResumeRDF]
+  SSP about me|Type:Text
+  SSP home city|Type:String
+  SSP home state|Type:String
+  SSP home country|Type:String
