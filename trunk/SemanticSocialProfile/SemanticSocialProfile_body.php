@@ -26,7 +26,10 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 		$hid = $wgRequest->getText('hiddenform');
 		if($hid=='1'){
 			//display results of the 1st step
-			$this->wfsetUp();
+			$this->_output->addWikiText("''' ".wfMsg('ssp-setupdone')." '''");
+			//first setup the vocabulariess then properties
+			$this->wfsetUp('vocabularies');
+			$this->wfsetUp('properties');
 			
 			//prepare form to do step 2 
 			$form = '<form name="syncssp" action="" method="POST">' . "\n".
@@ -59,10 +62,8 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 	
 }
 
-  function wfsetUp(){
-	global $wgArticlePath, $wgServer;
-    $directory = dirname(__FILE__) . '/setup';
-    $this->_output->addWikiText("''' ".wfMsg('ssp-setupdone')." '''");
+  function wfsetUp($folder){
+    $directory = dirname(__FILE__) . '/setup/' . $folder;
 
     $filenames = scandir($directory);
     $summary = 'Semantic Social Profile installation procedure';
@@ -76,7 +77,7 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 			$page->doEdit(file_get_contents($directory.'/'.$filename), $summary);
       }
     }
-    $this->_output->addWikiText(implode(', ', $text));
+    $this->_output->addWikiText(implode(', ', $text)."\n");
     return true;
   }
   
