@@ -1,8 +1,8 @@
 http://xmlns.com/foaf/0.1/|[http://www.foaf-project.org/ Friend Of A Friend]
-  SSP Name|Type:String
+  SSP name|Type:String
   SSP e-mail|Type:Email
   SSP birthday|Type:Date
   SSP websites|Type:URL
-  SSP interests|Type:URL
+  SSP interests|Type:Page
   SSP avatar|Type:URL
   SSP User|Category

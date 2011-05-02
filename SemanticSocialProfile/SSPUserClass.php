@@ -20,8 +20,10 @@ class SSPUser{
 	private $Schools;
 	private $Places;
 	private $Websites;
+	private $Interests;
 	protected $Avatar;
 	protected $Friends;
+	protected $Foes;
 	
 	private $summary = 'This page has been changed by Semantic Social Profile extension';
 	
@@ -44,7 +46,7 @@ class SSPUser{
 			$uptext = $this->UserPage->getRawText();
 			$regex = '/^.*'
 					.'(?:{{Semantic\sSocial\sProfile).*'
-					.'(?:\|SSP\sName=\s*)(.*)\s*'
+					.'(?:\|SSP\sname=\s*)(.*)\s*'
 					.'(?:\|SSP\se-mail=\s*)(.*)\s*'
 					.'(?:\|SSP\slocation\scity=\s*)(.*)\s*'
 					.'(?:\|SSP\slocation\sstate=\s*)(.*)\s*'
@@ -52,14 +54,17 @@ class SSPUser{
 					.'(?:\|SSP\shome\scity=\s*)(.*)\s*'
 					.'(?:\|SSP\shome\sstate=\s*)(.*)\s*'
 					.'(?:\|SSP\shome\scountry=\s*)(.*)\s*'
+					.'(?:\|SSP\shomeplace=).*'
 					.'(?:\|SSP\sbirthday=\s*)(.*)\s*'
 					.'(?:\|SSP\sabout\sme=\s*)(.*)\s*'
 					.'(?:\|SSP\soccupation=\s*)(.*)\s*'
 					.'(?:\|SSP\sschools=\s*)(.*)\s*'
 					.'(?:\|SSP\splaces=\s*)(.*)\s*'
 					.'(?:\|SSP\swebsites=\s*)(.*)\s*'
+					.'(?:\|SSP\sinterests=\s*)(.*)\s*'
 					.'(?:\|SSP\savatar=\s*)(.*)\s*'
-					.'(?:\|SSP\sFriends=\s*)(.*)\s*(?:}})'
+					.'(?:\|SSP\sfoes=\s*)(.*)\s*'
+					.'(?:\|SSP\sfriends=\s*)(.*)\s*(?:}})'
 					.'.*$/isU';
 		
 			if (preg_match($regex, $uptext, $matches)){
@@ -77,8 +82,10 @@ class SSPUser{
 				$this->Schools = $matches[12];
 				$this->Places = $matches[13];
 				$this->Websites = $matches[14];
-				$this->Avatar = $matches[15];
-				$this->Friends = $matches[16];
+				$this->Interests = $matches[15];
+				$this->Avatar = $matches[16];
+				$this->Foes = new SSPUserList($matches[17]);
+				$this->Friends = new SSPUserList($matches[18]);
 			}
 		}
 	}
@@ -139,6 +146,19 @@ class SSPUser{
 		$this->Websites = $var;
 	}
 	
+	public function setInterests(&$int){
+		$this->Interests = implode(',',$int);
+	}
+		
+	public function getHomeplace(){
+		$hp = array();
+		if(!empty($this->HomeCity))$hp[] = $this->HomeCity;
+		if(!empty($this->HomeState))$hp[] = $this->HomeState;
+		if(!empty($this->HomeCountry))$hp[] = $this->HomeCountry;
+		$text = implode(',',$hp);
+		return $text;
+	}
+	
 	public function updateAvatar(){
 		global $wgUploadPath, $wgServer, $wgUser;
 		$avatar = new wAvatar( $wgUser->getID(), 'l' );
@@ -148,11 +168,8 @@ class SSPUser{
 	
 	public function addFriend($user,$repeat = null){
 		global $wgUser;
-		$friends = preg_split('/\s*,\s*/',$this->Friends);
-		$friends[] = Title::makeTitle( NS_USER, $user);
-		$this->Friends = implode(',',$friends);
+		$this->Friends->add($user);
 		$this->save();
-		
 		//repeats the same for another user
 		if(is_null($repeat)){
 			$other = new SSPUser($user);
@@ -160,23 +177,29 @@ class SSPUser{
 		}
 	}
 	
-	public function removeFriend($user,$repeat = null){
+	public function addFoe($user,$repeat = null){
 		global $wgUser;
-		$friends = preg_split('/\s*,\s*/',$this->Friends);
-		$rem = Title::makeTitle( NS_USER, $user);
-		for($i = 0; $i < count($friends); $i++){
-			if($friends[$i] == $rem){
-				unset($friends[$i]);
-				break;
-			}
-		}
-		$this->Friends = implode(',',$friends);
+		$this->Foes->add($user);
 		$this->save();
-		
 		//repeats the same for another user
 		if(is_null($repeat)){
 			$other = new SSPUser($user);
-			$other->removeFriend($wgUser->getName(),1);
+			$other->addFoe($wgUser->getName(), 1);
+		}
+	}
+	
+	public function removeRelationship($user,$repeat = null){
+		global $wgUser;
+		if($this->Friends->contains($user))
+			$this->Friends->remove($user);
+		elseif($this->Foes->contains($user))
+			$this->Foes->remove($user);
+		else return false;
+		$this->save();
+		//repeats the same for another user
+		if(is_null($repeat)){
+			$other = new SSPUser($user);
+			$other->removeRelationship($wgUser->getName(),1);
 		}
 	}
 	
@@ -184,7 +207,7 @@ class SSPUser{
 	//	global $wgUser;
 		if(!is_null($this->UserPage)){
 			$info = " {{Semantic Social Profile\n"
-					."    |SSP Name=$this->Name\n"
+					."    |SSP name=$this->Name\n"
 					."    |SSP e-mail=$this->Email\n"
 					."    |SSP location city=$this->City\n"
 					."    |SSP location state=$this->State\n"
@@ -192,19 +215,23 @@ class SSPUser{
 					."    |SSP home city=$this->HomeCity\n"
 					."    |SSP home state=$this->HomeState\n"
 					."    |SSP home country=$this->HomeCountry\n"
+					."    |SSP homeplace=".$this->getHomeplace()."\n"
 					."    |SSP birthday=$this->Birthday\n"
 					."    |SSP about me=$this->AboutMe\n"
 					."    |SSP occupation=$this->Occupation\n"
 					."    |SSP schools=$this->Schools\n"
 					."    |SSP places=$this->Places\n"
 					."    |SSP websites=$this->Websites\n"
+					."    |SSP interests=$this->Interests\n"
 					."    |SSP avatar=$this->Avatar\n"
-					."    |SSP Friends=$this->Friends\n"
+					."    |SSP foes=$this->Foes\n"
+					."    |SSP friends=$this->Friends\n"
 					." }}";
 			if(preg_match("/^(.*)(?:\s*{{Semantic\sSocial\sProfile).*(?:}})\s*(.*)$/isU", $this->UserPage->getRawText(), $mtch))
 				$this->UserPage->doEdit($mtch[1]."\n $info ".$mtch[2], $this->summary );
 			else
 				$this->UserPage->doEdit($info, $this->summary );
+			$this->getHomeplace();
 		}
 	}
 	public function saveEmpty(){
@@ -214,5 +241,43 @@ class SSPUser{
 			$this->UserPage = new Article(Title::makeTitle( NS_USER, $this->User) );
 			$this->UserPage->doEdit(preg_replace("/^.*(?:<pre>)(.*)(?:<\/pre>).*$/isU","$1",$template, 1),$this->summary);
 		}
+	}
+}
+
+class SSPUserList{
+	private $list = '';
+	
+	public function __construct($lst){
+			$this->list = $lst;
+	}
+	
+	public function __toString(){
+		return $this->list;
+	}
+	
+	public function add($uname){
+		if(empty($this->list))
+			$this->list = Title::makeTitle( NS_USER, $uname)->getPrefixedText();
+		else{
+			$addlst = preg_split('/\s*,\s*/',$this->list);
+			$addlst[] = Title::makeTitle( NS_USER, $uname);
+			$this->list = implode(',',$addlst);
+		}
+	}
+	
+	public function remove($uname){
+		$remlst = preg_split('/\s*,\s*/',$this->list);
+		$remelem = Title::makeTitle( NS_USER, $uname);
+		for($i = 0; $i < count($remlst); $i++){
+			if($remlst[$i] == $remelem){
+				unset($remlst[$i]);
+				break;
+			}
+		}
+		$this->list = implode(',',$remlst);
+	}
+	
+	public function contains($txt){
+		return strpos($this->list, $txt)? true : false;
 	}
 }

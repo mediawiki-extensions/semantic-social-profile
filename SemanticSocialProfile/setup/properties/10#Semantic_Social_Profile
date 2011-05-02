@@ -8,7 +8,7 @@ Now the template is invisible but if you want you can alter the view by editing 
 The template should be called in the following format:
 <pre>
 {{Semantic Social Profile
-    |SSP Name=
+    |SSP name=
     |SSP e-mail=
     |SSP location city=
     |SSP location state=
@@ -16,19 +16,22 @@ The template should be called in the following format:
     |SSP home city=
     |SSP home state=
     |SSP home country=
+	|SSP homeplace=
     |SSP birthday=
     |SSP about me=
     |SSP occupation=
     |SSP schools=
     |SSP places=
     |SSP websites=
+    |SSP interests=
     |SSP avatar=
-    |SSP Friends=
+    |SSP foes=
+    |SSP friends=
  }}
 </pre>
 Edit the page to see the template text.
 </noinclude><includeonly>
-{{#if: {{{SSP Name}}}|{{#set:SSP Name={{{SSP Name|}}} }}|}}
+{{#if: {{{SSP name}}}|{{#set:SSP name={{{SSP name|}}} }}|}}
 {{#if:{{{SSP e-mail}}}|{{#arraymap:{{{SSP e-mail|}}}|,|x|{{#set:SSP e-mail=x }}}}|}}
 {{#if: {{{SSP location city}}}|{{#set:SSP location city={{{SSP location city|}}} }}|}}
 {{#if: {{{SSP location state}}}|{{#set:SSP location state={{{SSP location state|}}} }}|}}
@@ -36,14 +39,17 @@ Edit the page to see the template text.
 {{#if: {{{SSP home city}}}|{{#set:SSP home city={{{SSP home city|}}} }}|}}
 {{#if: {{{SSP home state}}}|{{#set:SSP home state={{{SSP home state|}}} }}|}}
 {{#if: {{{SSP home country}}}|{{#set:SSP home country={{{SSP home country|}}} }}|}}
+{{#if: {{{SSP homeplace}}}|{{#set:SSP homeplace={{{SSP homeplace|}}} }}|}}
 {{#if: {{{SSP birthday}}}|{{#set:SSP birthday={{{SSP birthday|}}} }}|}}
 {{#if: {{{SSP about me}}}|{{#set:SSP about me={{{SSP about me|}}} }}|}}
 {{#if: {{{SSP occupation}}}|{{#set:SSP occupation={{{SSP occupation|}}} }}|}}
 {{#if:{{{SSP schools}}}|{{#arraymap:{{{SSP schools|}}}|,|x|{{#set:SSP schools=x }}}}|}}
 {{#if:{{{SSP places}}}|{{#arraymap:{{{SSP places|}}}|,|x|{{#set:SSP places=x }}}}|}}
 {{#if:{{{SSP websites}}}|{{#arraymap:{{{SSP websites|}}}|,|x|{{#set:SSP websites=x }}}}|}}
+{{#if:{{{SSP interests}}}|{{#arraymap:{{{SSP interests|}}}|,|x|{{#set:SSP interests=x }}}}|}}
 {{#if: {{{SSP avatar}}}|{{#set:SSP avatar=File:{{{SSP avatar|}}} }}|}}
-{{#if:{{{SSP Friends}}}|{{#arraymap:{{{SSP Friends|}}}|,|x|{{#set:SSP Friends=x }}}}|}}
+{{#if:{{{SSP foes}}}|{{#arraymap:{{{SSP foes|}}}|,|x|{{#set:SSP foes=x }}}}|}}
+{{#if:{{{SSP friends}}}|{{#arraymap:{{{SSP friends|}}}|,|x|{{#set:SSP friends=x }}}}|}}
 [[Category:SSP User|]]
 __SHOWFACTBOX__
 </includeonly>

@@ -34,22 +34,53 @@ class SSPAdmin extends SSPUser{
 			$this->setPlaces($info['places_lived']);
 			$this->setWebsites($info['websites']);
 			$this->updateAvatar();
+			
+			//setting interests
+			$interests = array();
+			if(!empty($info['companies']))
+				$interests[] = $info['companies'];
+			if(!empty($info['movies']))
+				$interests[] = $info['movies'];
+			if(!empty($info['music']))
+				$interests[] = $info['music'];
+			if(!empty($info['tv']))
+				$interests[] = $info['tv'];
+			if(!empty($info['books']))
+				$interests[] = $info['books'];
+			if(!empty($info['magazines']))
+				$interests[] = $info['magazines'];
+			if(!empty($info['video_games']))
+				$interests[] = $info['video_games'];
+			if(!empty($info['snacks']))
+				$interests[] = $info['snacks'];
+			if(!empty($info['drinks']))
+				$interests[] = $info['drinks'];
+			
+			$this->setInterests($interests);
 		}
 		else{
 			throw new SocProfException();
 		}
 	}
 	
-	public function syncFriendList(){
+	public function syncRelationshipList(){
 		//check if SocialProfile is installed
 		if (class_exists('UserRelationship')){
 			$rel = new UserRelationship($this->User);
 			$frlist = $rel->getRelationshipIDs(1);
+			$foelist = $rel->getRelationshipIDs(2);
 
 			for($i = 0; $i<count($frlist); $i++)
 				$frlist[$i] = 'User:'.User::whoIs($frlist[$i]);
 			
-			$this->Friends = implode(',', $frlist);
+			for($i = 0; $i<count($foelist); $i++)
+				$foelist[$i] = 'User:'.User::whoIs($foelist[$i]);
+			
+			$friendlist = implode(',', $frlist);
+			$listoffoes = implode(',', $foelist);
+			
+			$this->Friends = new SSPUserList($friendlist);
+			$this->Foes = new SSPUserList($listoffoes);
 		}
 		else{
 			throw new SocProfException();

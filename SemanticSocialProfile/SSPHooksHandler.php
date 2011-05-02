@@ -38,12 +38,14 @@ function wfEditBasicProfileData($user_obj, $data){
 $wgHooks['PersonalInterestsChanged'][] = 'wfEditInterests';
 
 function wfEditInterests($user_obj, $data){
-	$text = '';
-	foreach($data as $key => $val)
-		$text .= $key.': '.$val.', ';
-	$id = Title::newMainPage()->getArticleId();
-	$ar = Article::newFromId($id);
-	$ar->updateArticle($text, '', false, false );
+	$int = array();
+		foreach($data as $key => $val){
+			if(!empty($val))
+				$int[] = $val;
+		}
+	$usr = SSPUser::getInstance();
+	$usr->setInterests($int);
+	$usr->save();
 	return true;
 }
 
@@ -63,21 +65,37 @@ function wfAcceptFriend($user_from, $user_in){
 	return true;
 }
 
-
-//Removing friendship
+//Adding Foes
 //from SocialProfile/UserRelationship/UserRelationshipClass.php
-$wgHooks['RelationshipRemovedByUserID'][] = 'wfRemoveFriend';
+$wgHooks['NewFoeAccepted'][] = 'wfAcceptFoe';
 
-function wfRemoveFriend($user1, $user2){
+function wfAcceptFoe($user_from, $user_in){
+	global $wgUser;
+	if($wgUser->getName() == $user_in){
+		$user = SSPUser::getInstance();
+		$user->addFoe($user_from);
+	}elseif($wgUser->getName() == $user_from){
+		$user = SSPUser::getInstance();
+		$user->addFoe($user_in);
+	}else return false;
+	return true;
+}
+
+
+//Removing relationship
+//from SocialProfile/UserRelationship/UserRelationshipClass.php
+$wgHooks['RelationshipRemovedByUserID'][] = 'wfRemoveRelationship';
+
+function wfRemoveRelationship($user1, $user2){
 	global $wgUser;
 	$username1 = User::whoIs($user1);
 	$username2 = User::whoIs($user2);
 	if($wgUser->getName() == $username1){
 		$user = SSPUser::getInstance();
-		$user->removeFriend($username2);
+		$user->removeRelationship($username2);
 	} elseif($wgUser->getName() == $username2){
 		$user = SSPUser::getInstance();
-		$user->removeFriend($username1);
+		$user->removeRelationship($username1);
 	} else return false;
 	return true;
 }
