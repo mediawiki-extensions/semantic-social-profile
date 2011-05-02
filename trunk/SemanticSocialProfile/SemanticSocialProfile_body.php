@@ -96,7 +96,7 @@ class SpecialSemanticSocialProfile extends SpecialPage {
 			try{
 				$au = SSPAdmin::getProfile($nm);
 				$au->syncWithDB();
-				$au->syncFriendList();
+				$au->syncRelationshipList();
 				$au->save();
 			}
 			catch(SocProfException $e){
